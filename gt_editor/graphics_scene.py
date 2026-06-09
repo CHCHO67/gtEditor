@@ -35,7 +35,7 @@ class GridLineItem(QGraphicsLineItem):
             y = doc.y_edges[edge_index]
             super().__init__(0, y, doc.width, y)
         self.setFlags(QGraphicsItem.ItemIsSelectable | QGraphicsItem.ItemIsMovable | QGraphicsItem.ItemSendsGeometryChanges)
-        color = QColor(0, 210, 80, 210) if axis == "x" else QColor(60, 140, 255, 210)
+        color = QColor(239, 68, 68, 220) if axis == "x" else QColor(60, 140, 255, 210)
         self.setPen(QPen(color, 3.0))
         self.setCursor(Qt.SizeHorCursor if axis == "x" else Qt.SizeVerCursor)
         self.setToolTip("Drag this grid line to move it.")

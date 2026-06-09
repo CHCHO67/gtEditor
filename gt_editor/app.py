@@ -31,6 +31,7 @@ if len(_qt) == 12:
 else:
     Qt, QPointF, QColor, QPen, QBrush, QPixmap, QGraphicsItem, QGraphicsLineItem, QGraphicsRectItem, QGraphicsScene, QGraphicsSimpleTextItem = _qt
 from PySide6.QtGui import QAction, QCursor, QKeySequence  # noqa: E402
+from PySide6.QtCore import QRectF  # noqa: E402
 from PySide6.QtWidgets import (  # noqa: E402
     QApplication,
     QFrame,
@@ -56,6 +57,53 @@ STATUS_LABELS = {
     "completed": "검토 완료",
     "discarded": "버리기",
 }
+
+
+class CellSelectionGraphicsView(QGraphicsView):
+    """Graphics view that lets reviewers drag directly across cells to select them."""
+
+    def __init__(self, scene):
+        super().__init__(scene)
+        self._cell_drag_selection_enabled = False
+        self._cell_drag_selecting = False
+        self._cell_drag_origin = QPointF()
+
+    def set_cell_drag_selection_enabled(self, enabled: bool) -> None:
+        self._cell_drag_selection_enabled = bool(enabled)
+        if not enabled:
+            self._cell_drag_selecting = False
+
+    def mousePressEvent(self, event):  # pragma: no cover - Qt event callback
+        if self._cell_drag_selection_enabled and event.button() == Qt.LeftButton:
+            self._cell_drag_selecting = True
+            self._cell_drag_origin = self.mapToScene(event.pos())
+            if not event.modifiers() & (Qt.ControlModifier | Qt.ShiftModifier):
+                self.scene().clearSelection()
+            self.select_cells_in_scene_rect(QRectF(self._cell_drag_origin, self._cell_drag_origin))
+            event.accept()
+            return
+        super().mousePressEvent(event)
+
+    def mouseMoveEvent(self, event):  # pragma: no cover - Qt event callback
+        if self._cell_drag_selection_enabled and self._cell_drag_selecting:
+            self.select_cells_in_scene_rect(QRectF(self._cell_drag_origin, self.mapToScene(event.pos())))
+            event.accept()
+            return
+        super().mouseMoveEvent(event)
+
+    def mouseReleaseEvent(self, event):  # pragma: no cover - Qt event callback
+        if self._cell_drag_selection_enabled and self._cell_drag_selecting and event.button() == Qt.LeftButton:
+            self.select_cells_in_scene_rect(QRectF(self._cell_drag_origin, self.mapToScene(event.pos())))
+            self._cell_drag_selecting = False
+            event.accept()
+            return
+        super().mouseReleaseEvent(event)
+
+    def select_cells_in_scene_rect(self, scene_rect: QRectF) -> None:
+        query = scene_rect.normalized().adjusted(-2.0, -2.0, 2.0, 2.0)
+        for item in self.scene().items(query, Qt.IntersectsItemShape):
+            if hasattr(item, "cell_index"):
+                item.setSelected(True)
 
 
 @dataclass
@@ -93,7 +141,7 @@ class MainWindow(QMainWindow):
         self._shortcut_actions: list[QAction] = []
 
         self.scene = TableGraphicsScene(auto_apply_line_moves=False)
-        self.view = QGraphicsView(self.scene)
+        self.view = CellSelectionGraphicsView(self.scene)
         self.view.setDragMode(QGraphicsView.RubberBandDrag)
         self.tabs = QTabWidget()
         self.info = QPlainTextEdit()
@@ -284,6 +332,8 @@ class MainWindow(QMainWindow):
         """Keep the default interaction focused on direct grid-line dragging."""
 
         self.view.setDragMode(QGraphicsView.NoDrag)
+        if hasattr(self.view, "set_cell_drag_selection_enabled"):
+            self.view.set_cell_drag_selection_enabled(False)
         self.view.setInteractive(True)
         self.statusBar().showMessage("Line move mode: click a grid line, then drag it.", 5000)
 
@@ -291,8 +341,10 @@ class MainWindow(QMainWindow):
         """Enable rubber-band cell selection for merge/unmerge operations."""
 
         self.view.setDragMode(QGraphicsView.RubberBandDrag)
+        if hasattr(self.view, "set_cell_drag_selection_enabled"):
+            self.view.set_cell_drag_selection_enabled(True)
         self.view.setInteractive(True)
-        self.statusBar().showMessage("Cell select mode: drag over adjacent cells, then press Merge.", 5000)
+        self.statusBar().showMessage("Cell select mode: drag across adjacent cells, then press Merge.", 5000)
 
     def _apply_style(self) -> None:
         self.setStyleSheet(

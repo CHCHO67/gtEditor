@@ -147,19 +147,26 @@ def test_gui_edit_tools_line_drag_and_merge_visuals_offscreen(tmp_path: Path):
         assert any(button.text().startswith("Add V") for button in win.edit_buttons)
         assert any(button.text().startswith("Merge") for button in win.edit_buttons)
 
-        from PySide6.QtCore import QPointF
+        from PySide6.QtCore import QPointF, QRectF
         from PySide6.QtWidgets import QGraphicsSimpleTextItem, QGraphicsView
 
         win.activate_cell_select_mode()
         assert win.view.dragMode() == QGraphicsView.RubberBandDrag
+        assert win.view._cell_drag_selection_enabled
         win.activate_line_move_mode()
         assert win.view.dragMode() == QGraphicsView.NoDrag
+        assert not win.view._cell_drag_selection_enabled
 
         assert not [item for item in win.scene.items() if isinstance(item, QGraphicsSimpleTextItem)]
         text_box_items = [item for item in win.scene.items() if item.data(0) == "text_box"]
         assert text_box_items
         assert all(item.brush().color().green() > item.brush().color().red() for item in text_box_items[:5])
         assert all(20 <= item.brush().color().alpha() <= 90 for item in text_box_items[:5])
+
+        vertical_line = next(item for item in win.scene.items() if hasattr(item, "axis") and item.axis == "x")
+        vertical_color = vertical_line.pen().color()
+        assert vertical_color.red() > vertical_color.green()
+        assert vertical_color.red() > vertical_color.blue()
 
         from gt_editor.commands import CommandError, MergeCellsCommand
 
@@ -178,9 +185,11 @@ def test_gui_edit_tools_line_drag_and_merge_visuals_offscreen(tmp_path: Path):
             break
         assert merge_target is not None
         row, col, left_item, right_item = merge_target
+        win.activate_cell_select_mode()
         win.scene.clearSelection()
-        left_item.setSelected(True)
-        right_item.setSelected(True)
+        drag_rect = QRectF(left_item.sceneBoundingRect().center(), right_item.sceneBoundingRect().center())
+        win.view.select_cells_in_scene_rect(drag_rect)
+        assert {left_item.cell_index, right_item.cell_index}.issubset(set(win.selected_cells()))
         win.merge_selected_cells()
         app.processEvents()
         merged_item = next(
