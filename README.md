@@ -77,21 +77,26 @@ GUI smoke check for headless/CI environments:
 QT_QPA_PLATFORM=offscreen gt-editor --smoke-exit --input-data gt_editor_samples --output-data /tmp/gt_editor_output --limit 3
 ```
 
+
+## Repository layout
+
+The repository uses the standard Python `src/` layout so the project root stays focused on docs, tests, sample data, and local Input_data/Output_data placeholders. The importable package lives at `src/gt_editor/`; install or run with `uv run`/`pip install -e .` rather than importing from the repository root directly.
+
 ## Included sample data
 
 `gt_editor_samples/` contains 10 small PNG/JSON pairs copied as real files, not symlinks. These are enough to run tests and smoke checks after cloning.
 
 ## Main modules
 
-- `gt_editor/cli.py` — CLI and GUI entry point.
-- `gt_editor/app.py` — PySide6 main window.
-- `gt_editor/graphics_scene.py` — table/cell/grid scene rendering.
-- `gt_editor/models.py` — in-memory table model.
-- `gt_editor/commands.py` — undoable grid/cell operations.
-- `gt_editor/io_docling.py` — load/export Docling-style records.
-- `gt_editor/text_assign.py` — text assignment after grid edits.
-- `gt_editor/validation.py` — export validation helpers.
-- `gt_editor/docling_validator.py` — bundled Docling-style schema/PNG validator used by tests and exports.
+- `src/gt_editor/cli.py` — CLI and GUI entry point.
+- `src/gt_editor/app.py` — PySide6 main window.
+- `src/gt_editor/graphics_scene.py` — table/cell/grid scene rendering.
+- `src/gt_editor/models.py` — in-memory table model.
+- `src/gt_editor/commands.py` — undoable grid/cell operations.
+- `src/gt_editor/io_docling.py` — load/export Docling-style records.
+- `src/gt_editor/text_assign.py` — text assignment after grid edits.
+- `src/gt_editor/validation.py` — export validation helpers.
+- `src/gt_editor/docling_validator.py` — bundled Docling-style schema/PNG validator used by tests and exports.
 
 ## Current status
 

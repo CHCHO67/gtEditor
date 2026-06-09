@@ -8,8 +8,9 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
 
 from gt_editor.io_docling import discover_pairs, export_docling, load_document, write_json  # noqa: E402
 from gt_editor.text_assign import assign_text_to_document  # noqa: E402
@@ -50,7 +51,8 @@ def main(argv: list[str] | None = None) -> int:
     summary_path = Path(args.summary) if args.summary else out_dir / "summary.csv"
     with summary_path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["stem", "ok", "warnings", "rows", "cols", "cells", "out", "errors"])
-        writer.writeheader(); writer.writerows(rows)
+        writer.writeheader()
+        writer.writerows(rows)
     print(f"gt-editor-smoke pairs={len(pairs)} ok={len(pairs)-len(failures)} failed={len(failures)} summary={summary_path}")
     total_warnings = sum(int(r["warnings"]) for r in rows)
     print(f"warnings={total_warnings}")

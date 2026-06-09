@@ -4,7 +4,7 @@
 - Status: Active
 - Last refreshed: 2026-06-09
 - Primary product surfaces: PySide6 `gtEditor` desktop GUI for reviewing cropped table image/json GT pairs.
-- Evidence reviewed: `gt_editor/app.py`, `gt_editor/cli.py`, `README.md`, `tests/test_input_output_workflow.py`, user feedback that four visible save actions were confusing.
+- Evidence reviewed: `src/gt_editor/app.py`, `src/gt_editor/cli.py`, `README.md`, `tests/test_input_output_workflow.py`, user feedback that four visible save actions were confusing.
 
 ## Brand
 - Personality: focused annotation workstation, calm, explicit, low-distraction.
@@ -43,7 +43,7 @@
 - Existing components to reuse: `QTabWidget`, `QListWidget`, `QGraphicsView`, `QPlainTextEdit`, `QPushButton`, existing command stack.
 - New/changed components: current-file header, styled Save/Discard buttons, edit button bar, direct drag cell-selection view, Select Cells mode, red vertical grid lines, purple merged-cell state, green text-box overlays, per-dataset review state tabs.
 - Variants and states: review/completed/discard list states; blue selected cells; purple merged cells; green source text boxes; disabled action state when no active file.
-- Token/component ownership: inline Qt stylesheet in `gt_editor/app.py` until a broader design system is needed.
+- Token/component ownership: inline Qt stylesheet in `src/gt_editor/app.py` until a broader design system is needed.
 
 ## Accessibility
 - Target standard: keyboard-first desktop usability.

@@ -362,7 +362,7 @@ def _load_drops_tsv(output_root: str) -> Dict[tuple, Dict[str, int]]:
         return out
     try:
         with open(path, encoding="utf-8") as f:
-            header = f.readline()
+            f.readline()
             for line in f:
                 parts = line.rstrip("\n").split("\t")
                 if len(parts) < 8:
