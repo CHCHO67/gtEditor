@@ -52,6 +52,7 @@ EXPECTED_CELL_KEYS = [
 
 PROJECT_SCHEMA_VERSION = 1
 IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff")
+OUTPUT_BUCKETS = ("saved", "discarded")
 
 
 @dataclass(frozen=True, slots=True)
@@ -89,6 +90,7 @@ class OutputWriteResult:
     """Summary for one table pair written to Output_data."""
 
     tab_name: str
+    bucket: str
     stem: str
     image_path: Path
     json_path: Path
@@ -181,12 +183,25 @@ def output_tab_dir(output_data: str | Path, tab_name: str) -> Path:
     return Path(output_data) / _safe_name(tab_name)
 
 
-def save_output_pair(document: TableDocument, pair: TablePair, output_data: str | Path, tab_name: str) -> OutputWriteResult:
-    """Write image and validated Docling JSON for one pair under Output_data/tab/image,json."""
+def _output_bucket_dir(output_data: str | Path, tab_name: str, bucket: str) -> Path:
+    if bucket not in OUTPUT_BUCKETS:
+        raise ValueError(f"output bucket must be one of {OUTPUT_BUCKETS}, got {bucket!r}")
+    return output_tab_dir(output_data, tab_name) / bucket
 
-    tab_dir = output_tab_dir(output_data, tab_name)
-    image_target = tab_dir / "image" / pair.image_path.name
-    json_target = tab_dir / "json" / pair.json_path.name
+
+def save_output_pair(
+    document: TableDocument,
+    pair: TablePair,
+    output_data: str | Path,
+    tab_name: str,
+    *,
+    bucket: str = "saved",
+) -> OutputWriteResult:
+    """Write image and validated Docling JSON under Output_data/tab/bucket/image,json."""
+
+    bucket_dir = _output_bucket_dir(output_data, tab_name, bucket)
+    image_target = bucket_dir / "image" / pair.image_path.name
+    json_target = bucket_dir / "json" / pair.json_path.name
     image_target.parent.mkdir(parents=True, exist_ok=True)
     json_target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(pair.image_path, image_target)
@@ -194,7 +209,7 @@ def save_output_pair(document: TableDocument, pair: TablePair, output_data: str 
     ok, errors = validate_docling_record(document, image_target, check_png=True)
     if not ok:
         raise ValueError(f"exported JSON failed validation for {pair.stem}: {errors[:5]}")
-    return OutputWriteResult(tab_name=tab_name, stem=pair.stem, image_path=image_target, json_path=json_target)
+    return OutputWriteResult(tab_name=tab_name, bucket=bucket, stem=pair.stem, image_path=image_target, json_path=json_target)
 
 
 def save_output_tab(
@@ -202,6 +217,7 @@ def save_output_tab(
     output_data: str | Path,
     *,
     documents: Mapping[str, TableDocument] | None = None,
+    bucket: str = "saved",
 ) -> list[OutputWriteResult]:
     """Write every pair from one tab, using edited docs when supplied."""
 
@@ -211,17 +227,26 @@ def save_output_tab(
         document = docs.get(pair.stem)
         if document is None:
             document = load_document(pair.image_path, pair.json_path)
-        results.append(save_output_pair(document, pair, output_data, dataset.name))
+        results.append(save_output_pair(document, pair, output_data, dataset.name, bucket=bucket))
     return results
 
 
 def verify_output_tab_counts(output_data: str | Path, dataset: InputDataset) -> tuple[bool, str]:
     tab_dir = output_tab_dir(output_data, dataset.name)
-    image_count = sum(1 for path in (tab_dir / "image").iterdir() if path.is_file()) if (tab_dir / "image").is_dir() else 0
-    json_count = sum(1 for path in (tab_dir / "json").glob("*.json")) if (tab_dir / "json").is_dir() else 0
+    bucket_counts: dict[str, tuple[int, int]] = {}
+    for bucket in OUTPUT_BUCKETS:
+        bucket_dir = tab_dir / bucket
+        image_dir = bucket_dir / "image"
+        json_dir = bucket_dir / "json"
+        image_count = sum(1 for path in image_dir.iterdir() if path.is_file()) if image_dir.is_dir() else 0
+        json_count = sum(1 for path in json_dir.glob("*.json")) if json_dir.is_dir() else 0
+        bucket_counts[bucket] = (image_count, json_count)
+    image_count = sum(counts[0] for counts in bucket_counts.values())
+    json_count = sum(counts[1] for counts in bucket_counts.values())
     expected = len(dataset.pairs)
     ok = expected == image_count == json_count
-    return ok, f"{dataset.name}: input={expected} output_images={image_count} output_json={json_count}"
+    details = " ".join(f"{bucket}=images:{counts[0]},json:{counts[1]}" for bucket, counts in bucket_counts.items())
+    return ok, f"{dataset.name}: input={expected} output_images={image_count} output_json={json_count} {details}"
 
 
 def _safe_name(value: str) -> str:

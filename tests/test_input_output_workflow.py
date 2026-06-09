@@ -56,6 +56,9 @@ def test_save_current_and_tab_write_valid_image_json_layout(tmp_path: Path):
     current = save_output_pair(document, first_pair, output_data, dataset.name)
     assert current.image_path.exists()
     assert current.json_path.exists()
+    assert current.bucket == "saved"
+    assert current.image_path.parent == output_data / dataset.name / "saved" / "image"
+    assert current.json_path.parent == output_data / dataset.name / "saved" / "json"
     ok, errors = validate_docling_record(document, current.image_path, check_png=True)
     assert ok, errors
 
@@ -63,8 +66,9 @@ def test_save_current_and_tab_write_valid_image_json_layout(tmp_path: Path):
     assert len(results) == 2
     ok, counts = verify_output_tab_counts(output_data, dataset)
     assert ok, counts
-    assert len(list((output_data / dataset.name / "image").iterdir())) == 2
-    assert len(list((output_data / dataset.name / "json").glob("*.json"))) == 2
+    assert len(list((output_data / dataset.name / "saved" / "image").iterdir())) == 2
+    assert len(list((output_data / dataset.name / "saved" / "json").glob("*.json"))) == 2
+    assert not (output_data / dataset.name / "discarded" / "image").exists()
 
 
 def test_cli_save_all_repeatable_input_data(tmp_path: Path, capsys):
@@ -86,10 +90,10 @@ def test_cli_save_all_repeatable_input_data(tmp_path: Path, capsys):
     assert code == 0
     out = capsys.readouterr().out
     assert "save-all ok tabs=2 pairs=2" in out
-    assert (output_data / "Input_data" / "image").is_dir()
-    assert (output_data / "Input_data" / "json").is_dir()
-    assert (output_data / "Input_data-2" / "image").is_dir()
-    assert (output_data / "Input_data-2" / "json").is_dir()
+    assert (output_data / "Input_data" / "saved" / "image").is_dir()
+    assert (output_data / "Input_data" / "saved" / "json").is_dir()
+    assert (output_data / "Input_data-2" / "saved" / "image").is_dir()
+    assert (output_data / "Input_data-2" / "saved" / "json").is_dir()
 
 
 def test_gui_tabs_and_save_actions_offscreen(tmp_path: Path):
@@ -117,16 +121,18 @@ def test_gui_tabs_and_save_actions_offscreen(tmp_path: Path):
         win.save_current()
         assert win.sessions[0].status_tabs.tabText(0).startswith("검토 (0)")
         assert win.sessions[0].status_tabs.tabText(1).startswith("검토 완료 (1)")
-        assert len(list((output_data / "tab-one" / "image").iterdir())) == 1
-        assert len(list((output_data / "tab-one" / "json").glob("*.json"))) == 1
+        assert len(list((output_data / "tab-one" / "saved" / "image").iterdir())) == 1
+        assert len(list((output_data / "tab-one" / "saved" / "json").glob("*.json"))) == 1
+        assert not (output_data / "tab-one" / "discarded" / "image").exists()
 
         win.tabs.setCurrentIndex(1)
         assert win.doc is not None
         win.discard_current()
         assert win.sessions[1].status_tabs.tabText(0).startswith("검토 (0)")
         assert win.sessions[1].status_tabs.tabText(2).startswith("버리기 (1)")
-        assert len(list((output_data / "tab-two" / "image").iterdir())) == 1
-        assert len(list((output_data / "tab-two" / "json").glob("*.json"))) == 1
+        assert len(list((output_data / "tab-two" / "discarded" / "image").iterdir())) == 1
+        assert len(list((output_data / "tab-two" / "discarded" / "json").glob("*.json"))) == 1
+        assert not (output_data / "tab-two" / "saved" / "image").exists()
     finally:
         win.close()
         app.processEvents()

@@ -12,7 +12,7 @@
 - Avoid: multiple ambiguous save buttons, hidden finalization behavior, crowded toolbars.
 
 ## Product goals
-- Goals: let reviewers process one table at a time, classify it as completed or discarded, and persist every decision to Output_data.
+- Goals: let reviewers process one table at a time, classify it as completed or discarded, and persist every decision to Output_data saved/discarded buckets.
 - Non-goals: full visual design system, batch approval UI, cloud sync.
 - Success signals: reviewer always knows current file state; only one primary save action exists; review/completed/discard counts are visible; a new image defaults to direct grid-line dragging; vertical grid lines are red; selected cells are visibly blue; merged cells are visibly purple; source text boxes are clear green translucent overlays without duplicate text rendering.
 
@@ -61,7 +61,7 @@
 - Loading: first review sample loads automatically when present.
 - Empty: no document status text appears if no active sample.
 - Error: validation/save failures use warning dialog and status pane text.
-- Success: status bar and warnings pane show saved/discarded output path/counts.
+- Success: status bar and warnings pane show saved/discarded output path/counts, with completed files under `saved/image,json` and discarded files under `discarded/image,json`.
 - Disabled: action buttons are disabled when no active document is loaded.
 - Offline/slow network, if applicable: not applicable; all local files.
 

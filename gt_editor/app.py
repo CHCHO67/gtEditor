@@ -743,8 +743,9 @@ class MainWindow(QMainWindow):
     def _classify_current(self, status: str) -> None:
         if self.doc is None or self.pair is None or self.session is None:
             return
+        bucket = "discarded" if status == "discarded" else "saved"
         try:
-            result = save_output_pair(self.doc, self.pair, self.export_dir, self.session.dataset.name)
+            result = save_output_pair(self.doc, self.pair, self.export_dir, self.session.dataset.name, bucket=bucket)
         except Exception as exc:  # noqa: BLE001 - GUI boundary surfaces validation/IO errors to users.
             QMessageBox.warning(self, "Save failed", str(exc))
             self.info.appendPlainText(f"Save failed: {exc}")

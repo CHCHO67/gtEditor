@@ -43,11 +43,13 @@ Input_data tab
   버리기      # moved here after Discard
 ```
 
-Only the current file has visible decision buttons in the upper-right header: **Discard** (orange, `Ctrl+D`) and **Save** (green, `Ctrl+S`). Both actions write the current image/JSON pair to Output_data and validate the exported JSON. Output saves use the same structure under a per-tab folder:
+Only the current file has visible decision buttons in the upper-right header: **Discard** (orange, `Ctrl+D`) and **Save** (green, `Ctrl+S`). Both actions write the current image/JSON pair to Output_data and validate the exported JSON. Save writes to `saved/`; Discard writes to `discarded/`:
 
 ```text
-<output-data>/<tab-name>/image/<table_id>.png
-<output-data>/<tab-name>/json/<table_id>.json
+<output-data>/<tab-name>/saved/image/<table_id>.png
+<output-data>/<tab-name>/saved/json/<table_id>.json
+<output-data>/<tab-name>/discarded/image/<table_id>.png
+<output-data>/<tab-name>/discarded/json/<table_id>.json
 ```
 
 Editing tools are available as both buttons and shortcuts. The default interaction after selecting a new image is **line movement**: click a grid line, drag it freely, then release it at the desired position. Vertical grid lines are red and horizontal grid lines are blue. Add V/H creates a line at the mouse cursor position. Use **Select Cells** (`C`) to drag across adjacent cells, then **Merge** (`1`); selected cells are shown in translucent blue and merged cells are shown with a translucent purple fill. `Ctrl`/`Shift` is optional and only keeps the previous cell selection while adding more cells. Select a merged cell and press **Unmerge** (`2`) to split it again. Other shortcuts remain: `Alt+Arrow` nudges a selected line, `D` deletes a selected line, and `Ctrl+Z` undoes. Text spans are drawn as green translucent boxes over the source image without rendering duplicate text labels. Tab names derived from duplicate folder names are disambiguated automatically.
