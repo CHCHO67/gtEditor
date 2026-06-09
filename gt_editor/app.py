@@ -100,10 +100,15 @@ class CellSelectionGraphicsView(QGraphicsView):
         super().mouseReleaseEvent(event)
 
     def select_cells_in_scene_rect(self, scene_rect: QRectF) -> None:
-        query = scene_rect.normalized().adjusted(-2.0, -2.0, 2.0, 2.0)
-        for item in self.scene().items(query, Qt.IntersectsItemShape):
+        raw_query = scene_rect.normalized()
+        query = raw_query.adjusted(-6.0, -6.0, 6.0, 6.0)
+        is_click = raw_query.width() < 1.0 and raw_query.height() < 1.0
+        click_point = raw_query.center()
+        for item in self.scene().items():
             if hasattr(item, "cell_index"):
-                item.setSelected(True)
+                item_rect = item.sceneBoundingRect()
+                if query.contains(item_rect.center()) or (is_click and item_rect.contains(click_point)):
+                    item.setSelected(True)
 
 
 @dataclass
@@ -291,7 +296,7 @@ class MainWindow(QMainWindow):
         layout.setContentsMargins(8, 8, 8, 8)
         path_label = QLabel(f"Input_data: {dataset.root}")
         path_label.setObjectName("InputPathLabel")
-        help_label = QLabel("Default: Move Line. Use Select Cells for merge · V/H add at cursor · Alt+Arrows nudge · D delete · 1 merge · 2 unmerge · Ctrl+Z undo")
+        help_label = QLabel("Default: Move Line. Select Cells: drag cells; Ctrl/Shift adds · V/H at cursor · D delete · 1 merge · 2 unmerge · Ctrl+Z undo")
         help_label.setObjectName("ShortcutHelp")
         layout.addWidget(path_label)
         layout.addWidget(status_tabs, 1)
@@ -344,7 +349,7 @@ class MainWindow(QMainWindow):
         if hasattr(self.view, "set_cell_drag_selection_enabled"):
             self.view.set_cell_drag_selection_enabled(True)
         self.view.setInteractive(True)
-        self.statusBar().showMessage("Cell select mode: drag across adjacent cells, then press Merge.", 5000)
+        self.statusBar().showMessage("Cell select mode: drag across cells, then press Merge. Ctrl/Shift keeps previous selection.", 6000)
 
     def _apply_style(self) -> None:
         self.setStyleSheet(
@@ -601,7 +606,7 @@ class MainWindow(QMainWindow):
             f"grid={self.doc.num_rows}x{self.doc.num_cols} cells={len(self.doc.cells)} spans={len(self.doc.text_spans)} warnings={len(self.doc.warnings)}",
             f"output={self.export_dir / tab}",
             "Default: click and drag a grid line to move it. Buttons and shortcuts are both available.",
-            "For merge: Select Cells, choose adjacent cells, then Merge. Merged cells are purple.",
+            "For merge: Select Cells, drag across adjacent cells, then Merge. Ctrl/Shift adds to the current selection. Merged cells are purple.",
             "Shortcuts: C cell-select · V/H add at cursor · Alt+Arrow nudge · D delete · 1 merge · 2 unmerge · Ctrl+Z undo",
         ]
         lines.extend(f"- {getattr(w, 'message', str(w))}" for w in self.doc.warnings[:18])

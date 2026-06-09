@@ -190,6 +190,9 @@ def test_gui_edit_tools_line_drag_and_merge_visuals_offscreen(tmp_path: Path):
         drag_rect = QRectF(left_item.sceneBoundingRect().center(), right_item.sceneBoundingRect().center())
         win.view.select_cells_in_scene_rect(drag_rect)
         assert {left_item.cell_index, right_item.cell_index}.issubset(set(win.selected_cells()))
+        selected_color = left_item.brush().color()
+        assert selected_color.blue() > selected_color.green()
+        assert selected_color.alpha() > 80
         win.merge_selected_cells()
         app.processEvents()
         merged_item = next(

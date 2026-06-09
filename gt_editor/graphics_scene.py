@@ -110,8 +110,17 @@ class CellRectItem(QGraphicsRectItem):
         self.cell_index = cell_index
         self.cell = cell
         self.setFlags(QGraphicsItem.ItemIsSelectable)
-        is_merged = getattr(cell, "row_span", 1) > 1 or getattr(cell, "col_span", 1) > 1
-        if is_merged:
+        self._is_merged = getattr(cell, "row_span", 1) > 1 or getattr(cell, "col_span", 1) > 1
+        self._apply_selection_style()
+        merged_label = "merged " if self._is_merged else ""
+        self.setToolTip(f"{merged_label}cell#{cell_index} r{cell.row}:{cell.end_row} c{cell.col}:{cell.end_col}\n{cell.text[:200]}")
+
+    def _apply_selection_style(self) -> None:
+        if self.isSelected():
+            self.setPen(QPen(QColor(2, 132, 199, 245), 3.0))
+            self.setBrush(QBrush(QColor(56, 189, 248, 96)))
+            self.setZValue(9)
+        elif self._is_merged:
             self.setPen(QPen(QColor(126, 34, 206, 210), 2.2))
             self.setBrush(QBrush(QColor(168, 85, 247, 72)))
             self.setZValue(6)
@@ -119,8 +128,12 @@ class CellRectItem(QGraphicsRectItem):
             self.setPen(QPen(QColor(255, 170, 0, 120), 0.8))
             self.setBrush(QBrush(QColor(255, 200, 0, 18)))
             self.setZValue(4)
-        merged_label = "merged " if is_merged else ""
-        self.setToolTip(f"{merged_label}cell#{cell_index} r{cell.row}:{cell.end_row} c{cell.col}:{cell.end_col}\n{cell.text[:200]}")
+
+    def itemChange(self, change, value):  # pragma: no cover - GUI callback
+        result = super().itemChange(change, value)
+        if change == QGraphicsItem.ItemSelectedHasChanged:
+            self._apply_selection_style()
+        return result
 
 
 class TableGraphicsScene(QGraphicsScene):
