@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime, timezone
 import json
+import re
+import shutil
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
@@ -71,6 +73,28 @@ class TablePair:
         return 2
 
 
+@dataclass(frozen=True, slots=True)
+class InputDataset:
+    """One input-data folder with image/json children and discovered pairs."""
+
+    name: str
+    root: Path
+    image_dir: Path
+    json_dir: Path
+    pairs: tuple[TablePair, ...]
+
+
+@dataclass(frozen=True, slots=True)
+class OutputWriteResult:
+    """Summary for one table pair written to Output_data."""
+
+    tab_name: str
+    stem: str
+    image_path: Path
+    json_path: Path
+    warnings: tuple[str, ...] = ()
+
+
 def _read_json(path: str | Path) -> dict[str, Any]:
     with Path(path).open("r", encoding="utf-8") as fh:
         data = json.load(fh)
@@ -124,6 +148,96 @@ def discover_pairs(image_dir: str | Path, json_dir: str | Path) -> list[TablePai
         if image_path is not None:
             pairs.append(TablePair(stem=json_path.stem, image_path=image_path, json_path=json_path))
     return pairs
+
+
+def discover_input_dataset(input_data: str | Path, *, name: str | None = None) -> InputDataset:
+    """Discover one Input_data folder containing image/ and json/ children."""
+
+    root = Path(input_data)
+    image_dir = root / "image"
+    json_dir = root / "json"
+    if not image_dir.is_dir() or not json_dir.is_dir():
+        raise FileNotFoundError(f"{root} must contain image/ and json/ directories")
+    pairs = tuple(discover_pairs(image_dir, json_dir))
+    return InputDataset(name=name or root.name or "input", root=root, image_dir=image_dir, json_dir=json_dir, pairs=pairs)
+
+
+def discover_input_datasets(input_data: Iterable[str | Path]) -> list[InputDataset]:
+    """Discover repeatable --input-data folders with stable, unique tab names."""
+
+    datasets = [discover_input_dataset(path) for path in input_data]
+    names = _unique_names([dataset.name for dataset in datasets])
+    return [InputDataset(name=name, root=d.root, image_dir=d.image_dir, json_dir=d.json_dir, pairs=d.pairs) for name, d in zip(names, datasets)]
+
+
+def legacy_input_dataset(image_dir: str | Path, json_dir: str | Path, *, name: str = "input") -> InputDataset:
+    """Compatibility wrapper for legacy --image-dir/--json-dir callers."""
+
+    pairs = tuple(discover_pairs(image_dir, json_dir))
+    return InputDataset(name=name, root=Path(image_dir).parent, image_dir=Path(image_dir), json_dir=Path(json_dir), pairs=pairs)
+
+
+def output_tab_dir(output_data: str | Path, tab_name: str) -> Path:
+    return Path(output_data) / _safe_name(tab_name)
+
+
+def save_output_pair(document: TableDocument, pair: TablePair, output_data: str | Path, tab_name: str) -> OutputWriteResult:
+    """Write image and validated Docling JSON for one pair under Output_data/tab/image,json."""
+
+    tab_dir = output_tab_dir(output_data, tab_name)
+    image_target = tab_dir / "image" / pair.image_path.name
+    json_target = tab_dir / "json" / pair.json_path.name
+    image_target.parent.mkdir(parents=True, exist_ok=True)
+    json_target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(pair.image_path, image_target)
+    save_docling_json(document, json_target)
+    ok, errors = validate_docling_record(document, image_target, check_png=True)
+    if not ok:
+        raise ValueError(f"exported JSON failed validation for {pair.stem}: {errors[:5]}")
+    return OutputWriteResult(tab_name=tab_name, stem=pair.stem, image_path=image_target, json_path=json_target)
+
+
+def save_output_tab(
+    dataset: InputDataset,
+    output_data: str | Path,
+    *,
+    documents: Mapping[str, TableDocument] | None = None,
+) -> list[OutputWriteResult]:
+    """Write every pair from one tab, using edited docs when supplied."""
+
+    docs = documents or {}
+    results: list[OutputWriteResult] = []
+    for pair in dataset.pairs:
+        document = docs.get(pair.stem)
+        if document is None:
+            document = load_document(pair.image_path, pair.json_path)
+        results.append(save_output_pair(document, pair, output_data, dataset.name))
+    return results
+
+
+def verify_output_tab_counts(output_data: str | Path, dataset: InputDataset) -> tuple[bool, str]:
+    tab_dir = output_tab_dir(output_data, dataset.name)
+    image_count = sum(1 for path in (tab_dir / "image").iterdir() if path.is_file()) if (tab_dir / "image").is_dir() else 0
+    json_count = sum(1 for path in (tab_dir / "json").glob("*.json")) if (tab_dir / "json").is_dir() else 0
+    expected = len(dataset.pairs)
+    ok = expected == image_count == json_count
+    return ok, f"{dataset.name}: input={expected} output_images={image_count} output_json={json_count}"
+
+
+def _safe_name(value: str) -> str:
+    clean = re.sub(r"[^A-Za-z0-9._-]+", "_", value.strip())
+    return clean.strip("._") or "input"
+
+
+def _unique_names(names: Iterable[str]) -> list[str]:
+    seen: dict[str, int] = {}
+    result: list[str] = []
+    for name in names:
+        base = _safe_name(name)
+        count = seen.get(base, 0)
+        seen[base] = count + 1
+        result.append(base if count == 0 else f"{base}-{count + 1}")
+    return result
 
 
 def load_document(

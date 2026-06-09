@@ -26,7 +26,24 @@ pip install -e '.[dev]'
 pytest -q
 ```
 
-Launch the GUI with bundled samples:
+Launch the GUI with one or more Input_data folders and an Output_data destination:
+
+```bash
+gt-editor \
+  --input-data gt_editor_samples \
+  --output-data gt_editor_outputs
+```
+
+Repeat `--input-data` to open multiple GUI tabs. Each input folder must contain matching `image/` and `json/` children. Output saves use the same structure under a per-tab folder:
+
+```text
+<output-data>/<tab-name>/image/<table_id>.png
+<output-data>/<tab-name>/json/<table_id>.json
+```
+
+The toolbar provides `Save Current`, `Save Tab`, and `Save All`. Saved JSON is validated with the bundled Docling-style validator; tab names derived from duplicate folder names are disambiguated automatically.
+
+The legacy single-folder flags remain available:
 
 ```bash
 gt-editor \
@@ -35,17 +52,18 @@ gt-editor \
   --export-dir gt_editor_exports
 ```
 
-Headless smoke check:
+Headless smoke and save-all checks:
 
 ```bash
-gt-editor --headless-smoke --limit 3
+gt-editor --headless-smoke --input-data gt_editor_samples --limit 3
+gt-editor --input-data gt_editor_samples --output-data /tmp/gt_editor_output --save-all --limit 3
 python scripts/smoke_gt_editor.py --out-dir /tmp/gt_editor_smoke
 ```
 
 GUI smoke check for headless/CI environments:
 
 ```bash
-QT_QPA_PLATFORM=offscreen gt-editor --smoke-exit --limit 3
+QT_QPA_PLATFORM=offscreen gt-editor --smoke-exit --input-data gt_editor_samples --output-data /tmp/gt_editor_output --limit 3
 ```
 
 ## Included sample data
