@@ -104,17 +104,24 @@ def test_gui_tabs_and_save_actions_offscreen(tmp_path: Path):
     try:
         assert win.tabs.count() == 2
         assert win.doc is not None
+        assert win.sessions[0].status_tabs.count() == 3
+        assert win.sessions[0].status_tabs.tabText(0).startswith("검토 (1)")
+        assert win.save_button.text().startswith("Save")
+        assert win.discard_button.text().startswith("Discard")
+
         win.save_current()
+        assert win.sessions[0].status_tabs.tabText(0).startswith("검토 (0)")
+        assert win.sessions[0].status_tabs.tabText(1).startswith("검토 완료 (1)")
         assert len(list((output_data / "tab-one" / "image").iterdir())) == 1
         assert len(list((output_data / "tab-one" / "json").glob("*.json"))) == 1
+
         win.tabs.setCurrentIndex(1)
-        win.save_tab()
+        assert win.doc is not None
+        win.discard_current()
+        assert win.sessions[1].status_tabs.tabText(0).startswith("검토 (0)")
+        assert win.sessions[1].status_tabs.tabText(2).startswith("버리기 (1)")
         assert len(list((output_data / "tab-two" / "image").iterdir())) == 1
         assert len(list((output_data / "tab-two" / "json").glob("*.json"))) == 1
-        win.save_all()
-        for tab in ("tab-one", "tab-two"):
-            assert len(list((output_data / tab / "image").iterdir())) == 1
-            assert len(list((output_data / tab / "json").glob("*.json"))) == 1
     finally:
         win.close()
         app.processEvents()

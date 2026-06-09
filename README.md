@@ -34,14 +34,23 @@ gt-editor \
   --output-data gt_editor_outputs
 ```
 
-Repeat `--input-data` to open multiple GUI tabs. Each input folder must contain matching `image/` and `json/` children. Output saves use the same structure under a per-tab folder:
+Repeat `--input-data` to open multiple GUI tabs. Each input folder must contain matching `image/` and `json/` children. The GUI is organized as:
+
+```text
+Input_data tab
+  검토        # not saved or discarded yet
+  검토 완료   # moved here after Save
+  버리기      # moved here after Discard
+```
+
+Only the current file has visible decision buttons in the upper-right header: **Discard** (orange, `Ctrl+D`) and **Save** (green, `Ctrl+S`). Both actions write the current image/JSON pair to Output_data and validate the exported JSON. Output saves use the same structure under a per-tab folder:
 
 ```text
 <output-data>/<tab-name>/image/<table_id>.png
 <output-data>/<tab-name>/json/<table_id>.json
 ```
 
-The toolbar provides `Save Current`, `Save Tab`, and `Save All`. Saved JSON is validated with the bundled Docling-style validator; tab names derived from duplicate folder names are disambiguated automatically.
+Editing tools are keyboard-first: `V`/`H` add vertical/horizontal lines, `Alt+Arrow` moves a selected line, `Del` deletes a selected line, `M` merges cells, `U` unmerges, and `Ctrl+Z` undoes. Tab names derived from duplicate folder names are disambiguated automatically.
 
 The legacy single-folder flags remain available:
 
