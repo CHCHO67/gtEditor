@@ -30,7 +30,7 @@ if len(_qt) == 12:
     Qt, QPointF, _Signal, QColor, QPen, QBrush, QPixmap, QGraphicsItem, QGraphicsLineItem, QGraphicsRectItem, QGraphicsScene, QGraphicsSimpleTextItem = _qt
 else:
     Qt, QPointF, QColor, QPen, QBrush, QPixmap, QGraphicsItem, QGraphicsLineItem, QGraphicsRectItem, QGraphicsScene, QGraphicsSimpleTextItem = _qt
-from PySide6.QtGui import QAction, QKeySequence  # noqa: E402
+from PySide6.QtGui import QAction, QCursor, QKeySequence  # noqa: E402
 from PySide6.QtWidgets import (  # noqa: E402
     QApplication,
     QFrame,
@@ -92,7 +92,7 @@ class MainWindow(QMainWindow):
         self.stack: CommandStack | None = None
         self._shortcut_actions: list[QAction] = []
 
-        self.scene = TableGraphicsScene()
+        self.scene = TableGraphicsScene(auto_apply_line_moves=False)
         self.view = QGraphicsView(self.scene)
         self.view.setDragMode(QGraphicsView.RubberBandDrag)
         self.tabs = QTabWidget()
@@ -123,6 +123,7 @@ class MainWindow(QMainWindow):
         root_layout.addWidget(content, 1)
         self.setCentralWidget(root)
         self.scene.documentChanged.connect(self._on_scene_document_changed)
+        self.scene.lineMoveRequested.connect(self._on_scene_line_move_requested)
         self._build_shortcuts()
         self._apply_style()
         self.setWindowTitle("gtEditor")
@@ -187,8 +188,9 @@ class MainWindow(QMainWindow):
 
         tool_specs = [
             ("Move Line", "기본", self.activate_line_move_mode, "선을 클릭/드래그해서 이동합니다."),
-            ("Add V", "V", lambda: self.add_line("x"), "세로선을 화면 중앙에 추가합니다."),
-            ("Add H", "H", lambda: self.add_line("y"), "가로선을 화면 중앙에 추가합니다."),
+            ("Select Cells", "C", self.activate_cell_select_mode, "셀 병합을 위해 인접 셀을 드래그/클릭 선택합니다."),
+            ("Add V", "V", lambda: self.add_line("x"), "마우스 커서 위치에 세로선을 추가합니다."),
+            ("Add H", "H", lambda: self.add_line("y"), "마우스 커서 위치에 가로선을 추가합니다."),
             ("Delete", "Del", self.delete_selected_line, "선택한 선을 삭제합니다."),
             ("Merge", "M", self.merge_selected_cells, "선택한 셀들을 병합합니다."),
             ("Unmerge", "U", self.unmerge_selected_cell, "선택한 병합 셀을 해제합니다."),
@@ -241,7 +243,7 @@ class MainWindow(QMainWindow):
         layout.setContentsMargins(8, 8, 8, 8)
         path_label = QLabel(f"Input_data: {dataset.root}")
         path_label.setObjectName("InputPathLabel")
-        help_label = QLabel("Buttons and shortcuts both work: drag lines by default · V/H add · Alt+Arrows nudge · Del delete · M merge · U unmerge · Ctrl+Z undo")
+        help_label = QLabel("Default: Move Line. Use Select Cells for merge · V/H add at cursor · Alt+Arrows nudge · Del delete · M merge · U unmerge · Ctrl+Z undo")
         help_label.setObjectName("ShortcutHelp")
         layout.addWidget(path_label)
         layout.addWidget(status_tabs, 1)
@@ -254,6 +256,7 @@ class MainWindow(QMainWindow):
         shortcuts = [
             ("Save current", QKeySequence.Save, self.save_current),
             ("Discard current", "Ctrl+D", self.discard_current),
+            ("Select cells", "C", self.activate_cell_select_mode),
             ("Add vertical line", "V", lambda: self.add_line("x")),
             ("Add horizontal line", "H", lambda: self.add_line("y")),
             ("Delete selected line", "Del", self.delete_selected_line),
@@ -283,6 +286,13 @@ class MainWindow(QMainWindow):
         self.view.setDragMode(QGraphicsView.NoDrag)
         self.view.setInteractive(True)
         self.statusBar().showMessage("Line move mode: click a grid line, then drag it.", 5000)
+
+    def activate_cell_select_mode(self) -> None:
+        """Enable rubber-band cell selection for merge/unmerge operations."""
+
+        self.view.setDragMode(QGraphicsView.RubberBandDrag)
+        self.view.setInteractive(True)
+        self.statusBar().showMessage("Cell select mode: drag over adjacent cells, then press Merge.", 5000)
 
     def _apply_style(self) -> None:
         self.setStyleSheet(
@@ -518,6 +528,14 @@ class MainWindow(QMainWindow):
         self.refresh_info()
         self._update_header()
 
+    def _on_scene_line_move_requested(self, axis: str, edge_index: int, coordinate: float) -> None:
+        if self.doc is None or self.stack is None:
+            return
+        try:
+            self._do(MoveLineCommand(axis=axis, edge_index=edge_index, coordinate=coordinate))
+        except CommandError as exc:
+            self.statusBar().showMessage(f"Cannot move line: {exc}", 5000)
+
     def refresh_info(self) -> None:
         if self.info is None:
             return
@@ -531,7 +549,8 @@ class MainWindow(QMainWindow):
             f"grid={self.doc.num_rows}x{self.doc.num_cols} cells={len(self.doc.cells)} spans={len(self.doc.text_spans)} warnings={len(self.doc.warnings)}",
             f"output={self.export_dir / tab}",
             "Default: click and drag a grid line to move it. Buttons and shortcuts are both available.",
-            "Shortcuts: V/H add · Alt+Arrow nudge · Del delete · M merge · U unmerge · Ctrl+Z undo",
+            "For merge: Select Cells, choose adjacent cells, then Merge. Merged cells are purple.",
+            "Shortcuts: C cell-select · V/H add at cursor · Alt+Arrow nudge · Del delete · M merge · U unmerge · Ctrl+Z undo",
         ]
         lines.extend(f"- {getattr(w, 'message', str(w))}" for w in self.doc.warnings[:18])
         if len(self.doc.warnings) > 18:
@@ -576,12 +595,19 @@ class MainWindow(QMainWindow):
     def add_line(self, axis: str) -> None:
         if self.doc is None:
             return
-        center = self.view.mapToScene(self.view.viewport().rect().center())
-        coord = center.x() if axis == "x" else center.y()
+        scene_point = self._cursor_scene_point()
+        coord = scene_point.x() if axis == "x" else scene_point.y()
         try:
             self._do(AddLineCommand(axis=axis, coordinate=float(coord)))
         except CommandError as exc:
             QMessageBox.warning(self, "Cannot add line", str(exc))
+
+    def _cursor_scene_point(self) -> QPointF:
+        viewport = self.view.viewport()
+        cursor_pos = viewport.mapFromGlobal(QCursor.pos())
+        if viewport.rect().contains(cursor_pos):
+            return self.view.mapToScene(cursor_pos)
+        return self.view.mapToScene(viewport.rect().center())
 
     def nudge_selected_line(self, axis: str, delta: float) -> None:
         if self.doc is None:
@@ -618,8 +644,12 @@ class MainWindow(QMainWindow):
         if not ids:
             QMessageBox.information(self, "Merge", "Rubber-band or click-select cells first.")
             return
+        if len(ids) < 2:
+            QMessageBox.information(self, "Merge", "Select two or more adjacent cells before merging.")
+            return
         try:
             self._do(MergeCellsCommand(selection=[self.doc.cells[i] for i in ids]))
+            self.activate_line_move_mode()
         except CommandError as exc:
             QMessageBox.warning(self, "Cannot merge", str(exc))
 
@@ -630,6 +660,7 @@ class MainWindow(QMainWindow):
             return
         try:
             self._do(UnmergeCellCommand(target=ids[0]))
+            self.activate_line_move_mode()
         except CommandError as exc:
             QMessageBox.warning(self, "Cannot unmerge", str(exc))
 

@@ -22,11 +22,11 @@ from PySide6.QtCore import QTimer  # noqa: E402
 
 
 class GridLineItem(QGraphicsLineItem):
-    def __init__(self, doc: TableDocument, axis: str, edge_index: int, on_changed: Callable[[TableDocument], None] | None = None):
+    def __init__(self, doc: TableDocument, axis: str, edge_index: int, on_move_requested: Callable[[str, int, float], None] | None = None):
         self.doc = doc
         self.axis = axis
         self.edge_index = edge_index
-        self.on_changed = on_changed
+        self.on_move_requested = on_move_requested
         self._resetting_position = False
         if axis == "x":
             x = doc.x_edges[edge_index]
@@ -41,6 +41,47 @@ class GridLineItem(QGraphicsLineItem):
         self.setToolTip("Drag this grid line to move it.")
         self.setZValue(10)
 
+    def _movement_delta(self) -> float:
+        pos = self.pos()
+        return float(pos.x() if self.axis == "x" else pos.y())
+
+    def _reset_position(self) -> None:
+        self._resetting_position = True
+        try:
+            self.setPos(0, 0)
+        finally:
+            self._resetting_position = False
+
+    def commit_pending_move(self) -> None:
+        """Commit a drag after the user releases the line.
+
+        During a drag the Qt item is allowed to move visually. Committing on
+        every intermediate position forces a scene rebuild and makes dragging
+        feel like step-wise nudging; it can also delete this item while Qt is
+        still handling its move event. Commit once on release instead.
+        """
+
+        delta = self._movement_delta()
+        if abs(delta) < 0.01:
+            self._reset_position()
+            return
+        base = self.doc.x_edges[self.edge_index] if self.axis == "x" else self.doc.y_edges[self.edge_index]
+        coordinate = float(base) + delta
+        try:
+            MoveLineCommand(axis=self.axis, line_index=self.edge_index, coordinate=coordinate).apply(self.doc)
+        except Exception:
+            self._reset_position()
+            return
+        self._reset_position()
+        if self.on_move_requested:
+            # Do not rebuild the scene while Qt is still inside this item's
+            # mouse-release notification. Deleting/recreating this item
+            # synchronously from a graphics-item callback can segfault Qt.
+            callback = self.on_move_requested
+            axis = self.axis
+            edge_index = self.edge_index
+            QTimer.singleShot(0, lambda: callback(axis, edge_index, coordinate))
+
     def itemChange(self, change, value):  # pragma: no cover - GUI callback
         if change == QGraphicsItem.ItemPositionChange:
             p = value
@@ -50,31 +91,14 @@ class GridLineItem(QGraphicsLineItem):
         if change == QGraphicsItem.ItemPositionHasChanged:
             if self._resetting_position:
                 return super().itemChange(change, value)
-            pos = self.pos()
-            delta = pos.x() if self.axis == "x" else pos.y()
-            if abs(float(delta)) < 0.01:
-                return super().itemChange(change, value)
-            coord = self.doc.x_edges[self.edge_index] + pos.x() if self.axis == "x" else self.doc.y_edges[self.edge_index] + pos.y()
-            try:
-                updated = MoveLineCommand(axis=self.axis, line_index=self.edge_index, coordinate=coord).apply(self.doc)
-                self.doc = updated
-                self._resetting_position = True
-                try:
-                    self.setPos(0, 0)
-                finally:
-                    self._resetting_position = False
-                if self.on_changed:
-                    # Do not rebuild the scene while Qt is still inside this
-                    # item's movement notification. Deleting/recreating this
-                    # item synchronously from itemChange can segfault Qt.
-                    QTimer.singleShot(0, lambda doc=updated, callback=self.on_changed: callback(doc))
-            except Exception:
-                self._resetting_position = True
-                try:
-                    self.setPos(0, 0)
-                finally:
-                    self._resetting_position = False
+            # Leave the visual item under the cursor during drag; the final
+            # document mutation happens in mouseReleaseEvent().
+            return super().itemChange(change, value)
         return super().itemChange(change, value)
+
+    def mouseReleaseEvent(self, event):  # pragma: no cover - GUI callback
+        super().mouseReleaseEvent(event)
+        self.commit_pending_move()
 
 
 class CellRectItem(QGraphicsRectItem):
@@ -86,20 +110,42 @@ class CellRectItem(QGraphicsRectItem):
         self.cell_index = cell_index
         self.cell = cell
         self.setFlags(QGraphicsItem.ItemIsSelectable)
-        self.setPen(QPen(QColor(255, 170, 0, 120), 0.8))
-        self.setBrush(QBrush(QColor(255, 200, 0, 18)))
-        self.setZValue(4)
-        self.setToolTip(f"cell#{cell_index} r{cell.row}:{cell.end_row} c{cell.col}:{cell.end_col}\n{cell.text[:200]}")
+        is_merged = getattr(cell, "row_span", 1) > 1 or getattr(cell, "col_span", 1) > 1
+        if is_merged:
+            self.setPen(QPen(QColor(126, 34, 206, 210), 2.2))
+            self.setBrush(QBrush(QColor(168, 85, 247, 72)))
+            self.setZValue(6)
+        else:
+            self.setPen(QPen(QColor(255, 170, 0, 120), 0.8))
+            self.setBrush(QBrush(QColor(255, 200, 0, 18)))
+            self.setZValue(4)
+        merged_label = "merged " if is_merged else ""
+        self.setToolTip(f"{merged_label}cell#{cell_index} r{cell.row}:{cell.end_row} c{cell.col}:{cell.end_col}\n{cell.text[:200]}")
 
 
 class TableGraphicsScene(QGraphicsScene):
     documentChanged = Signal(object)
+    lineMoveRequested = Signal(str, int, float)
 
-    def __init__(self, doc: TableDocument | None = None):
+    def __init__(self, doc: TableDocument | None = None, *, auto_apply_line_moves: bool = True):
         super().__init__()
         self.doc: TableDocument | None = None
+        if auto_apply_line_moves:
+            self.lineMoveRequested.connect(self._apply_requested_line_move)
         if doc is not None:
             self.set_document(doc)
+
+    def _request_line_move(self, axis: str, edge_index: int, coordinate: float) -> None:
+        self.lineMoveRequested.emit(axis, edge_index, coordinate)
+
+    def _apply_requested_line_move(self, axis: str, edge_index: int, coordinate: float) -> None:
+        if self.doc is None:
+            return
+        try:
+            updated = MoveLineCommand(axis=axis, line_index=edge_index, coordinate=coordinate).apply(self.doc)
+        except Exception:
+            return
+        self._replace_document_from_item(updated)
 
     def set_document(self, doc: TableDocument) -> None:
         self.doc = doc
@@ -132,9 +178,9 @@ class TableGraphicsScene(QGraphicsScene):
                 t.setZValue(8)
                 self.addItem(t)
         for i in range(1, len(doc.x_edges) - 1):
-            self.addItem(GridLineItem(doc, "x", i, self._replace_document_from_item))
+            self.addItem(GridLineItem(doc, "x", i, self._request_line_move))
         for i in range(1, len(doc.y_edges) - 1):
-            self.addItem(GridLineItem(doc, "y", i, self._replace_document_from_item))
+            self.addItem(GridLineItem(doc, "y", i, self._request_line_move))
         warning_span_ids = {getattr(w, "span_id", getattr(w, "span_index", None)) for w in doc.warnings}
         for span in doc.text_spans:
             bbox = span.bbox.to_list() if hasattr(span.bbox, "to_list") else list(span.bbox)
