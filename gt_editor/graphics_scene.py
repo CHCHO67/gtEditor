@@ -18,6 +18,7 @@ def require_qt():
 
 
 Qt, QPointF, Signal, QColor, QPen, QBrush, QPixmap, QGraphicsItem, QGraphicsLineItem, QGraphicsRectItem, QGraphicsScene, QGraphicsSimpleTextItem = require_qt()
+from PySide6.QtCore import QTimer  # noqa: E402
 
 
 class GridLineItem(QGraphicsLineItem):
@@ -26,6 +27,7 @@ class GridLineItem(QGraphicsLineItem):
         self.axis = axis
         self.edge_index = edge_index
         self.on_changed = on_changed
+        self._resetting_position = False
         if axis == "x":
             x = doc.x_edges[edge_index]
             super().__init__(x, 0, x, doc.height)
@@ -46,16 +48,32 @@ class GridLineItem(QGraphicsLineItem):
                 return QPointF(float(p.x()), 0.0)
             return QPointF(0.0, float(p.y()))
         if change == QGraphicsItem.ItemPositionHasChanged:
+            if self._resetting_position:
+                return super().itemChange(change, value)
             pos = self.pos()
+            delta = pos.x() if self.axis == "x" else pos.y()
+            if abs(float(delta)) < 0.01:
+                return super().itemChange(change, value)
             coord = self.doc.x_edges[self.edge_index] + pos.x() if self.axis == "x" else self.doc.y_edges[self.edge_index] + pos.y()
             try:
                 updated = MoveLineCommand(axis=self.axis, line_index=self.edge_index, coordinate=coord).apply(self.doc)
                 self.doc = updated
-                self.setPos(0, 0)
+                self._resetting_position = True
+                try:
+                    self.setPos(0, 0)
+                finally:
+                    self._resetting_position = False
                 if self.on_changed:
-                    self.on_changed(updated)
+                    # Do not rebuild the scene while Qt is still inside this
+                    # item's movement notification. Deleting/recreating this
+                    # item synchronously from itemChange can segfault Qt.
+                    QTimer.singleShot(0, lambda doc=updated, callback=self.on_changed: callback(doc))
             except Exception:
-                self.setPos(0, 0)
+                self._resetting_position = True
+                try:
+                    self.setPos(0, 0)
+                finally:
+                    self._resetting_position = False
         return super().itemChange(change, value)
 
 

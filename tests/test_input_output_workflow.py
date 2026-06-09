@@ -112,6 +112,16 @@ def test_gui_tabs_and_save_actions_offscreen(tmp_path: Path):
         assert any(button.text().startswith("Add V") for button in win.edit_buttons)
         assert any(button.text().startswith("Merge") for button in win.edit_buttons)
 
+        line = next(item for item in win.scene.items() if hasattr(item, "axis") and item.axis == "x")
+        edge_index = line.edge_index
+        before = float(win.doc.x_edges[edge_index])
+        next_gap = float(win.doc.x_edges[edge_index + 1]) - before
+        prev_gap = before - float(win.doc.x_edges[edge_index - 1])
+        delta = 3.0 if next_gap > 8.0 else -3.0 if prev_gap > 8.0 else 1.0
+        line.setPos(delta, 0.0)
+        app.processEvents()
+        assert abs(float(win.doc.x_edges[edge_index]) - (before + delta)) < 0.01
+
         win.save_current()
         assert win.sessions[0].status_tabs.tabText(0).startswith("검토 (0)")
         assert win.sessions[0].status_tabs.tabText(1).startswith("검토 완료 (1)")
