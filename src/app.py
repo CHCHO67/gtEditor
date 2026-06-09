@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from html import escape
 from pathlib import Path
 
 from commands import (
@@ -20,6 +21,7 @@ from io_docling import (
     discover_input_datasets,
     legacy_input_dataset,
     load_document,
+    output_tab_dir,
     save_output_pair,
 )
 from models import TableCell, TableDocument
@@ -42,9 +44,10 @@ from PySide6.QtWidgets import (  # noqa: E402
     QListWidgetItem,
     QMainWindow,
     QMessageBox,
-    QPlainTextEdit,
     QPushButton,
+    QSplitter,
     QTabWidget,
+    QTextBrowser,
     QVBoxLayout,
     QWidget,
 )
@@ -57,6 +60,11 @@ STATUS_LABELS = {
     "completed": "검토 완료",
     "discarded": "버리기",
 }
+STATUS_BUCKETS = {
+    "completed": "saved",
+    "discarded": "discarded",
+}
+BUCKET_STATUSES = {bucket: status for status, bucket in STATUS_BUCKETS.items()}
 
 
 class CellSelectionGraphicsView(QGraphicsView):
@@ -118,7 +126,7 @@ class DatasetSession:
     dataset: InputDataset
     status_tabs: QTabWidget
     lists: dict[str, QListWidget]
-    info: QPlainTextEdit
+    info: QTextBrowser
     statuses: dict[str, str] = field(default_factory=dict)
     documents: dict[str, TableDocument] = field(default_factory=dict)
     stacks: dict[str, CommandStack] = field(default_factory=dict)
@@ -148,10 +156,16 @@ class MainWindow(QMainWindow):
         self.scene = TableGraphicsScene(auto_apply_line_moves=False)
         self.view = CellSelectionGraphicsView(self.scene)
         self.view.setDragMode(QGraphicsView.RubberBandDrag)
+        self.original_scene = QGraphicsScene()
+        self.original_view = QGraphicsView(self.original_scene)
+        self.original_view.setObjectName("OriginalView")
+        self.original_view.setInteractive(False)
+        self.original_view.setMinimumWidth(520)
         self.tabs = QTabWidget()
-        self.info = QPlainTextEdit()
+        self.info = QTextBrowser()
         self.info.setReadOnly(True)
-        self.info.setMaximumHeight(170)
+        self.info.setOpenExternalLinks(False)
+        self.info.setMinimumHeight(220)
         self.list_widget = QListWidget()
         self.edit_buttons: list[QPushButton] = []
 
@@ -165,7 +179,7 @@ class MainWindow(QMainWindow):
         content_layout = QHBoxLayout(content)
         content_layout.setContentsMargins(0, 0, 0, 0)
         content_layout.addWidget(self.tabs, 0)
-        content_layout.addWidget(self.view, 1)
+        content_layout.addWidget(self._build_viewer_splitter(), 1)
 
         root = QWidget()
         root_layout = QVBoxLayout(root)
@@ -180,7 +194,7 @@ class MainWindow(QMainWindow):
         self._build_shortcuts()
         self._apply_style()
         self.setWindowTitle("gtEditor")
-        self.resize(1440, 920)
+        self.resize(1840, 980)
 
         if self.sessions:
             self.tabs.setCurrentIndex(0)
@@ -270,16 +284,20 @@ class MainWindow(QMainWindow):
 
     def _add_dataset_tab(self, dataset: InputDataset) -> None:
         status_tabs = QTabWidget()
+        status_tabs.setMinimumHeight(150)
+        status_tabs.setMaximumHeight(260)
         lists = {status: QListWidget() for status in STATUS_ORDER}
-        info = QPlainTextEdit()
+        info = QTextBrowser()
         info.setReadOnly(True)
-        info.setMaximumHeight(170)
+        info.setOpenExternalLinks(False)
+        info.setMinimumHeight(380)
+        info.setObjectName("MarkdownPreview")
         session = DatasetSession(
             dataset=dataset,
             status_tabs=status_tabs,
             lists=lists,
             info=info,
-            statuses={pair.stem: "review" for pair in dataset.pairs},
+            statuses=self._restore_statuses(dataset),
         )
         self.sessions.append(session)
 
@@ -299,11 +317,92 @@ class MainWindow(QMainWindow):
         help_label = QLabel("Default: Move Line. Select Cells: drag cells; Ctrl/Shift adds · V/H at cursor · D delete · 1 merge · 2 unmerge · Ctrl+Z undo")
         help_label.setObjectName("ShortcutHelp")
         layout.addWidget(path_label)
-        layout.addWidget(status_tabs, 1)
-        layout.addWidget(QLabel("Warnings / status"))
-        layout.addWidget(info)
+        layout.addWidget(status_tabs, 0)
+        preview_label = QLabel("Markdown table preview")
+        preview_label.setObjectName("PreviewLabel")
+        layout.addWidget(preview_label, 0)
+        layout.addWidget(info, 3)
         layout.addWidget(help_label)
         self.tabs.addTab(panel, dataset.name)
+
+    def _build_viewer_splitter(self) -> QSplitter:
+        splitter = QSplitter(Qt.Horizontal)
+        splitter.setObjectName("ViewerSplitter")
+        splitter.addWidget(self._viewer_panel("Original", self.original_view, "OriginalPanel"))
+        splitter.addWidget(self._viewer_panel("Gridline", self.view, "EditPanel"))
+        splitter.setStretchFactor(0, 1)
+        splitter.setStretchFactor(1, 1)
+        splitter.setSizes([900, 900])
+        return splitter
+
+    def _viewer_panel(self, title: str, view: QGraphicsView, object_name: str) -> QWidget:
+        panel = QFrame()
+        panel.setObjectName(object_name)
+        layout = QVBoxLayout(panel)
+        layout.setContentsMargins(8, 8, 8, 8)
+        layout.setSpacing(6)
+        label = QLabel(title)
+        label.setObjectName("ViewerTitle")
+        layout.addWidget(label, 0)
+        layout.addWidget(view, 1)
+        return panel
+
+    def _output_paths(self, dataset: InputDataset, pair: TablePair, bucket: str) -> tuple[Path, Path]:
+        bucket_dir = output_tab_dir(self.export_dir, dataset.name) / bucket
+        return bucket_dir / "image" / pair.image_path.name, bucket_dir / "json" / pair.json_path.name
+
+    def _restore_statuses(self, dataset: InputDataset) -> dict[str, str]:
+        statuses: dict[str, str] = {}
+        for pair in dataset.pairs:
+            candidates: list[tuple[float, str]] = []
+            for bucket, status in BUCKET_STATUSES.items():
+                image_path, json_path = self._output_paths(dataset, pair, bucket)
+                if not json_path.exists():
+                    continue
+                paths = [path for path in (image_path, json_path) if path.exists()]
+                mtime = max(path.stat().st_mtime for path in paths) if paths else json_path.stat().st_mtime
+                candidates.append((mtime, status))
+            statuses[pair.stem] = max(candidates)[1] if candidates else "review"
+        return statuses
+
+    def _output_document_pair(self, session: DatasetSession, pair: TablePair, status: str) -> TablePair:
+        bucket = STATUS_BUCKETS.get(status)
+        if bucket is None:
+            return pair
+        image_path, json_path = self._output_paths(session.dataset, pair, bucket)
+        if not json_path.exists():
+            return pair
+        return TablePair(
+            stem=pair.stem,
+            image_path=image_path if image_path.exists() else pair.image_path,
+            json_path=json_path,
+        )
+
+    def _remove_stale_output_pair(self, session: DatasetSession, pair: TablePair, keep_bucket: str) -> None:
+        for bucket in BUCKET_STATUSES:
+            if bucket == keep_bucket:
+                continue
+            for path in self._output_paths(session.dataset, pair, bucket):
+                try:
+                    path.unlink()
+                except FileNotFoundError:
+                    pass
+
+    def _set_original_preview(self, pair: TablePair | None) -> None:
+        self.original_scene.clear()
+        if pair is None:
+            return
+        pixmap = QPixmap(str(pair.image_path))
+        if pixmap.isNull():
+            return
+        item = self.original_scene.addPixmap(pixmap)
+        item.setZValue(0)
+        self.original_scene.setSceneRect(0, 0, pixmap.width(), pixmap.height())
+        # Keep Original at the same 1:1 render scale as the editable Gridline
+        # view.  fitInView made the source image look smaller than the edit
+        # canvas even when both panes had equal splitter width.
+        self.original_view.resetTransform()
+        self.original_view.centerOn(0, 0)
 
     def _build_shortcuts(self) -> None:
         shortcuts = [
@@ -382,6 +481,32 @@ class MainWindow(QMainWindow):
             QLabel#ShortcutHelp {
                 color: #64748b;
                 font-size: 11px;
+            }
+            QLabel#PreviewLabel {
+                color: #0f172a;
+                font-weight: 800;
+                margin-top: 6px;
+            }
+            QTextBrowser#MarkdownPreview {
+                border: 1px solid #cbd5e1;
+                border-radius: 8px;
+                background: #ffffff;
+                padding: 6px;
+            }
+            QFrame#OriginalPanel, QFrame#EditPanel {
+                background: #f8fafc;
+                border: 1px solid #cbd5e1;
+                border-radius: 12px;
+            }
+            QLabel#ViewerTitle {
+                color: #0f172a;
+                font-size: 13px;
+                font-weight: 900;
+            }
+            QGraphicsView#OriginalView {
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
             }
             QPushButton#SaveButton, QPushButton#DiscardButton {
                 border: none;
@@ -510,6 +635,7 @@ class MainWindow(QMainWindow):
         self.doc = None
         self.stack = None
         self.scene.set_document(None)
+        self._set_original_preview(None)
         self.refresh_info()
         self._update_header()
 
@@ -542,7 +668,8 @@ class MainWindow(QMainWindow):
         doc = session.documents.get(pair.stem)
         stack = session.stacks.get(pair.stem)
         if doc is None or stack is None:
-            doc = assign_text_to_document(load_document(pair.image_path, pair.json_path))
+            source_pair = self._output_document_pair(session, pair, session.statuses.get(pair.stem, "review"))
+            doc = assign_text_to_document(load_document(source_pair.image_path, source_pair.json_path))
             stack = CommandStack(doc)
             session.documents[pair.stem] = doc
             session.stacks[pair.stem] = stack
@@ -551,6 +678,7 @@ class MainWindow(QMainWindow):
         self.doc = doc
         self.stack = stack
         self.scene.set_document(doc)
+        self._set_original_preview(pair)
         self.activate_line_move_mode()
         self.refresh_info()
         self._update_header()
@@ -593,26 +721,105 @@ class MainWindow(QMainWindow):
         except CommandError as exc:
             self.statusBar().showMessage(f"Cannot move line: {exc}", 5000)
 
+    def _cell_text_html(self, cell: TableCell) -> str:
+        text = (cell.text or "").strip()
+        return escape(text).replace("\n", "<br>") if text else "&nbsp;"
+
+    def _markdown_table_preview_html(self, doc: TableDocument) -> str:
+        cells_by_start = {(cell.row, cell.col): cell for cell in doc.cells}
+        covered: set[tuple[int, int]] = set()
+        rows: list[str] = []
+        for row in range(doc.num_rows):
+            rendered_cells: list[str] = []
+            for col in range(doc.num_cols):
+                if (row, col) in covered:
+                    continue
+                cell = cells_by_start.get((row, col))
+                if cell is None:
+                    rendered_cells.append("<td class='empty'>&nbsp;</td>")
+                    continue
+                for rr in range(cell.row, cell.end_row):
+                    for cc in range(cell.col, cell.end_col):
+                        if (rr, cc) != (row, col):
+                            covered.add((rr, cc))
+                tag = "th" if cell.is_column_header or cell.is_row_header else "td"
+                span_attrs = []
+                if cell.row_span > 1:
+                    span_attrs.append(f"rowspan='{cell.row_span}'")
+                if cell.col_span > 1:
+                    span_attrs.append(f"colspan='{cell.col_span}'")
+                attrs = " ".join(span_attrs)
+                class_name = " class='merged'" if cell.row_span > 1 or cell.col_span > 1 else ""
+                rendered_cells.append(f"<{tag}{class_name} {attrs}>{self._cell_text_html(cell)}</{tag}>")
+            rows.append(f"<tr>{''.join(rendered_cells)}</tr>")
+        status = self.session.statuses.get(doc.stem, "review") if self.session is not None else "review"
+        return f"""
+        <html>
+          <head>
+            <style>
+              body {{
+                font-family: Inter, 'Noto Sans KR', Arial, sans-serif;
+                color: #0f172a;
+                background: #ffffff;
+              }}
+              .meta {{
+                color: #475569;
+                font-size: 12px;
+                margin-bottom: 8px;
+              }}
+              .hint {{
+                color: #64748b;
+                font-size: 11px;
+                margin-bottom: 10px;
+              }}
+              table {{
+                border-collapse: collapse;
+                width: 100%;
+                table-layout: auto;
+                font-size: 12px;
+              }}
+              td, th {{
+                border: 1px solid #94a3b8;
+                padding: 5px 7px;
+                vertical-align: top;
+                min-width: 42px;
+                white-space: pre-wrap;
+              }}
+              th {{
+                background: #e0f2fe;
+                font-weight: 800;
+              }}
+              td.merged, th.merged {{
+                background: #f3e8ff;
+                border: 2px solid #a855f7;
+              }}
+              td.empty {{
+                background: #f8fafc;
+                color: #cbd5e1;
+              }}
+            </style>
+          </head>
+          <body>
+            <div class="meta">
+              {escape(doc.stem)} · {STATUS_LABELS[status]} · {doc.num_rows}x{doc.num_cols}
+            </div>
+            <div class="hint">
+              Markdown 추출 미리보기입니다. 병합 셀은 Markdown 표 문법 한계를 보완하기 위해 HTML table의 rowspan/colspan으로 렌더링합니다.
+            </div>
+            <table>
+              {''.join(rows)}
+            </table>
+          </body>
+        </html>
+        """
+
     def refresh_info(self) -> None:
         if self.info is None:
             return
         if self.doc is None:
-            self.info.setPlainText("No document")
+            self.info.setHtml("<p style='color:#64748b'>No document selected.</p>")
             return
-        tab = self.session.dataset.name if self.session is not None else "input"
-        status = self.session.statuses.get(self.doc.stem, "review") if self.session is not None else "review"
-        lines = [
-            f"tab={tab} status={STATUS_LABELS[status]} sample={self.doc.stem}",
-            f"grid={self.doc.num_rows}x{self.doc.num_cols} cells={len(self.doc.cells)} spans={len(self.doc.text_spans)} warnings={len(self.doc.warnings)}",
-            f"output={self.export_dir / tab}",
-            "Default: click and drag a grid line to move it. Buttons and shortcuts are both available.",
-            "For merge: Select Cells, drag across adjacent cells, then Merge. Ctrl/Shift adds to the current selection. Merged cells are purple.",
-            "Shortcuts: C cell-select · V/H add at cursor · Alt+Arrow nudge · D delete · 1 merge · 2 unmerge · Ctrl+Z undo",
-        ]
-        lines.extend(f"- {getattr(w, 'message', str(w))}" for w in self.doc.warnings[:18])
-        if len(self.doc.warnings) > 18:
-            lines.append(f"... {len(self.doc.warnings) - 18} more")
-        self.info.setPlainText("\n".join(lines))
+        self.info.setHtml(self._markdown_table_preview_html(self.doc))
 
     def _update_header(self) -> None:
         has_doc = self.doc is not None and self.session is not None and self.pair is not None
@@ -748,15 +955,15 @@ class MainWindow(QMainWindow):
             result = save_output_pair(self.doc, self.pair, self.export_dir, self.session.dataset.name, bucket=bucket)
         except Exception as exc:  # noqa: BLE001 - GUI boundary surfaces validation/IO errors to users.
             QMessageBox.warning(self, "Save failed", str(exc))
-            self.info.appendPlainText(f"Save failed: {exc}")
+            self.statusBar().showMessage(f"Save failed: {exc}", 7000)
             return
+        self._remove_stale_output_pair(self.session, self.pair, keep_bucket=bucket)
         self.session.documents[self.pair.stem] = self.doc
         if self.stack is not None:
             self.session.stacks[self.pair.stem] = self.stack
         self.session.statuses[self.pair.stem] = status
         self.session.current_stem = self.pair.stem
         self._rebuild_status_lists(self.session, select_stem=self.pair.stem, select_status=status)
-        self.info.appendPlainText(f"{STATUS_LABELS[status]}: {result.image_path} and {result.json_path}")
         self.statusBar().showMessage(f"{STATUS_LABELS[status]} saved to {result.json_path}", 6000)
         self.refresh_info()
         self._update_header()

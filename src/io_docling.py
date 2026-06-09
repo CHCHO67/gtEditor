@@ -164,10 +164,37 @@ def discover_input_dataset(input_data: str | Path, *, name: str | None = None) -
     return InputDataset(name=name or root.name or "input", root=root, image_dir=image_dir, json_dir=json_dir, pairs=pairs)
 
 
-def discover_input_datasets(input_data: Iterable[str | Path]) -> list[InputDataset]:
-    """Discover repeatable --input-data folders with stable, unique tab names."""
+def _looks_like_input_dataset(root: Path) -> bool:
+    return (root / "image").is_dir() and (root / "json").is_dir()
 
-    datasets = [discover_input_dataset(path) for path in input_data]
+
+def _discover_input_path(input_data: str | Path) -> list[InputDataset]:
+    """Discover datasets from either one dataset folder or an Input_data parent."""
+
+    root = Path(input_data)
+    if _looks_like_input_dataset(root):
+        return [discover_input_dataset(root)]
+
+    children = [
+        discover_input_dataset(child)
+        for child in sorted(root.iterdir(), key=lambda path: path.name)
+        if child.is_dir() and _looks_like_input_dataset(child)
+    ] if root.is_dir() else []
+    if children:
+        return children
+
+    return [discover_input_dataset(root)]
+
+
+def discover_input_datasets(input_data: Iterable[str | Path]) -> list[InputDataset]:
+    """Discover repeatable --input-data folders with stable, unique tab names.
+
+    Each path may be either:
+    - one dataset folder containing image/ and json/
+    - an Input_data parent containing multiple such dataset folders
+    """
+
+    datasets = [dataset for path in input_data for dataset in _discover_input_path(path)]
     names = _unique_names([dataset.name for dataset in datasets])
     return [InputDataset(name=name, root=d.root, image_dir=d.image_dir, json_dir=d.json_dir, pairs=d.pairs) for name, d in zip(names, datasets)]
 
@@ -344,13 +371,37 @@ def load_documents(image_dir: str | Path, json_dir: str | Path) -> list[TableDoc
     return [load_document(pair.image_path, pair.json_path) for pair in discover_pairs(image_dir, json_dir)]
 
 
+def _export_cells(document: TableDocument) -> list[dict[str, Any]]:
+    """Serialize cells while removing exact same-key/same-text duplicates.
+
+    Line add/delete/merge experiments can leave duplicate logical cells with the
+    same grid span and same text.  The validator treats those as a failed dedup,
+    so collapse only those exact duplicates.  Same-span cells with different
+    text are preserved because they represent a genuine grid collision.
+    """
+
+    cells: list[dict[str, Any]] = []
+    by_key_text: dict[tuple[tuple[int, int, int, int], str], int] = {}
+    bool_fields = ("is_column_header", "is_row_header", "is_row_section", "is_fillable")
+    for cell in document.cells:
+        key = (cell.key, cell.text)
+        bbox = document.cell_bbox(cell)
+        payload = cell.to_docling(bbox=bbox)
+        existing_index = by_key_text.get(key)
+        if existing_index is None:
+            by_key_text[key] = len(cells)
+            cells.append(payload)
+            continue
+        existing = cells[existing_index]
+        for field in bool_fields:
+            existing[field] = bool(existing.get(field)) or bool(payload.get(field))
+    return cells
+
+
 def export_docling(document: TableDocument) -> dict[str, Any]:
     """Serialize a document to the exact key order expected by tte_validate.py."""
 
-    cells: list[dict[str, Any]] = []
-    for cell in document.cells:
-        bbox = document.cell_bbox(cell)
-        cells.append(cell.to_docling(bbox=bbox))
+    cells = _export_cells(document)
     return {
         "source_pdf": document.source_pdf,
         "page_no": document.page_no,
