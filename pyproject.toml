@@ -13,7 +13,8 @@ dependencies = [
 ]
 
 [project.scripts]
-gt-editor = "gt_editor.cli:main"
+gt-editor = "cli:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/gt_editor"]
+only-include = ["src"]
+sources = ["src"]

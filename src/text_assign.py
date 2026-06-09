@@ -1,7 +1,7 @@
 """Text assignment and warning helpers for the table GT editor.
 
 This module intentionally depends only on the Python standard library.  It works
-with the model dataclasses planned for :mod:`gt_editor.models`, but also accepts
+with the model dataclasses planned for :mod:`models`, but also accepts
 plain dictionaries shaped like the existing Docling-compatible JSON records.
 """
 from __future__ import annotations
@@ -528,7 +528,7 @@ def _install_model_compat() -> None:
     """Install read-only convenience properties expected by tests/GUI code."""
 
     try:
-        from gt_editor import models as model_mod  # type: ignore
+        import models as model_mod  # type: ignore
     except Exception:
         return
 
@@ -681,12 +681,12 @@ def assign_text_to_cells(
 
 
 def _assign_model_text_to_document(document: Any, *, spans: Sequence[Any] | None = None) -> Any:
-    """Model-specific text assignment for gt_editor.models.TableDocument.
+    """Model-specific text assignment for models.TableDocument.
 
     Keeps warnings as GridWarning objects so project-state serialization remains
     stable, and updates TableCell.assigned_span_ids/TextSpan.assigned_cell_key.
     """
-    from gt_editor.models import TableDocument, detect_crossing_warnings
+    from models import TableDocument, detect_crossing_warnings
 
     if not isinstance(document, TableDocument):
         return None
@@ -749,7 +749,7 @@ def assign_text_to_document(document: Any, *, spans: Sequence[Any] | None = None
     if model_updated is not None:
         return model_updated
 
-    from gt_editor.commands import get_axis, get_cells, set_cells_on_copy  # lazy import avoids a cycle
+    from commands import get_axis, get_cells, set_cells_on_copy  # lazy import avoids a cycle
 
     x_lines = get_axis(document, "x")
     y_lines = get_axis(document, "y")
@@ -803,7 +803,7 @@ def suggest_span_splits(document: Any, span: Any) -> list[SpanSplitSuggestion]:
     if _is_table_document(document):
         x_lines, y_lines = _axis_from_document(document)
     else:
-        from gt_editor.commands import get_axis  # lazy import avoids a cycle
+        from commands import get_axis  # lazy import avoids a cycle
 
         x_lines, y_lines = get_axis(document, "x"), get_axis(document, "y")
     rect = Rect.from_bbox(_span_bbox(span))

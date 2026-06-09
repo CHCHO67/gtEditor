@@ -10,7 +10,7 @@ import shutil
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
-from .models import (
+from models import (
     GridAxis,
     GridWarning,
     Rect,
@@ -465,7 +465,7 @@ def validate_docling_record(
     """Validate an exported Docling-style record with the bundled validator."""
 
     record = export_docling(record_or_document) if isinstance(record_or_document, TableDocument) else dict(record_or_document)
-    from .docling_validator import validate
+    from docling_validator import validate
 
     return validate(record, str(png_path) if png_path is not None else None, check_png=check_png)
 

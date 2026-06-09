@@ -6,14 +6,14 @@ import os
 import sys
 from pathlib import Path
 
-from .io_docling import (
+from io_docling import (
     discover_input_datasets,
     legacy_input_dataset,
     load_document,
     save_output_tab,
     verify_output_tab_counts,
 )
-from .text_assign import assign_text_to_document
+from text_assign import assign_text_to_document
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -39,7 +39,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 def _datasets(args: argparse.Namespace):
     datasets = discover_input_datasets(args.input_data) if args.input_data else [legacy_input_dataset(args.image_dir, args.json_dir)]
     if args.limit is not None and args.limit > 0:
-        from .io_docling import InputDataset
+        from io_docling import InputDataset
 
         datasets = [
             InputDataset(
@@ -98,7 +98,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.smoke_exit:
         os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
     try:
-        from .app import build_app
+        from app import build_app
     except RuntimeError as exc:
         print(str(exc), file=sys.stderr)
         return 2

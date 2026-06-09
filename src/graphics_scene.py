@@ -3,8 +3,8 @@ from __future__ import annotations
 
 from typing import Callable
 
-from .commands import MoveLineCommand
-from .models import TableCell, TableDocument
+from commands import MoveLineCommand
+from models import TableCell, TableDocument
 
 
 def require_qt():
@@ -13,7 +13,7 @@ def require_qt():
         from PySide6.QtGui import QColor, QPen, QBrush, QPixmap
         from PySide6.QtWidgets import QGraphicsItem, QGraphicsLineItem, QGraphicsRectItem, QGraphicsScene, QGraphicsSimpleTextItem
     except ImportError as exc:  # pragma: no cover - exercised by CLI environment
-        raise RuntimeError("PySide6 is required for the GUI. Run with: uv run --with pyside6 python -m gt_editor.cli ...") from exc
+        raise RuntimeError("PySide6 is required for the GUI. Run with: uv run --with pyside6 python -m cli ...") from exc
     return Qt, QPointF, Signal, QColor, QPen, QBrush, QPixmap, QGraphicsItem, QGraphicsLineItem, QGraphicsRectItem, QGraphicsScene, QGraphicsSimpleTextItem
 
 

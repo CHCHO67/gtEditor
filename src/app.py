@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from .commands import (
+from commands import (
     AddLineCommand,
     CommandError,
     CommandStack,
@@ -13,8 +13,8 @@ from .commands import (
     MoveLineCommand,
     UnmergeCellCommand,
 )
-from .graphics_scene import require_qt
-from .io_docling import (
+from graphics_scene import require_qt
+from io_docling import (
     InputDataset,
     TablePair,
     discover_input_datasets,
@@ -22,8 +22,8 @@ from .io_docling import (
     load_document,
     save_output_pair,
 )
-from .models import TableCell, TableDocument
-from .text_assign import assign_text_to_document
+from models import TableCell, TableDocument
+from text_assign import assign_text_to_document
 
 _qt = require_qt()
 if len(_qt) == 12:
@@ -49,7 +49,7 @@ from PySide6.QtWidgets import (  # noqa: E402
     QWidget,
 )
 
-from .graphics_scene import TableGraphicsScene  # noqa: E402
+from graphics_scene import TableGraphicsScene  # noqa: E402
 
 STATUS_ORDER = ("review", "completed", "discarded")
 STATUS_LABELS = {

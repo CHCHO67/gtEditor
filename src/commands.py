@@ -1,7 +1,7 @@
 """Undoable table-structure editing commands for the GT editor.
 
 The command layer is deliberately model-light: it operates on either future
-``gt_editor.models`` dataclasses or existing Docling-compatible dictionaries.
+``models`` dataclasses or existing Docling-compatible dictionaries.
 Each command returns an updated document copy from ``apply(document)`` and stores
 a snapshot so ``revert()`` can be used by the GUI undo stack.
 """
@@ -12,7 +12,7 @@ import copy
 import math
 from typing import Any, Iterable, Mapping, MutableMapping, Sequence
 
-from gt_editor.text_assign import (
+from text_assign import (
     _cell_id,
     _get,
     _replace_record,
@@ -114,7 +114,7 @@ def set_axis_on_copy(document: Any, axis: str, lines: Sequence[Number]) -> Any:
     axis = _axis(axis)
     values = [float(v) for v in lines]
     if _is_table_document(document):
-        from gt_editor.models import GridAxis
+        from models import GridAxis
         if len(values) < 2:
             raise CommandError("axis needs at least two boundary values")
         if axis == "x":

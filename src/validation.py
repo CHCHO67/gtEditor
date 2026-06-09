@@ -4,9 +4,9 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from .docling_validator import validate
-from .io_docling import export_docling
-from .models import TableDocument
+from docling_validator import validate
+from io_docling import export_docling
+from models import TableDocument
 
 
 def validate_record(record: dict[str, Any], png_path: str | Path | None = None, check_png: bool = True) -> tuple[bool, list[str]]:
