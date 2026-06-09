@@ -23,6 +23,10 @@ gt_editor_exports/
 /tmp/
 .DS_Store
 
-# Local review data
-Input_data/
-Output_data/
+# Local review data: keep folder docs/placeholders, ignore user data inside.
+Input_data/*
+!Input_data/.gitkeep
+!Input_data/README.md
+Output_data/*
+!Output_data/.gitkeep
+!Output_data/README.md
