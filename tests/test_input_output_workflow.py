@@ -163,6 +163,12 @@ def test_gui_edit_tools_line_drag_and_merge_visuals_offscreen(tmp_path: Path):
         assert all(item.brush().color().green() > item.brush().color().red() for item in text_box_items[:5])
         assert all(20 <= item.brush().color().alpha() <= 90 for item in text_box_items[:5])
 
+        implicit_first_col = next(item for item in win.scene.items() if hasattr(item, "cell") and item.cell_index is None and item.cell.row == 0 and item.cell.col == 0)
+        win.scene.clearSelection()
+        win.view.select_cells_in_scene_rect(QRectF(implicit_first_col.sceneBoundingRect().center(), implicit_first_col.sceneBoundingRect().center()))
+        assert (0, 0) in win.selected_cells()
+        assert implicit_first_col.brush().color().blue() > implicit_first_col.brush().color().green()
+
         vertical_line = next(item for item in win.scene.items() if hasattr(item, "axis") and item.axis == "x")
         vertical_color = vertical_line.pen().color()
         assert vertical_color.red() > vertical_color.green()
@@ -178,7 +184,7 @@ def test_gui_edit_tools_line_drag_and_merge_visuals_offscreen(tmp_path: Path):
             if right_item is None:
                 continue
             try:
-                MergeCellsCommand(selection=[win.doc.cells[left_item.cell_index], win.doc.cells[right_item.cell_index]]).apply(win.doc)
+                MergeCellsCommand(selection=[left_item.cell, right_item.cell]).apply(win.doc)
             except CommandError:
                 continue
             merge_target = (row, col, left_item, right_item)
@@ -189,7 +195,11 @@ def test_gui_edit_tools_line_drag_and_merge_visuals_offscreen(tmp_path: Path):
         win.scene.clearSelection()
         drag_rect = QRectF(left_item.sceneBoundingRect().center(), right_item.sceneBoundingRect().center())
         win.view.select_cells_in_scene_rect(drag_rect)
-        assert {left_item.cell_index, right_item.cell_index}.issubset(set(win.selected_cells()))
+        expected_refs = {
+            (item.cell.row, item.cell.col) if item.cell_index is None else item.cell_index
+            for item in (left_item, right_item)
+        }
+        assert expected_refs.issubset(set(win.selected_cells()))
         selected_color = left_item.brush().color()
         assert selected_color.blue() > selected_color.green()
         assert selected_color.alpha() > 80

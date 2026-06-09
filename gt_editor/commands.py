@@ -435,6 +435,27 @@ def merge_cells(
     row, col, end_row, end_col = _selection_bounds(selection_items)
     cells = get_cells(document)
     affected = [cell for cell in cells if _overlaps(cell, row, col, end_row, end_col)]
+    affected_keys = {
+        (
+            int(_get(cell, "row")),
+            int(_get(cell, "col")),
+            int(_get(cell, "end_row")),
+            int(_get(cell, "end_col")),
+        )
+        for cell in affected
+    }
+    for item in selection_items:
+        if isinstance(item, tuple) or not all(_has_field(item, field_name) for field_name in ("row", "col", "end_row", "end_col")):
+            continue
+        key = (
+            int(_get(item, "row")),
+            int(_get(item, "col")),
+            int(_get(item, "end_row")),
+            int(_get(item, "end_col")),
+        )
+        if key not in affected_keys and _inside(item, row, col, end_row, end_col):
+            affected.append(item)
+            affected_keys.add(key)
     if not affected:
         raise CommandError("selection does not match any cells")
     if any(not _inside(cell, row, col, end_row, end_col) for cell in affected):

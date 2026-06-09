@@ -102,18 +102,20 @@ class GridLineItem(QGraphicsLineItem):
 
 
 class CellRectItem(QGraphicsRectItem):
-    def __init__(self, cell_index: int, cell: TableCell, rect):
+    def __init__(self, cell_index: int | None, cell: TableCell, rect, *, is_virtual: bool = False):
         if hasattr(rect, "to_list"):
             rect = rect.to_list()
         x0, y0, x1, y1 = rect
         super().__init__(float(x0), float(y0), float(x1) - float(x0), float(y1) - float(y0))
         self.cell_index = cell_index
         self.cell = cell
+        self.is_virtual = is_virtual
         self.setFlags(QGraphicsItem.ItemIsSelectable)
         self._is_merged = getattr(cell, "row_span", 1) > 1 or getattr(cell, "col_span", 1) > 1
         self._apply_selection_style()
         merged_label = "merged " if self._is_merged else ""
-        self.setToolTip(f"{merged_label}cell#{cell_index} r{cell.row}:{cell.end_row} c{cell.col}:{cell.end_col}\n{cell.text[:200]}")
+        virtual_label = "implicit empty " if is_virtual else ""
+        self.setToolTip(f"{merged_label}{virtual_label}cell#{cell_index} r{cell.row}:{cell.end_row} c{cell.col}:{cell.end_col}\n{cell.text[:200]}")
 
     def _apply_selection_style(self) -> None:
         if self.isSelected():
@@ -124,6 +126,10 @@ class CellRectItem(QGraphicsRectItem):
             self.setPen(QPen(QColor(126, 34, 206, 210), 2.2))
             self.setBrush(QBrush(QColor(168, 85, 247, 72)))
             self.setZValue(6)
+        elif self.is_virtual:
+            self.setPen(QPen(QColor(245, 158, 11, 72), 0.6))
+            self.setBrush(QBrush(QColor(255, 255, 255, 0)))
+            self.setZValue(3)
         else:
             self.setPen(QPen(QColor(255, 170, 0, 120), 0.8))
             self.setBrush(QBrush(QColor(255, 200, 0, 18)))
@@ -184,6 +190,20 @@ class TableGraphicsScene(QGraphicsScene):
             rect = doc.cell_bbox(cell)
             rect_values = rect.to_list() if hasattr(rect, "to_list") else rect
             self.addItem(CellRectItem(idx, cell, rect_values))
+        covered_slots = {
+            (row, col)
+            for cell in doc.cells
+            for row in range(cell.row, cell.end_row)
+            for col in range(cell.col, cell.end_col)
+        }
+        for row in range(doc.num_rows):
+            for col in range(doc.num_cols):
+                if (row, col) in covered_slots:
+                    continue
+                cell = TableCell(row=row, col=col, end_row=row + 1, end_col=col + 1, metadata={"virtual": True})
+                rect = doc.cell_bbox(cell)
+                rect_values = rect.to_list() if hasattr(rect, "to_list") else rect
+                self.addItem(CellRectItem(None, cell, rect_values, is_virtual=True))
         for i in range(1, len(doc.x_edges) - 1):
             self.addItem(GridLineItem(doc, "x", i, self._request_line_move))
         for i in range(1, len(doc.y_edges) - 1):

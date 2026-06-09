@@ -22,7 +22,7 @@ from .io_docling import (
     load_document,
     save_output_pair,
 )
-from .models import TableDocument
+from .models import TableCell, TableDocument
 from .text_assign import assign_text_to_document
 
 _qt = require_qt()
@@ -635,8 +635,19 @@ class MainWindow(QMainWindow):
         for button in self.edit_buttons:
             button.setEnabled(has_doc)
 
-    def selected_cells(self) -> list[int]:
-        return [int(item.cell_index) for item in self.scene.selectedItems() if hasattr(item, "cell_index")]
+    def selected_cells(self) -> list[int | tuple[int, int]]:
+        selected: list[int | tuple[int, int]] = []
+        for item in self.scene.selectedItems():
+            if not hasattr(item, "cell_index") or not hasattr(item, "cell"):
+                continue
+            if item.cell_index is None:
+                selected.append((item.cell.row, item.cell.col))
+            else:
+                selected.append(int(item.cell_index))
+        return selected
+
+    def selected_cell_objects(self) -> list[TableCell]:
+        return [item.cell for item in self.scene.selectedItems() if hasattr(item, "cell")]
 
     def selected_line(self):
         for item in self.scene.selectedItems():
@@ -705,7 +716,7 @@ class MainWindow(QMainWindow):
             QMessageBox.information(self, "Merge", "Select two or more adjacent cells before merging.")
             return
         try:
-            self._do(MergeCellsCommand(selection=[self.doc.cells[i] for i in ids]))
+            self._do(MergeCellsCommand(selection=self.selected_cell_objects()))
             self.activate_line_move_mode()
         except CommandError as exc:
             QMessageBox.warning(self, "Cannot merge", str(exc))

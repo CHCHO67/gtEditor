@@ -1,5 +1,6 @@
 from gt_editor.commands import AddLineCommand, CommandStack, DeleteLineCommand, MergeCellsCommand, UnmergeCellCommand
 from gt_editor.io_docling import discover_pairs, load_document
+from gt_editor.models import TableCell
 from gt_editor.text_assign import assign_text_to_document
 
 
@@ -27,6 +28,19 @@ def test_merge_unmerge_cells():
     merged_idx = next(i for i, c in enumerate(doc2.cells) if c.row == 0 and c.col == 1 and c.end_row == 2 and c.end_col == 2)
     doc3 = UnmergeCellCommand(target=merged_idx).apply(doc2)
     assert any(c.row == 0 and c.col == 1 and c.end_row == 1 and c.end_col == 2 for c in doc3.cells)
+
+
+def test_merge_can_create_cell_from_implicit_empty_grid_slots():
+    doc = load_doc()
+    assert not any(c.row == 0 and c.col == 0 for c in doc.cells)
+    selection = [
+        TableCell(row=0, col=0, end_row=1, end_col=1),
+        TableCell(row=1, col=0, end_row=2, end_col=1),
+    ]
+
+    doc2 = MergeCellsCommand(selection=selection).apply(doc)
+
+    assert any(c.row == 0 and c.col == 0 and c.end_row == 2 and c.end_col == 1 for c in doc2.cells)
 
 
 def test_command_stack_undo():
