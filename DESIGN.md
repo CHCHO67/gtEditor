@@ -14,7 +14,7 @@
 ## Product goals
 - Goals: let reviewers process one table at a time, classify it as completed or discarded, and persist every decision to Output_data.
 - Non-goals: full visual design system, batch approval UI, cloud sync.
-- Success signals: reviewer always knows current file state; only one primary save action exists; review/completed/discard counts are visible.
+- Success signals: reviewer always knows current file state; only one primary save action exists; review/completed/discard counts are visible; a new image defaults to direct grid-line dragging.
 
 ## Personas and jobs
 - Primary personas: dataset/GT reviewers correcting table structure for TTE datasets.
@@ -40,14 +40,14 @@
 - Imagery/iconography: text labels over icons to avoid ambiguity.
 
 ## Components
-- Existing components to reuse: `QTabWidget`, `QListWidget`, `QGraphicsView`, `QPlainTextEdit`, existing command stack.
-- New/changed components: current-file header, styled Save/Discard buttons, per-dataset review state tabs.
+- Existing components to reuse: `QTabWidget`, `QListWidget`, `QGraphicsView`, `QPlainTextEdit`, `QPushButton`, existing command stack.
+- New/changed components: current-file header, styled Save/Discard buttons, edit button bar, per-dataset review state tabs.
 - Variants and states: review/completed/discard list states; disabled action state when no active file.
 - Token/component ownership: inline Qt stylesheet in `gt_editor/app.py` until a broader design system is needed.
 
 ## Accessibility
 - Target standard: keyboard-first desktop usability.
-- Keyboard/focus behavior: editing tools are available as application shortcuts; Save is `Ctrl+S`; Discard is `Ctrl+D`.
+- Keyboard/focus behavior: editing tools are available as both visible buttons and application shortcuts; Save is `Ctrl+S`; Discard is `Ctrl+D`.
 - Contrast/readability: high contrast text/buttons; orange discard distinct from green save.
 - Screen-reader semantics: explicit button text and visible labels.
 - Reduced motion and sensory considerations: no animation required.

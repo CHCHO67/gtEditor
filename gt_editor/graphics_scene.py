@@ -34,7 +34,9 @@ class GridLineItem(QGraphicsLineItem):
             super().__init__(0, y, doc.width, y)
         self.setFlags(QGraphicsItem.ItemIsSelectable | QGraphicsItem.ItemIsMovable | QGraphicsItem.ItemSendsGeometryChanges)
         color = QColor(0, 210, 80, 210) if axis == "x" else QColor(60, 140, 255, 210)
-        self.setPen(QPen(color, 1.4))
+        self.setPen(QPen(color, 3.0))
+        self.setCursor(Qt.SizeHorCursor if axis == "x" else Qt.SizeVerCursor)
+        self.setToolTip("Drag this grid line to move it.")
         self.setZValue(10)
 
     def itemChange(self, change, value):  # pragma: no cover - GUI callback

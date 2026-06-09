@@ -100,8 +100,10 @@ class MainWindow(QMainWindow):
         self.info.setReadOnly(True)
         self.info.setMaximumHeight(170)
         self.list_widget = QListWidget()
+        self.edit_buttons: list[QPushButton] = []
 
         self.header, self.header_title, self.header_subtitle, self.progress_label = self._build_header()
+        self.edit_bar = self._build_edit_bar()
         for dataset in self.datasets:
             self._add_dataset_tab(dataset)
         self.tabs.currentChanged.connect(self._on_tab_changed)
@@ -117,6 +119,7 @@ class MainWindow(QMainWindow):
         root_layout.setContentsMargins(10, 10, 10, 10)
         root_layout.setSpacing(8)
         root_layout.addWidget(self.header, 0)
+        root_layout.addWidget(self.edit_bar, 0)
         root_layout.addWidget(content, 1)
         self.setCentralWidget(root)
         self.scene.documentChanged.connect(self._on_scene_document_changed)
@@ -171,6 +174,35 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.save_button, 0)
         return header, title, subtitle, progress
 
+    def _build_edit_bar(self) -> QFrame:
+        bar = QFrame()
+        bar.setObjectName("EditBar")
+        layout = QHBoxLayout(bar)
+        layout.setContentsMargins(12, 8, 12, 8)
+        layout.setSpacing(8)
+
+        mode_label = QLabel("기본 조작: 선 선택 후 드래그 이동")
+        mode_label.setObjectName("ModeLabel")
+        layout.addWidget(mode_label, 1)
+
+        tool_specs = [
+            ("Move Line", "기본", self.activate_line_move_mode, "선을 클릭/드래그해서 이동합니다."),
+            ("Add V", "V", lambda: self.add_line("x"), "세로선을 화면 중앙에 추가합니다."),
+            ("Add H", "H", lambda: self.add_line("y"), "가로선을 화면 중앙에 추가합니다."),
+            ("Delete", "Del", self.delete_selected_line, "선택한 선을 삭제합니다."),
+            ("Merge", "M", self.merge_selected_cells, "선택한 셀들을 병합합니다."),
+            ("Unmerge", "U", self.unmerge_selected_cell, "선택한 병합 셀을 해제합니다."),
+            ("Undo", "Ctrl+Z", self.undo, "마지막 편집을 되돌립니다."),
+        ]
+        for label, shortcut, slot, tooltip in tool_specs:
+            button = QPushButton(f"{label}  {shortcut}")
+            button.setObjectName("MoveToolButton" if label == "Move Line" else "EditToolButton")
+            button.setToolTip(tooltip)
+            button.clicked.connect(slot)
+            layout.addWidget(button, 0)
+            self.edit_buttons.append(button)
+        return bar
+
     def _resolve_datasets(
         self,
         image_dir: str | Path | None,
@@ -209,7 +241,7 @@ class MainWindow(QMainWindow):
         layout.setContentsMargins(8, 8, 8, 8)
         path_label = QLabel(f"Input_data: {dataset.root}")
         path_label.setObjectName("InputPathLabel")
-        help_label = QLabel("Shortcuts: V/H add line · Alt+Arrows move line · Del delete · M merge · U unmerge · Ctrl+Z undo")
+        help_label = QLabel("Buttons and shortcuts both work: drag lines by default · V/H add · Alt+Arrows nudge · Del delete · M merge · U unmerge · Ctrl+Z undo")
         help_label.setObjectName("ShortcutHelp")
         layout.addWidget(path_label)
         layout.addWidget(status_tabs, 1)
@@ -244,6 +276,13 @@ class MainWindow(QMainWindow):
             action.triggered.connect(slot)
             self.addAction(action)
             self._shortcut_actions.append(action)
+
+    def activate_line_move_mode(self) -> None:
+        """Keep the default interaction focused on direct grid-line dragging."""
+
+        self.view.setDragMode(QGraphicsView.NoDrag)
+        self.view.setInteractive(True)
+        self.statusBar().showMessage("Line move mode: click a grid line, then drag it.", 5000)
 
     def _apply_style(self) -> None:
         self.setStyleSheet(
@@ -301,6 +340,34 @@ class MainWindow(QMainWindow):
             QPushButton:disabled {
                 background: #94a3b8;
                 color: #e2e8f0;
+            }
+            QFrame#EditBar {
+                background: #f8fafc;
+                border: 1px solid #cbd5e1;
+                border-radius: 12px;
+            }
+            QLabel#ModeLabel {
+                color: #0f172a;
+                font-weight: 800;
+            }
+            QPushButton#EditToolButton, QPushButton#MoveToolButton {
+                border: 1px solid #cbd5e1;
+                border-radius: 9px;
+                color: #0f172a;
+                background: #ffffff;
+                font-weight: 700;
+                padding: 7px 10px;
+            }
+            QPushButton#EditToolButton:hover {
+                background: #e0f2fe;
+            }
+            QPushButton#MoveToolButton {
+                background: #dbeafe;
+                border-color: #60a5fa;
+                color: #1e3a8a;
+            }
+            QPushButton#MoveToolButton:hover {
+                background: #bfdbfe;
             }
             QTabWidget::pane {
                 border: 1px solid #cbd5e1;
@@ -417,6 +484,7 @@ class MainWindow(QMainWindow):
         self.doc = doc
         self.stack = stack
         self.scene.set_document(doc)
+        self.activate_line_move_mode()
         self.refresh_info()
         self._update_header()
 
@@ -462,7 +530,8 @@ class MainWindow(QMainWindow):
             f"tab={tab} status={STATUS_LABELS[status]} sample={self.doc.stem}",
             f"grid={self.doc.num_rows}x{self.doc.num_cols} cells={len(self.doc.cells)} spans={len(self.doc.text_spans)} warnings={len(self.doc.warnings)}",
             f"output={self.export_dir / tab}",
-            "Shortcuts: V/H add · Alt+Arrow move · Del delete · M merge · U unmerge · Ctrl+Z undo",
+            "Default: click and drag a grid line to move it. Buttons and shortcuts are both available.",
+            "Shortcuts: V/H add · Alt+Arrow nudge · Del delete · M merge · U unmerge · Ctrl+Z undo",
         ]
         lines.extend(f"- {getattr(w, 'message', str(w))}" for w in self.doc.warnings[:18])
         if len(self.doc.warnings) > 18:
@@ -487,6 +556,8 @@ class MainWindow(QMainWindow):
             )
         self.save_button.setEnabled(has_doc)
         self.discard_button.setEnabled(has_doc)
+        for button in self.edit_buttons:
+            button.setEnabled(has_doc)
 
     def selected_cells(self) -> list[int]:
         return [int(item.cell_index) for item in self.scene.selectedItems() if hasattr(item, "cell_index")]

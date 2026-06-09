@@ -108,6 +108,9 @@ def test_gui_tabs_and_save_actions_offscreen(tmp_path: Path):
         assert win.sessions[0].status_tabs.tabText(0).startswith("검토 (1)")
         assert win.save_button.text().startswith("Save")
         assert win.discard_button.text().startswith("Discard")
+        assert any(button.text().startswith("Move Line") for button in win.edit_buttons)
+        assert any(button.text().startswith("Add V") for button in win.edit_buttons)
+        assert any(button.text().startswith("Merge") for button in win.edit_buttons)
 
         win.save_current()
         assert win.sessions[0].status_tabs.tabText(0).startswith("검토 (0)")

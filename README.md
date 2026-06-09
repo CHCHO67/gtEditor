@@ -50,7 +50,7 @@ Only the current file has visible decision buttons in the upper-right header: **
 <output-data>/<tab-name>/json/<table_id>.json
 ```
 
-Editing tools are keyboard-first: `V`/`H` add vertical/horizontal lines, `Alt+Arrow` moves a selected line, `Del` deletes a selected line, `M` merges cells, `U` unmerges, and `Ctrl+Z` undoes. Tab names derived from duplicate folder names are disambiguated automatically.
+Editing tools are available as both buttons and shortcuts. The default interaction after selecting a new image is **line movement**: click a grid line and drag it. Buttons also expose Move Line, Add V/H, Delete, Merge, Unmerge, and Undo. Shortcuts remain: `V`/`H` add vertical/horizontal lines, `Alt+Arrow` nudges a selected line, `Del` deletes a selected line, `M` merges cells, `U` unmerges, and `Ctrl+Z` undoes. Tab names derived from duplicate folder names are disambiguated automatically.
 
 The legacy single-folder flags remain available:
 
