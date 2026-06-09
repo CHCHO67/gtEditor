@@ -1,0 +1,5484 @@
+{
+  "source_pdf": "56900fdbd9344f5c6205b360bf5e51759b65c5e2150b527d81673f8bdc185ddc.pdf",
+  "page_no": 1,
+  "table_index": 0,
+  "global_index": 0,
+  "num_rows": 55,
+  "num_cols": 10,
+  "image_size": [
+    851,
+    1046
+  ],
+  "table_bbox_px": [
+    20.113152653028987,
+    90.35091590881348,
+    871.4653373654149,
+    1136.1736450195312
+  ],
+  "h_lines": {
+    "0": 30.001779128448106,
+    "1": 46.572478445246816,
+    "2": 65.08401309605688,
+    "3": 86.04270335845649,
+    "4": 103.01501855067909,
+    "5": 121.67323282401776,
+    "6": 139.0813169432804,
+    "7": 158.07308898121119,
+    "8": 176.7283978946507,
+    "9": 195.35345986112952,
+    "10": 211.85815086588264,
+    "11": 230.70657909661531,
+    "12": 248.69553600624204,
+    "13": 267.82339212298393,
+    "14": 284.20324728637934,
+    "15": 303.30059161037207,
+    "16": 319.1648879317145,
+    "17": 341.0944439470768,
+    "18": 356.62582667917013,
+    "19": 374.9298636356543,
+    "20": 392.31415228520444,
+    "21": 411.94848945116973,
+    "22": 427.9683805257082,
+    "23": 447.4027179316108,
+    "24": 466.2561235204339,
+    "25": 485.61293882131577,
+    "26": 501.31215588748455,
+    "27": 521.0343649014831,
+    "28": 539.2205618172884,
+    "29": 557.6488122045994,
+    "30": 574.6540929079056,
+    "31": 594.3253484488669,
+    "32": 611.3866458535194,
+    "33": 630.9548690636148,
+    "34": 648.1806118637323,
+    "35": 665.5625655949116,
+    "36": 685.405013967058,
+    "37": 702.8350802867644,
+    "38": 723.1296642869711,
+    "39": 743.7209258079529,
+    "40": 775.6326393805721,
+    "41": 799.4837496216787,
+    "42": 826.1557599418084,
+    "43": 844.1766841113567,
+    "44": 862.298118442297,
+    "45": 880.7653790563345,
+    "46": 898.3445650041103,
+    "47": 915.5735936611891,
+    "48": 936.2585482746363,
+    "49": 952.4590405225754,
+    "50": 970.3995072841644,
+    "51": 989.1747679710388,
+    "52": 1006.6434895094717,
+    "53": 1022.3421600937843
+  },
+  "v_lines": {
+    "0": 228.38168300420296,
+    "1": 324.6532270399759,
+    "2": 368.91889199489304,
+    "3": 395.85156026006746,
+    "4": 501.1023710058517,
+    "5": 613.8174463229274,
+    "6": 697.3151964893411,
+    "7": 764.2690039707855,
+    "8": -20.113152653028987
+  },
+  "cells": [
+    {
+      "row": 0,
+      "col": 0,
+      "end_row": 1,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "By remaining maturity December 31, 2019 (in millions)",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        1.0247975008828298,
+        4.2787851607427,
+        144.12342717502776,
+        27.4515251100529
+      ]
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "end_row": 1,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Due year",
+      "is_column_header": true,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        292.67496751897477,
+        7.406794543610886,
+        322.36266474523467,
+        22.572544519789517
+      ]
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "end_row": 1,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "in one or less",
+      "is_column_header": true,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        299.7779111782042,
+        7.742437895620242,
+        346.04488735038694,
+        23.030007197521627
+      ]
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "end_row": 1,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Due after one year through five years",
+      "is_column_header": true,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        400.1118977105918,
+        7.110402408521622,
+        485.62038345657476,
+        21.794320486485958
+      ]
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "end_row": 1,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Due after five years through 10 years",
+      "is_column_header": true,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        4.982567079830915,
+        610.1939554134336,
+        24.177819633856416
+      ]
+    },
+    {
+      "row": 0,
+      "col": 6,
+      "end_row": 1,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Due after 10 years (b)",
+      "is_column_header": true,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        656.0308869498116,
+        7.107133218320087,
+        702.1872178598612,
+        22.023454936221242
+      ]
+    },
+    {
+      "row": 0,
+      "col": 8,
+      "end_row": 1,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Total",
+      "is_column_header": true,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        782.8624343295057,
+        13.537351867184043,
+        803.9197503546707,
+        26.304075624793768
+      ]
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "end_row": 2,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Available-for-sale securities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        0.7673061815630469,
+        32.552033146843314,
+        149.42404389902325,
+        45.5332235712558
+      ]
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "end_row": 3,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Mortgage-backed securities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        -0.15670229967902927,
+        47.61173331923783,
+        126.41283659173659,
+        60.49521122686565
+      ]
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "end_row": 4,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        12.607456316867793,
+        71.57795198634267,
+        78.46977502838904,
+        83.50454984977841
+      ]
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "end_row": 4,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        270.33175560446347,
+        69.75757340714335,
+        276.78105476443505,
+        82.89898774400353
+      ]
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "end_row": 4,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        348.4252323727648,
+        71.91223410889506,
+        362.5242302774381,
+        84.76396946981549
+      ]
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "end_row": 4,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        378.3604349296634,
+        71.3329540528357,
+        387.0015253740199,
+        84.08255241438746
+      ]
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "end_row": 4,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "58",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        482.58180063391933,
+        70.55571734905243,
+        492.63590213230674,
+        83.55074986070395
+      ]
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "end_row": 4,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$ 11,073",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        509.889748604814,
+        70.697620164603,
+        622.921002822363,
+        83.55441875383258
+      ]
+    },
+    {
+      "row": 3,
+      "col": 6,
+      "end_row": 4,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        627.6834185271704,
+        71.49658980220556,
+        696.4994930844347,
+        83.72117033600807
+      ]
+    },
+    {
+      "row": 3,
+      "col": 7,
+      "end_row": 4,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "114,516 $",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        716.7179353056835,
+        69.67281496524811,
+        756.637020223281,
+        82.93915861845016
+      ]
+    },
+    {
+      "row": 3,
+      "col": 8,
+      "end_row": 4,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "125,648",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        758.5325055258614,
+        71.09212354570627,
+        840.1004972986814,
+        83.57656453549862
+      ]
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "end_row": 5,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        12.950719919525273,
+        89.48145718127489,
+        72.25407440922841,
+        101.29689770936966
+      ]
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "end_row": 5,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        351.707082507991,
+        89.37960839644074,
+        365.2441242923256,
+        101.84449753537774
+      ]
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "end_row": 5,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "58",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        478.170505994909,
+        88.36778064072132,
+        493.0608205426641,
+        101.01066172868013
+      ]
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "end_row": 5,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "11,251",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        87.32143724709749,
+        596.5145466748405,
+        100.50000789016485
+      ]
+    },
+    {
+      "row": 4,
+      "col": 6,
+      "end_row": 5,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "116,985",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        698.0466995848327,
+        88.57826293632388,
+        727.0736212754449,
+        100.87452320381999
+      ]
+    },
+    {
+      "row": 4,
+      "col": 8,
+      "end_row": 5,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "128,295",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        798.485697606832,
+        88.82051114737988,
+        842.6716292661779,
+        101.01313881576061
+      ]
+    },
+    {
+      "row": 5,
+      "col": 0,
+      "end_row": 6,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        12.331525177915555,
+        104.18553956598043,
+        82.26111994951712,
+        116.05323261022568
+      ]
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "end_row": 6,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.99%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        347.3684686099782,
+        105.98356204479933,
+        364.83255437001463,
+        118.30731953680515
+      ]
+    },
+    {
+      "row": 5,
+      "col": 4,
+      "end_row": 6,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "2.78%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        473.42580368298445,
+        106.30432145297527,
+        493.17567844551155,
+        118.89290915429592
+      ]
+    },
+    {
+      "row": 5,
+      "col": 6,
+      "end_row": 6,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "2.76% 3.40%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        598.0935449769739,
+        105.67772747576237,
+        725.8011500062061,
+        119.08145567856263
+      ]
+    },
+    {
+      "row": 5,
+      "col": 8,
+      "end_row": 6,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "3.34%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        815.3653429111512,
+        104.61029768362641,
+        837.1582976653796,
+        116.94743767753243
+      ]
+    },
+    {
+      "row": 6,
+      "col": 0,
+      "end_row": 7,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "U.S. Treasury and government agencies",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        3.253715853731169,
+        124.26500996947289,
+        179.23107598142568,
+        137.23455513082445
+      ]
+    },
+    {
+      "row": 7,
+      "col": 0,
+      "end_row": 8,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        8.43147319004315,
+        142.23680642992258,
+        79.49414459917725,
+        154.08201874047518
+      ]
+    },
+    {
+      "row": 7,
+      "col": 1,
+      "end_row": 8,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        270.2593793917103,
+        140.92807875573635,
+        277.05985037218625,
+        153.09939412772655
+      ]
+    },
+    {
+      "row": 7,
+      "col": 2,
+      "end_row": 8,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "10,687",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        313.1862136472173,
+        142.87763976305723,
+        358.3982024713725,
+        155.3217151388526
+      ]
+    },
+    {
+      "row": 7,
+      "col": 3,
+      "end_row": 8,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        372.08560507638117,
+        141.68642572313547,
+        383.4768900959432,
+        154.27476415783167
+      ]
+    },
+    {
+      "row": 7,
+      "col": 4,
+      "end_row": 8,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "92,805",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        435.54660121052206,
+        142.44319919496775,
+        496.15147769511253,
+        155.32894387096167
+      ]
+    },
+    {
+      "row": 7,
+      "col": 5,
+      "end_row": 8,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$ 26,353",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        504.9468116952592,
+        142.7083721458912,
+        617.3169508823628,
+        155.6218788921833
+      ]
+    },
+    {
+      "row": 7,
+      "col": 6,
+      "end_row": 8,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        639.7018287113734,
+        143.69023337960243,
+        664.440586683129,
+        155.69684582948685
+      ]
+    },
+    {
+      "row": 7,
+      "col": 8,
+      "end_row": 8,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "9,317 139,162",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        703.4953267452361,
+        142.13884464651346,
+        837.0101446744774,
+        155.38765458308626
+      ]
+    },
+    {
+      "row": 7,
+      "col": 7,
+      "end_row": 8,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        744.3198170766109,
+        143.1675524264574,
+        756.4888672323788,
+        156.14328235387802
+      ]
+    },
+    {
+      "row": 8,
+      "col": 0,
+      "end_row": 9,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        11.469469161394262,
+        160.00289560854435,
+        71.82050232125931,
+        171.57765363156796
+      ]
+    },
+    {
+      "row": 8,
+      "col": 2,
+      "end_row": 9,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "10,700",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        332.6446295024968,
+        160.73851257562637,
+        362.663095156886,
+        173.32635247707367
+      ]
+    },
+    {
+      "row": 8,
+      "col": 4,
+      "end_row": 9,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "93,039",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        464.29031163383934,
+        161.25932402908802,
+        491.38621972669074,
+        173.89592671394348
+      ]
+    },
+    {
+      "row": 8,
+      "col": 5,
+      "end_row": 9,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "26,446",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        160.4284716323018,
+        617.3169508823628,
+        173.56482274085283
+      ]
+    },
+    {
+      "row": 8,
+      "col": 7,
+      "end_row": 9,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "9,251",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        721.4665457300779,
+        161.05824375897646,
+        777.3524525393958,
+        173.60912988334894
+      ]
+    },
+    {
+      "row": 8,
+      "col": 8,
+      "end_row": 9,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "139,436",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        789.1202359784551,
+        160.29474008828402,
+        839.7834833962577,
+        173.1900815293193
+      ]
+    },
+    {
+      "row": 9,
+      "col": 0,
+      "end_row": 10,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        11.572593210324516,
+        180.57515054941177,
+        82.3547814176864,
+        192.35197032988071
+      ]
+    },
+    {
+      "row": 9,
+      "col": 2,
+      "end_row": 10,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.82%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        336.67366506272003,
+        179.5608690753579,
+        363.39733813149587,
+        192.31743132323027
+      ]
+    },
+    {
+      "row": 9,
+      "col": 4,
+      "end_row": 10,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.84%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        469.591691576533,
+        180.4952917546034,
+        493.0402648861669,
+        192.86888699233532
+      ]
+    },
+    {
+      "row": 9,
+      "col": 5,
+      "end_row": 10,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.90%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        180.46960171312094,
+        605.8370698207566,
+        193.83319050818682
+      ]
+    },
+    {
+      "row": 9,
+      "col": 7,
+      "end_row": 10,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.98%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        723.0248167566892,
+        179.88820289075375,
+        775.7941815127845,
+        192.4642961025238
+      ]
+    },
+    {
+      "row": 9,
+      "col": 8,
+      "end_row": 10,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "1.86%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        811.9791410975096,
+        179.4798885807395,
+        839.0641876829771,
+        192.3893447443843
+      ]
+    },
+    {
+      "row": 10,
+      "col": 0,
+      "end_row": 11,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Obligations of U.S. states and municipalities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        4.869098614844955,
+        196.87372921407223,
+        180.09371782671505,
+        209.57585786283016
+      ]
+    },
+    {
+      "row": 11,
+      "col": 0,
+      "end_row": 12,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        9.166414041879797,
+        214.92829777300358,
+        100.55286906747257,
+        227.13865453004837
+      ]
+    },
+    {
+      "row": 11,
+      "col": 1,
+      "end_row": 12,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        269.75355797775654,
+        214.1404438689351,
+        275.67774893496215,
+        226.80325070768595
+      ]
+    },
+    {
+      "row": 11,
+      "col": 2,
+      "end_row": 12,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "123",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        340.71876448783553,
+        215.8397879227996,
+        357.4279247299964,
+        228.8499789610505
+      ]
+    },
+    {
+      "row": 11,
+      "col": 3,
+      "end_row": 12,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        375.27124966372963,
+        215.32972609251738,
+        385.31413437178156,
+        228.21590698510408
+      ]
+    },
+    {
+      "row": 11,
+      "col": 4,
+      "end_row": 12,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "193",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        476.54579705631033,
+        216.73088494688272,
+        493.0284897940499,
+        229.11669424921274
+      ]
+    },
+    {
+      "row": 11,
+      "col": 5,
+      "end_row": 12,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$ 825",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        511.42676669850067,
+        215.76460287719965,
+        617.3169508823628,
+        228.4446091130376
+      ]
+    },
+    {
+      "row": 11,
+      "col": 6,
+      "end_row": 12,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        638.3819525454225,
+        216.26936779171228,
+        646.7075517285771,
+        228.2602141276002
+      ]
+    },
+    {
+      "row": 11,
+      "col": 8,
+      "end_row": 12,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "26,552 27,693",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        698.0011508769365,
+        216.55834570527077,
+        837.3648185697924,
+        229.53803274035454
+      ]
+    },
+    {
+      "row": 11,
+      "col": 7,
+      "end_row": 12,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        744.5207042085023,
+        216.10083239525557,
+        753.3491810325814,
+        229.2676563486457
+      ]
+    },
+    {
+      "row": 12,
+      "col": 0,
+      "end_row": 13,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        15.546428267995847,
+        234.44331948459148,
+        65.23968502573605,
+        245.90223084390163
+      ]
+    },
+    {
+      "row": 12,
+      "col": 2,
+      "end_row": 13,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "124",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        341.4399381252898,
+        233.53541254252195,
+        363.28912909531795,
+        246.38071370869875
+      ]
+    },
+    {
+      "row": 12,
+      "col": 4,
+      "end_row": 13,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "202",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        476.006832818424,
+        234.39198613911867,
+        493.8009256859787,
+        246.62533774226904
+      ]
+    },
+    {
+      "row": 12,
+      "col": 5,
+      "end_row": 13,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "883",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        232.14550184458494,
+        617.3169508823628,
+        246.153151844308
+      ]
+    },
+    {
+      "row": 12,
+      "col": 7,
+      "end_row": 13,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "28,601",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        726.2460657712792,
+        233.67651303112507,
+        772.5729324981945,
+        246.18536657094955
+      ]
+    },
+    {
+      "row": 12,
+      "col": 8,
+      "end_row": 13,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "29,810",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        803.0035263766761,
+        233.96553768217564,
+        839.876922812582,
+        246.85327649116516
+      ]
+    },
+    {
+      "row": 13,
+      "col": 0,
+      "end_row": 14,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        14.21365247594208,
+        252.3927286863327,
+        83.5720315652735,
+        264.0631739348173
+      ]
+    },
+    {
+      "row": 13,
+      "col": 2,
+      "end_row": 14,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "4.13%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        339.2563183487964,
+        250.93908362835646,
+        364.78877843488164,
+        263.79842162132263
+      ]
+    },
+    {
+      "row": 13,
+      "col": 4,
+      "end_row": 14,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "4.68%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        473.39129048195207,
+        252.24474220722914,
+        494.21929673908136,
+        264.40931180119514
+      ]
+    },
+    {
+      "row": 13,
+      "col": 6,
+      "end_row": 14,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "5.28%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        598.0935449769739,
+        254.24370733801334,
+        666.965785640428,
+        266.34489829838276
+      ]
+    },
+    {
+      "row": 13,
+      "col": 7,
+      "end_row": 14,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "4.86%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        726.0123910984071,
+        250.76573427021503,
+        772.8066071710666,
+        263.52653405070305
+      ]
+    },
+    {
+      "row": 13,
+      "col": 8,
+      "end_row": 14,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "4.87%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        807.8712580993396,
+        252.15830900520086,
+        839.2433518001011,
+        264.9152607321739
+      ]
+    },
+    {
+      "row": 14,
+      "col": 0,
+      "end_row": 15,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Certificates of deposit",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        6.827354801803075,
+        269.3018859475851,
+        95.1490280592141,
+        281.2066106647253
+      ]
+    },
+    {
+      "row": 15,
+      "col": 0,
+      "end_row": 16,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        14.87353028770254,
+        288.62942799925804,
+        79.6944543962719,
+        300.43089401721954
+      ]
+    },
+    {
+      "row": 15,
+      "col": 1,
+      "end_row": 16,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        270.30323145890435,
+        287.19988390803337,
+        276.246303167263,
+        300.2453773319721
+      ]
+    },
+    {
+      "row": 15,
+      "col": 2,
+      "end_row": 16,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "77",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        347.21295618650294,
+        288.0826928168535,
+        360.5453549905985,
+        301.2689595669508
+      ]
+    },
+    {
+      "row": 15,
+      "col": 3,
+      "end_row": 16,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        377.31811088113227,
+        287.5572076141834,
+        387.4013455815676,
+        300.29959282279015
+      ]
+    },
+    {
+      "row": 15,
+      "col": 4,
+      "end_row": 16,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        487.60956194901667,
+        288.9400142133236,
+        497.2579303164442,
+        301.46566209197044
+      ]
+    },
+    {
+      "row": 15,
+      "col": 5,
+      "end_row": 16,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        509.889748604814,
+        287.72552490234375,
+        526.908627361009,
+        300.61245020109345
+      ]
+    },
+    {
+      "row": 15,
+      "col": 6,
+      "end_row": 16,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "- $",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        608.6769206053445,
+        288.55548928678036,
+        648.6200906128443,
+        300.65196235477924
+      ]
+    },
+    {
+      "row": 15,
+      "col": 8,
+      "end_row": 16,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "- 77",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        719.5728782419062,
+        289.1329777389765,
+        838.6470347428522,
+        301.5954988449812
+      ]
+    },
+    {
+      "row": 15,
+      "col": 7,
+      "end_row": 16,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        747.0825480645444,
+        288.6883483976126,
+        753.0125250583936,
+        301.97008426487446
+      ]
+    },
+    {
+      "row": 16,
+      "col": 0,
+      "end_row": 17,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        17.728828345426994,
+        306.35078939795494,
+        66.27235299118426,
+        317.94474095106125
+      ]
+    },
+    {
+      "row": 16,
+      "col": 2,
+      "end_row": 17,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "77",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        346.86579398788325,
+        305.42239585518837,
+        362.69699930142957,
+        318.4238937199116
+      ]
+    },
+    {
+      "row": 16,
+      "col": 4,
+      "end_row": 17,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        484.2992891776462,
+        305.6437134593725,
+        493.6630251459715,
+        318.19833858311176
+      ]
+    },
+    {
+      "row": 16,
+      "col": 6,
+      "end_row": 17,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        608.6769206053445,
+        304.6310989558697,
+        666.965785640428,
+        318.7655496533116
+      ]
+    },
+    {
+      "row": 16,
+      "col": 8,
+      "end_row": 17,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "- 77",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        719.5728782419062,
+        307.1822182238102,
+        838.7496607612161,
+        319.5576206445694
+      ]
+    },
+    {
+      "row": 17,
+      "col": 0,
+      "end_row": 18,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        14.673629700436312,
+        327.046742901206,
+        81.52830445105288,
+        338.64779855310917
+      ]
+    },
+    {
+      "row": 17,
+      "col": 2,
+      "end_row": 18,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "0.50%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        335.97548330771826,
+        324.7020787149668,
+        364.3972566219939,
+        337.7179094105959
+      ]
+    },
+    {
+      "row": 17,
+      "col": 4,
+      "end_row": 18,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        482.15469977114384,
+        325.2226097434759,
+        496.14482882844305,
+        337.63022987544537
+      ]
+    },
+    {
+      "row": 17,
+      "col": 6,
+      "end_row": 18,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        608.6769206053445,
+        319.56422621011734,
+        666.965785640428,
+        336.9186491055734
+      ]
+    },
+    {
+      "row": 17,
+      "col": 7,
+      "end_row": 18,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        725.7974449125658,
+        323.2130845338106,
+        773.0215533569079,
+        336.3456966429949
+      ]
+    },
+    {
+      "row": 17,
+      "col": 8,
+      "end_row": 18,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "0.50%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        815.7285943520169,
+        326.6668294072151,
+        837.7653747205974,
+        339.18344137072563
+      ]
+    },
+    {
+      "row": 18,
+      "col": 0,
+      "end_row": 19,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Non-U.S. government debt securities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        4.710604352309922,
+        343.5410893410444,
+        157.1241420681737,
+        355.96877543628216
+      ]
+    },
+    {
+      "row": 19,
+      "col": 0,
+      "end_row": 20,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        17.08608341958342,
+        360.89559258520603,
+        77.41450852947074,
+        372.33082361519337
+      ]
+    },
+    {
+      "row": 19,
+      "col": 1,
+      "end_row": 20,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        269.91178577807773,
+        358.3035935908556,
+        275.6152445127984,
+        371.4035517722368
+      ]
+    },
+    {
+      "row": 19,
+      "col": 2,
+      "end_row": 20,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "6,672",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        322.1595697835714,
+        358.0428607016802,
+        353.34412484048795,
+        371.21772350370884
+      ]
+    },
+    {
+      "row": 19,
+      "col": 3,
+      "end_row": 20,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        374.92271708801013,
+        357.2828779220581,
+        385.5173562202133,
+        370.09767508506775
+      ]
+    },
+    {
+      "row": 19,
+      "col": 4,
+      "end_row": 20,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "11,544",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        451.8890079370066,
+        358.9102773964405,
+        489.7831830481521,
+        371.60206148028374
+      ]
+    },
+    {
+      "row": 19,
+      "col": 5,
+      "end_row": 20,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$ 2,898",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        510.5357678100842,
+        359.73123702406883,
+        617.3169508823628,
+        373.2248480100534
+      ]
+    },
+    {
+      "row": 19,
+      "col": 6,
+      "end_row": 20,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        639.2803616211194,
+        360.4561978429556,
+        648.2391765338032,
+        372.32627449929714
+      ]
+    },
+    {
+      "row": 19,
+      "col": 8,
+      "end_row": 20,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "313 21,427",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        711.7298409458816,
+        361.21518355607986,
+        842.8161786728546,
+        373.957257181406
+      ]
+    },
+    {
+      "row": 19,
+      "col": 7,
+      "end_row": 20,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        745.2357365263609,
+        359.81399354338646,
+        754.2312978472028,
+        373.04519060254097
+      ]
+    },
+    {
+      "row": 20,
+      "col": 0,
+      "end_row": 21,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        19.27574935059587,
+        380.22871197760105,
+        68.79637190153618,
+        391.46072839200497
+      ]
+    },
+    {
+      "row": 20,
+      "col": 2,
+      "end_row": 21,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "6,682",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        334.5334913157615,
+        377.63312977552414,
+        362.01584575076066,
+        390.6809912323952
+      ]
+    },
+    {
+      "row": 20,
+      "col": 4,
+      "end_row": 21,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "11,791",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        470.38361727610356,
+        376.63487926125526,
+        490.6093681752181,
+        389.1000176668167
+      ]
+    },
+    {
+      "row": 20,
+      "col": 5,
+      "end_row": 21,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "3,001",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        376.82734425365925,
+        617.3169508823628,
+        391.3779474623152
+      ]
+    },
+    {
+      "row": 20,
+      "col": 8,
+      "end_row": 21,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "313 21,787",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        711.7298409458816,
+        379.98452416062355,
+        839.6624841738147,
+        392.6169204711914
+      ]
+    },
+    {
+      "row": 21,
+      "col": 0,
+      "end_row": 22,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        18.07398256093514,
+        396.0887994915247,
+        88.03531612167376,
+        407.48177982866764
+      ]
+    },
+    {
+      "row": 21,
+      "col": 2,
+      "end_row": 22,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "2.17%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        338.25129901020466,
+        394.104481369257,
+        363.98561056762185,
+        407.1345202624798
+      ]
+    },
+    {
+      "row": 21,
+      "col": 4,
+      "end_row": 22,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.84%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        472.79593776414373,
+        393.4433328062296,
+        494.3940959513688,
+        405.9206852763891
+      ]
+    },
+    {
+      "row": 21,
+      "col": 6,
+      "end_row": 22,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.29%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        598.0935449769739,
+        391.2672663331032,
+        666.965785640428,
+        409.531046914577
+      ]
+    },
+    {
+      "row": 21,
+      "col": 7,
+      "end_row": 22,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.67%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        727.323892737637,
+        393.3038058131933,
+        771.4951055318367,
+        406.3720448166132
+      ]
+    },
+    {
+      "row": 21,
+      "col": 8,
+      "end_row": 22,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "1.87%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        806.2802502864548,
+        395.33187022805214,
+        839.8905250741653,
+        408.00346371531487
+      ]
+    },
+    {
+      "row": 22,
+      "col": 0,
+      "end_row": 23,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Corporate debt securities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        6.943773411903059,
+        414.36593198776245,
+        114.51224077208703,
+        426.31446531414986
+      ]
+    },
+    {
+      "row": 23,
+      "col": 0,
+      "end_row": 24,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        18.344901672531574,
+        431.52476093173027,
+        76.54349430709325,
+        442.86178091168404
+      ]
+    },
+    {
+      "row": 23,
+      "col": 1,
+      "end_row": 24,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        271.0394538671029,
+        430.33765979111195,
+        276.31540570138884,
+        443.44054685533047
+      ]
+    },
+    {
+      "row": 23,
+      "col": 2,
+      "end_row": 24,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "205",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        340.9970017938053,
+        429.62229573726654,
+        359.7674122129168,
+        442.70393282175064
+      ]
+    },
+    {
+      "row": 23,
+      "col": 3,
+      "end_row": 24,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        378.3124209764625,
+        429.79425854980946,
+        389.2128064660465,
+        442.7562476545572
+      ]
+    },
+    {
+      "row": 23,
+      "col": 4,
+      "end_row": 24,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "206",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        481.0888509157325,
+        430.2955960482359,
+        493.06614978694114,
+        442.95310597121716
+      ]
+    },
+    {
+      "row": 23,
+      "col": 5,
+      "end_row": 24,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$ 412",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        509.889748604814,
+        431.17398047447205,
+        617.3169508823628,
+        445.837245819057
+      ]
+    },
+    {
+      "row": 23,
+      "col": 6,
+      "end_row": 24,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        637.4302242895657,
+        430.08091516792774,
+        666.965785640428,
+        445.837245819057
+      ]
+    },
+    {
+      "row": 23,
+      "col": 8,
+      "end_row": 24,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "- 823",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        719.5728782419062,
+        431.8593390583992,
+        838.6122170135754,
+        445.837245819057
+      ]
+    },
+    {
+      "row": 23,
+      "col": 7,
+      "end_row": 24,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        746.9845914792613,
+        430.3693789690733,
+        753.6567038047214,
+        443.50037084519863
+      ]
+    },
+    {
+      "row": 24,
+      "col": 0,
+      "end_row": 25,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        20.53732739075893,
+        453.20294956862926,
+        69.72816488602582,
+        464.52227161824703
+      ]
+    },
+    {
+      "row": 24,
+      "col": 2,
+      "end_row": 25,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "207",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        343.6377184651479,
+        451.330053627491,
+        363.39495266024807,
+        464.45076325535774
+      ]
+    },
+    {
+      "row": 24,
+      "col": 4,
+      "end_row": 25,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "212",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        481.7684564478257,
+        451.48500399291515,
+        492.1855556135418,
+        464.2693283110857
+      ]
+    },
+    {
+      "row": 24,
+      "col": 5,
+      "end_row": 25,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "426",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        448.96819004416466,
+        617.3169508823628,
+        463.9903452713188
+      ]
+    },
+    {
+      "row": 24,
+      "col": 8,
+      "end_row": 25,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "- 845",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        719.5728782419062,
+        453.28480249643326,
+        837.7264458600212,
+        465.9108425080776
+      ]
+    },
+    {
+      "row": 25,
+      "col": 0,
+      "end_row": 26,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        15.787251424188373,
+        471.5154156088829,
+        103.22865724162895,
+        483.41390866041183
+      ]
+    },
+    {
+      "row": 25,
+      "col": 2,
+      "end_row": 26,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "4.49%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        337.8388155031605,
+        468.3159850090742,
+        365.752178913405,
+        481.3129337579012
+      ]
+    },
+    {
+      "row": 25,
+      "col": 4,
+      "end_row": 26,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "4.14%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        474.91575887343464,
+        469.46205063164234,
+        492.84709246980043,
+        482.0055210739374
+      ]
+    },
+    {
+      "row": 25,
+      "col": 6,
+      "end_row": 26,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "3.50%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        598.0935449769739,
+        467.9899754226208,
+        666.965785640428,
+        482.1434447235806
+      ]
+    },
+    {
+      "row": 25,
+      "col": 7,
+      "end_row": 26,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        723.7473607712433,
+        469.10248352587223,
+        775.0716374982304,
+        482.4211108535528
+      ]
+    },
+    {
+      "row": 25,
+      "col": 8,
+      "end_row": 26,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "3.91%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        813.4308272385797,
+        470.6426396816969,
+        838.7459556675758,
+        483.49588622152805
+      ]
+    },
+    {
+      "row": 26,
+      "col": 0,
+      "end_row": 27,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Asset-backed securities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        4.638992632336976,
+        487.8119689822197,
+        107.9277818263078,
+        499.9228371977806
+      ]
+    },
+    {
+      "row": 27,
+      "col": 0,
+      "end_row": 28,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        20.332316438891308,
+        505.05760502815247,
+        74.80452383345916,
+        516.5970918238163
+      ]
+    },
+    {
+      "row": 27,
+      "col": 1,
+      "end_row": 28,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        270.28224438739426,
+        502.9760417640209,
+        275.6613805418255,
+        516.1204940378666
+      ]
+    },
+    {
+      "row": 27,
+      "col": 2,
+      "end_row": 28,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "17",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        344.9574677443304,
+        503.42637307941914,
+        358.9554637812767,
+        516.5065145641565
+      ]
+    },
+    {
+      "row": 27,
+      "col": 3,
+      "end_row": 28,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        381.4806820765263,
+        504.42381347715855,
+        391.5912228095431,
+        517.4013194292784
+      ]
+    },
+    {
+      "row": 27,
+      "col": 4,
+      "end_row": 28,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "2,352",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        473.7974296505712,
+        504.977715075016,
+        493.34245841402964,
+        517.626189082861
+      ]
+    },
+    {
+      "row": 27,
+      "col": 5,
+      "end_row": 28,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$ 7,184",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        509.889748604814,
+        504.33410865068436,
+        617.3169508823628,
+        518.4496436280606
+      ]
+    },
+    {
+      "row": 27,
+      "col": 6,
+      "end_row": 28,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        637.4302242895657,
+        502.7014745771885,
+        666.965785640428,
+        518.4496436280606
+      ]
+    },
+    {
+      "row": 27,
+      "col": 8,
+      "end_row": 28,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "20,923 30,476",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        698.0011508769365,
+        506.3478090763092,
+        839.8695633800089,
+        519.3223861455917
+      ]
+    },
+    {
+      "row": 27,
+      "col": 7,
+      "end_row": 28,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        745.5171713788969,
+        505.2735633999109,
+        754.7126047374821,
+        518.6115088909864
+      ]
+    },
+    {
+      "row": 28,
+      "col": 0,
+      "end_row": 29,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        17.926502069906025,
+        527.37880808115,
+        73.98236101695468,
+        538.7570816874504
+      ]
+    },
+    {
+      "row": 28,
+      "col": 2,
+      "end_row": 29,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "17",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        343.95303208487377,
+        523.4572209119797,
+        361.59465781139727,
+        536.3678610920906
+      ]
+    },
+    {
+      "row": 28,
+      "col": 4,
+      "end_row": 29,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "2,353",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        467.49663876445356,
+        525.6251550614834,
+        492.468157824348,
+        538.2623497545719
+      ]
+    },
+    {
+      "row": 28,
+      "col": 5,
+      "end_row": 29,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "7,177",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        524.6629235744476,
+        617.3169508823628,
+        538.5334895253181
+      ]
+    },
+    {
+      "row": 28,
+      "col": 8,
+      "end_row": 29,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "20,902 30,449",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        698.0011508769365,
+        526.5401991217659,
+        840.4399955364836,
+        539.6228469908237
+      ]
+    },
+    {
+      "row": 29,
+      "col": 0,
+      "end_row": 30,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        13.19474538053785,
+        540.9766763448715,
+        104.46917842255921,
+        552.8827720284462
+      ]
+    },
+    {
+      "row": 29,
+      "col": 2,
+      "end_row": 30,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "0.62%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        333.55993989575813,
+        539.6840419471264,
+        364.5812678136746,
+        552.6182378232479
+      ]
+    },
+    {
+      "row": 29,
+      "col": 4,
+      "end_row": 30,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "2.78%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        474.2417363591555,
+        540.6468966007233,
+        493.9932352723194,
+        553.2949343919754
+      ]
+    },
+    {
+      "row": 29,
+      "col": 6,
+      "end_row": 30,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "2.86%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        598.0935449769739,
+        539.8830190300941,
+        711.0680227872704,
+        554.7558425325842
+      ]
+    },
+    {
+      "row": 29,
+      "col": 7,
+      "end_row": 30,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "2.77%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        731.7017400244704,
+        542.2737352252007,
+        767.1172582450033,
+        555.8716034889221
+      ]
+    },
+    {
+      "row": 29,
+      "col": 8,
+      "end_row": 30,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "2.79%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        806.0229239199341,
+        542.0782478749752,
+        840.0886714518571,
+        555.2314244806767
+      ]
+    },
+    {
+      "row": 30,
+      "col": 0,
+      "end_row": 31,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Total available-for-sale securities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        0.23246576365302474,
+        559.4260209202766,
+        157.76509789058142,
+        571.9979077577591
+      ]
+    },
+    {
+      "row": 31,
+      "col": 0,
+      "end_row": 32,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        15.563407303705933,
+        578.6467833817005,
+        74.69525529276423,
+        590.469250112772
+      ]
+    },
+    {
+      "row": 31,
+      "col": 1,
+      "end_row": 32,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        269.7773365581737,
+        577.3102780580521,
+        276.3930604037117,
+        590.5827287435532
+      ]
+    },
+    {
+      "row": 31,
+      "col": 2,
+      "end_row": 32,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "17,782",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        315.44883312577963,
+        577.4255638718605,
+        355.54271725566446,
+        590.701005756855
+      ]
+    },
+    {
+      "row": 31,
+      "col": 3,
+      "end_row": 32,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        379.3836244535046,
+        578.4513583481312,
+        390.79089720589775,
+        591.3243592679501
+      ]
+    },
+    {
+      "row": 31,
+      "col": 4,
+      "end_row": 32,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "107,158",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        451.7672473939527,
+        578.133231818676,
+        494.5186480033298,
+        591.0974643230438
+      ]
+    },
+    {
+      "row": 31,
+      "col": 5,
+      "end_row": 32,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$ 48,745",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        509.889748604814,
+        578.0563953816891,
+        617.3169508823628,
+        591.9264747443085
+      ]
+    },
+    {
+      "row": 31,
+      "col": 6,
+      "end_row": 32,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        641.0315512905602,
+        577.6981369256973,
+        666.965785640428,
+        590.2257789373398
+      ]
+    },
+    {
+      "row": 31,
+      "col": 8,
+      "end_row": 32,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "171,621 345,306",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        692.506975008637,
+        579.2855291068554,
+        839.856519420207,
+        592.5902598202229
+      ]
+    },
+    {
+      "row": 31,
+      "col": 7,
+      "end_row": 32,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        739.9283675281941,
+        577.7210071384907,
+        759.2506846355791,
+        591.4671890437603
+      ]
+    },
+    {
+      "row": 32,
+      "col": 0,
+      "end_row": 33,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        17.13307910646711,
+        597.333616733551,
+        74.54431079295503,
+        609.0039061903954
+      ]
+    },
+    {
+      "row": 32,
+      "col": 2,
+      "end_row": 33,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "17,808",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        325.2446439182057,
+        596.7242221534252,
+        362.78962664243556,
+        609.8314090669155
+      ]
+    },
+    {
+      "row": 32,
+      "col": 4,
+      "end_row": 33,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "107,655",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        452.4791836746601,
+        597.5417543649673,
+        494.4622595234078,
+        610.5779002904892
+      ]
+    },
+    {
+      "row": 32,
+      "col": 6,
+      "end_row": 33,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "49,184",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        604.4752195117853,
+        598.1010463535786,
+        625.8294505752435,
+        610.4441064298153
+      ]
+    },
+    {
+      "row": 32,
+      "col": 8,
+      "end_row": 33,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "176,052 350,699",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        692.506975008637,
+        597.1003031730652,
+        840.4126895039021,
+        610.4487801790237
+      ]
+    },
+    {
+      "row": 33,
+      "col": 0,
+      "end_row": 34,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        13.255146654513705,
+        614.3659428656101,
+        84.59891349407805,
+        626.4230941236019
+      ]
+    },
+    {
+      "row": 33,
+      "col": 2,
+      "end_row": 34,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.99%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        340.8187258840609,
+        614.1083258092403,
+        361.4626955721559,
+        627.1696476638317
+      ]
+    },
+    {
+      "row": 33,
+      "col": 4,
+      "end_row": 34,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.87%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        471.3949048210593,
+        614.023512840271,
+        492.0598869580181,
+        626.8563818335533
+      ]
+    },
+    {
+      "row": 33,
+      "col": 6,
+      "end_row": 34,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "2.27%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        598.0935449769739,
+        614.0761080980301,
+        666.965785640428,
+        628.2326736488321
+      ]
+    },
+    {
+      "row": 33,
+      "col": 7,
+      "end_row": 34,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "3.47%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        731.5130340223552,
+        612.1953914165497,
+        767.3059642471185,
+        625.4573729038239
+      ]
+    },
+    {
+      "row": 33,
+      "col": 8,
+      "end_row": 34,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "2.73%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        811.3157263170771,
+        613.4767464995384,
+        839.905040920482,
+        626.9118436574936
+      ]
+    },
+    {
+      "row": 34,
+      "col": 0,
+      "end_row": 35,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Held-to-maturity securities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        2.0799878677400194,
+        633.6770644783974,
+        127.1440977272867,
+        646.2494498491287
+      ]
+    },
+    {
+      "row": 35,
+      "col": 0,
+      "end_row": 36,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Mortgage-backed securities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        3.595624940134897,
+        650.111773878336,
+        125.15867508319245,
+        662.7114539444447
+      ]
+    },
+    {
+      "row": 36,
+      "col": 0,
+      "end_row": 37,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized Cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        15.738920254066212,
+        670.8101888895035,
+        75.06521269934518,
+        683.0274939537048
+      ]
+    },
+    {
+      "row": 36,
+      "col": 1,
+      "end_row": 37,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        268.70641223202233,
+        669.4098713099957,
+        275.19930968565103,
+        682.241120070219
+      ]
+    },
+    {
+      "row": 36,
+      "col": 2,
+      "end_row": 37,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        338.1040849813894,
+        669.0762902498245,
+        354.9122169029813,
+        682.0067471265793
+      ]
+    },
+    {
+      "row": 36,
+      "col": 3,
+      "end_row": 37,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        378.8808736993485,
+        669.3864402472973,
+        388.20887835366386,
+        682.112249225378
+      ]
+    },
+    {
+      "row": 36,
+      "col": 4,
+      "end_row": 37,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        479.69578646170993,
+        669.3061763942242,
+        495.1146605323343,
+        681.997711211443
+      ]
+    },
+    {
+      "row": 36,
+      "col": 5,
+      "end_row": 37,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$ 5,850",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        511.8058028533679,
+        668.8374305069447,
+        617.3169508823628,
+        683.5564053128182
+      ]
+    },
+    {
+      "row": 36,
+      "col": 6,
+      "end_row": 37,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        635.8933984868667,
+        670.1944380104542,
+        657.3654819809087,
+        682.7164715230465
+      ]
+    },
+    {
+      "row": 36,
+      "col": 7,
+      "end_row": 37,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "30,673 $",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        709.2667382216252,
+        668.4136772453785,
+        753.8208977625712,
+        683.5564053128182
+      ]
+    },
+    {
+      "row": 36,
+      "col": 8,
+      "end_row": 37,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "36,523",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        770.0480380691399,
+        669.759031534195,
+        834.6634500231061,
+        683.0914308428764
+      ]
+    },
+    {
+      "row": 37,
+      "col": 0,
+      "end_row": 38,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.427147742079082,
+        687.6687138676643,
+        67.21543889807052,
+        699.4289885759354
+      ]
+    },
+    {
+      "row": 37,
+      "col": 2,
+      "end_row": 38,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        350.0922199826281,
+        688.2416532039642,
+        361.70626741297104,
+        701.121259689331
+      ]
+    },
+    {
+      "row": 37,
+      "col": 4,
+      "end_row": 38,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        482.54743969700917,
+        687.2536226212978,
+        492.67442495522374,
+        699.9419169723988
+      ]
+    },
+    {
+      "row": 37,
+      "col": 5,
+      "end_row": 38,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "6,114",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        687.5194654762745,
+        617.3169508823628,
+        701.70950476508
+      ]
+    },
+    {
+      "row": 37,
+      "col": 8,
+      "end_row": 38,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "31,512 37,626",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        698.0011508769365,
+        687.9565545022488,
+        839.7187203896145,
+        701.70950476508
+      ]
+    },
+    {
+      "row": 38,
+      "col": 0,
+      "end_row": 39,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        15.205183751042146,
+        703.9606558084488,
+        80.14148282604057,
+        716.0075871348381
+      ]
+    },
+    {
+      "row": 38,
+      "col": 2,
+      "end_row": 39,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        350.4989174530286,
+        707.0148574411869,
+        362.5242302774381,
+        719.7531297504902
+      ]
+    },
+    {
+      "row": 38,
+      "col": 4,
+      "end_row": 39,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        483.2151686275707,
+        707.4043988585472,
+        493.4482312242524,
+        719.9297974705696
+      ]
+    },
+    {
+      "row": 38,
+      "col": 6,
+      "end_row": 39,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "3.06%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        598.0935449769739,
+        709.8000602587854,
+        666.965785640428,
+        723.014035731554
+      ]
+    },
+    {
+      "row": 38,
+      "col": 7,
+      "end_row": 39,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "3.10%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        729.7436234129576,
+        704.9527992904186,
+        769.0753748565161,
+        718.0111299455166
+      ]
+    },
+    {
+      "row": 38,
+      "col": 8,
+      "end_row": 39,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "3.10%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        814.7669449108989,
+        706.5437435209751,
+        839.681009642016,
+        719.6820887625217
+      ]
+    },
+    {
+      "row": 39,
+      "col": 0,
+      "end_row": 40,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "U.S. Treasury and government agencies",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        2.9869173899418158,
+        723.2452928423882,
+        152.50466430808316,
+        736.1017175316811
+      ]
+    },
+    {
+      "row": 40,
+      "col": 0,
+      "end_row": 41,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        17.864831928245156,
+        751.3401340842247,
+        73.94472640141719,
+        763.128202021122
+      ]
+    },
+    {
+      "row": 40,
+      "col": 1,
+      "end_row": 41,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        268.91410049470534,
+        755.4457423388958,
+        275.25052118541817,
+        767.948333054781
+      ]
+    },
+    {
+      "row": 40,
+      "col": 2,
+      "end_row": 41,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        347.19460835977765,
+        755.5876373648643,
+        359.95987406337963,
+        768.0355140566826
+      ]
+    },
+    {
+      "row": 40,
+      "col": 3,
+      "end_row": 41,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        373.4975756589104,
+        755.4774615168571,
+        382.2891030560021,
+        767.947772204876
+      ]
+    },
+    {
+      "row": 40,
+      "col": 4,
+      "end_row": 41,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        482.2034750449557,
+        754.8593426048756,
+        493.14679901700066,
+        767.1415816247463
+      ]
+    },
+    {
+      "row": 40,
+      "col": 5,
+      "end_row": 41,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        511.16355278592147,
+        754.4196985960007,
+        519.5939096851508,
+        766.6918423175812
+      ]
+    },
+    {
+      "row": 40,
+      "col": 6,
+      "end_row": 41,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "- $",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        608.6769206053445,
+        755.7474795877934,
+        649.5789485450551,
+        771.728602652307
+      ]
+    },
+    {
+      "row": 40,
+      "col": 8,
+      "end_row": 41,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "- 51",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        719.5728782419062,
+        754.6619857549667,
+        835.4345662926424,
+        771.728602652307
+      ]
+    },
+    {
+      "row": 40,
+      "col": 7,
+      "end_row": 41,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        744.0510201462176,
+        753.1857041716576,
+        753.4500813908937,
+        766.6747675538063
+      ]
+    },
+    {
+      "row": 41,
+      "col": 0,
+      "end_row": 42,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        18.647812110636412,
+        779.5366761088371,
+        73.87714650851338,
+        791.4589741230011
+      ]
+    },
+    {
+      "row": 41,
+      "col": 2,
+      "end_row": 42,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        353.11808875107965,
+        784.0914628207684,
+        363.2668477787691,
+        796.5919347703457
+      ]
+    },
+    {
+      "row": 41,
+      "col": 4,
+      "end_row": 42,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "50",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        480.134611661895,
+        783.8077974021435,
+        490.95094735602373,
+        796.038438230753
+      ]
+    },
+    {
+      "row": 41,
+      "col": 6,
+      "end_row": 42,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        608.6769206053445,
+        784.4987021684647,
+        666.965785640428,
+        797.6616018698114
+      ]
+    },
+    {
+      "row": 41,
+      "col": 8,
+      "end_row": 42,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "- 50",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        719.5728782419062,
+        782.8267462849617,
+        836.5471602335697,
+        797.6616018698114
+      ]
+    },
+    {
+      "row": 42,
+      "col": 0,
+      "end_row": 43,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        15.031402805071917,
+        801.305897373546,
+        88.03531612167376,
+        817.1675236523151
+      ]
+    },
+    {
+      "row": 42,
+      "col": 2,
+      "end_row": 43,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        350.8473231419796,
+        809.7993268668652,
+        365.368803231055,
+        822.3000480830669
+      ]
+    },
+    {
+      "row": 42,
+      "col": 4,
+      "end_row": 43,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.47%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        465.3951401045343,
+        809.7714090049267,
+        491.0928575179156,
+        822.0785746872425
+      ]
+    },
+    {
+      "row": 42,
+      "col": 6,
+      "end_row": 43,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        608.6769206053445,
+        809.1656911075115,
+        666.965785640428,
+        823.5946010873158
+      ]
+    },
+    {
+      "row": 42,
+      "col": 7,
+      "end_row": 43,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        727.6289285291142,
+        804.4624661207199,
+        771.1900697403595,
+        818.3254294395447
+      ]
+    },
+    {
+      "row": 42,
+      "col": 8,
+      "end_row": 43,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "1.47%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        816.7116115249505,
+        808.481765806675,
+        836.4152995037431,
+        821.4650672078133
+      ]
+    },
+    {
+      "row": 43,
+      "col": 0,
+      "end_row": 44,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Obligations of U.S. states and municipalities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        2.2227418266424586,
+        828.7169187963009,
+        189.1876163931454,
+        841.8358212411404
+      ]
+    },
+    {
+      "row": 44,
+      "col": 0,
+      "end_row": 45,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        14.39722273610219,
+        847.2137486636639,
+        78.7091405728284,
+        859.2710245549679
+      ]
+    },
+    {
+      "row": 44,
+      "col": 1,
+      "end_row": 45,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        267.5757496152605,
+        846.5175469815731,
+        274.5342199998743,
+        859.098532050848
+      ]
+    },
+    {
+      "row": 44,
+      "col": 2,
+      "end_row": 45,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        344.8774275707598,
+        847.9617978036404,
+        355.5447474439605,
+        860.6822475492954
+      ]
+    },
+    {
+      "row": 44,
+      "col": 3,
+      "end_row": 45,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        377.6822759067311,
+        848.936118721962,
+        387.03718055596875,
+        861.4754762649536
+      ]
+    },
+    {
+      "row": 44,
+      "col": 4,
+      "end_row": 45,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        479.40435293181605,
+        848.3289675414562,
+        491.65186986522514,
+        860.5783033668995
+      ]
+    },
+    {
+      "row": 44,
+      "col": 5,
+      "end_row": 45,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        510.33447464053376,
+        846.9897202849388,
+        519.8666147280139,
+        859.3856248855591
+      ]
+    },
+    {
+      "row": 44,
+      "col": 6,
+      "end_row": 45,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "99 $",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        606.3280591776194,
+        848.096526414156,
+        647.654482304549,
+        860.4874456822872
+      ]
+    },
+    {
+      "row": 44,
+      "col": 8,
+      "end_row": 45,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "4,698 4,797",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        703.4953267452361,
+        847.2003505825996,
+        835.1693729464747,
+        860.104011297226
+      ]
+    },
+    {
+      "row": 44,
+      "col": 7,
+      "end_row": 45,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        744.5995262690952,
+        847.3203101456165,
+        754.2194720003785,
+        860.4975409805775
+      ]
+    },
+    {
+      "row": 45,
+      "col": 0,
+      "end_row": 46,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        15.77477845484469,
+        864.5286185145378,
+        69.85007769320191,
+        876.3630500435829
+      ]
+    },
+    {
+      "row": 45,
+      "col": 2,
+      "end_row": 46,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        350.2630095730309,
+        865.9610914885998,
+        363.00563867713225,
+        878.6544958055019
+      ]
+    },
+    {
+      "row": 45,
+      "col": 4,
+      "end_row": 46,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        480.43340462436197,
+        865.1209383308887,
+        492.44552122484737,
+        877.4863077700138
+      ]
+    },
+    {
+      "row": 45,
+      "col": 5,
+      "end_row": 46,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "106",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        863.1207606196404,
+        617.3169508823628,
+        878.0538994440576
+      ]
+    },
+    {
+      "row": 45,
+      "col": 8,
+      "end_row": 46,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "4,990 5,096",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        703.4953267452361,
+        865.3000364005566,
+        838.899184129218,
+        878.1761531531811
+      ]
+    },
+    {
+      "row": 46,
+      "col": 0,
+      "end_row": 47,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        11.161384915303781,
+        883.8967598676682,
+        96.17582116728069,
+        896.1676572561264
+      ]
+    },
+    {
+      "row": 46,
+      "col": 2,
+      "end_row": 47,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        348.2271113724268,
+        882.876262307167,
+        364.91794916521604,
+        895.6711181402206
+      ]
+    },
+    {
+      "row": 46,
+      "col": 4,
+      "end_row": 47,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        478.7643360714953,
+        883.0380986630917,
+        495.2490589975309,
+        895.4640398919582
+      ]
+    },
+    {
+      "row": 46,
+      "col": 6,
+      "end_row": 47,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "3.91%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        598.0935449769739,
+        883.1144988834858,
+        666.965785640428,
+        896.2069988963194
+      ]
+    },
+    {
+      "row": 46,
+      "col": 7,
+      "end_row": 47,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "4.04%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        729.4350855466698,
+        883.0639600753784,
+        769.3839127228039,
+        896.6275541782379
+      ]
+    },
+    {
+      "row": 46,
+      "col": 8,
+      "end_row": 47,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "4.04%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        812.726199635738,
+        883.0190297663212,
+        839.5349375941172,
+        895.5698535740376
+      ]
+    },
+    {
+      "row": 47,
+      "col": 0,
+      "end_row": 48,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Asset-backed securities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        4.263464896618817,
+        900.0615758299828,
+        103.83506179697373,
+        912.6279788017273
+      ]
+    },
+    {
+      "row": 48,
+      "col": 0,
+      "end_row": 49,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        11.79034676591889,
+        918.7409311830997,
+        77.93360229940974,
+        930.9318139851093
+      ]
+    },
+    {
+      "row": 48,
+      "col": 1,
+      "end_row": 49,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        268.6835218589847,
+        919.3647209107876,
+        275.1881436500229,
+        931.8857573568821
+      ]
+    },
+    {
+      "row": 48,
+      "col": 2,
+      "end_row": 49,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        343.2203117514859,
+        918.5192085206509,
+        356.5299724466661,
+        931.3737637102604
+      ]
+    },
+    {
+      "row": 48,
+      "col": 3,
+      "end_row": 49,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        377.33876804704425,
+        920.1049181520939,
+        387.3806884156556,
+        932.8986522853374
+      ]
+    },
+    {
+      "row": 48,
+      "col": 4,
+      "end_row": 49,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        477.889578689447,
+        920.9819627702236,
+        490.86877548474223,
+        933.681598752737
+      ]
+    },
+    {
+      "row": 48,
+      "col": 5,
+      "end_row": 49,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$ 5,296",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        511.8140251159668,
+        919.4272245168686,
+        617.3169508823628,
+        932.513197800843
+      ]
+    },
+    {
+      "row": 48,
+      "col": 6,
+      "end_row": 49,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        637.4302242895657,
+        919.4712200760841,
+        666.965785640428,
+        932.513197800843
+      ]
+    },
+    {
+      "row": 48,
+      "col": 7,
+      "end_row": 49,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "873 $",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        714.2024812522054,
+        922.4506538422866,
+        753.8208977625712,
+        934.8261064589024
+      ]
+    },
+    {
+      "row": 48,
+      "col": 8,
+      "end_row": 49,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "6,169",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        807.5520109897901,
+        918.671946644783,
+        839.3257774449196,
+        931.0495301485062
+      ]
+    },
+    {
+      "row": 49,
+      "col": 0,
+      "end_row": 50,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        14.687276372388627,
+        938.3367152810097,
+        70.29479043944542,
+        950.3804061412811
+      ]
+    },
+    {
+      "row": 49,
+      "col": 2,
+      "end_row": 50,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        351.5541585745932,
+        937.8980060219765,
+        363.5346549923681,
+        950.397480905056
+      ]
+    },
+    {
+      "row": 49,
+      "col": 4,
+      "end_row": 50,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        481.3464310557902,
+        938.8188592493534,
+        492.276051256837,
+        951.3306728303432
+      ]
+    },
+    {
+      "row": 49,
+      "col": 5,
+      "end_row": 50,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "5,296",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        519.1721888213598,
+        937.6909900903702,
+        617.3169508823628,
+        951.451130926609
+      ]
+    },
+    {
+      "row": 49,
+      "col": 8,
+      "end_row": 50,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "873 6,169",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        711.7298409458816,
+        937.5222989022732,
+        839.2118331268053,
+        950.6662972530612
+      ]
+    },
+    {
+      "row": 50,
+      "col": 0,
+      "end_row": 51,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        8.226855587157882,
+        954.6750831305981,
+        103.71643535710182,
+        967.221794039011
+      ]
+    },
+    {
+      "row": 50,
+      "col": 2,
+      "end_row": 51,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        349.15813034762857,
+        954.5560583174229,
+        364.15604487507284,
+        966.8840377628803
+      ]
+    },
+    {
+      "row": 50,
+      "col": 4,
+      "end_row": 51,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        477.6409313778917,
+        955.0529090166092,
+        493.0244801721653,
+        967.4090555906296
+      ]
+    },
+    {
+      "row": 50,
+      "col": 6,
+      "end_row": 51,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "3.19%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        608.1895505087716,
+        955.277373611927,
+        632.3382342522885,
+        967.0140926241875
+      ]
+    },
+    {
+      "row": 50,
+      "col": 7,
+      "end_row": 51,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "3.11%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        721.1094356088076,
+        953.4669501185417,
+        777.709562660666,
+        966.7124800086021
+      ]
+    },
+    {
+      "row": 50,
+      "col": 8,
+      "end_row": 51,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "3.18%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        811.5012855273335,
+        954.0261174738407,
+        838.5069517504267,
+        966.1220296919346
+      ]
+    },
+    {
+      "row": 51,
+      "col": 0,
+      "end_row": 52,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Total held-to-maturity securities",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        1.9815300797214022,
+        973.3899589776993,
+        162.6760726239501,
+        986.8127174377441
+      ]
+    },
+    {
+      "row": 52,
+      "col": 0,
+      "end_row": 53,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Amortized cost",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        14.502497515758545,
+        991.5368185043335,
+        75.82833510246597,
+        1004.4958164095879
+      ]
+    },
+    {
+      "row": 52,
+      "col": 1,
+      "end_row": 53,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        270.51124962718546,
+        991.657650500536,
+        275.3766466333085,
+        1004.118115156889
+      ]
+    },
+    {
+      "row": 52,
+      "col": 2,
+      "end_row": 53,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        347.096448755665,
+        992.247228384018,
+        360.67368826826083,
+        1005.1255885362625
+      ]
+    },
+    {
+      "row": 52,
+      "col": 3,
+      "end_row": 53,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        376.8187860697258,
+        991.5657334327698,
+        385.4889589614227,
+        1004.6680596470833
+      ]
+    },
+    {
+      "row": 52,
+      "col": 4,
+      "end_row": 53,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        480.05426696007993,
+        992.7642696797848,
+        490.867354352935,
+        1005.4723807275295
+      ]
+    },
+    {
+      "row": 52,
+      "col": 5,
+      "end_row": 53,
+      "end_col": 6,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$ 11,245",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        509.889748604814,
+        992.4138631224632,
+        617.3169508823628,
+        1005.990028917091
+      ]
+    },
+    {
+      "row": 52,
+      "col": 6,
+      "end_row": 53,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "$",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        639.0129350678259,
+        992.1201647222042,
+        650.3427053820185,
+        1004.2832542955875
+      ]
+    },
+    {
+      "row": 52,
+      "col": 7,
+      "end_row": 53,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "36,244 $",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        724.7880860464913,
+        991.7204656898975,
+        753.8208977625712,
+        1005.990028917091
+      ]
+    },
+    {
+      "row": 52,
+      "col": 8,
+      "end_row": 53,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "47,540",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        809.7446143494934,
+        992.6001899242401,
+        837.2317397269882,
+        1006.0005143880844
+      ]
+    },
+    {
+      "row": 53,
+      "col": 0,
+      "end_row": 54,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Fair value",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        14.506313635321224,
+        1008.5541886389256,
+        74.99616091992674,
+        1021.6575119197369
+      ]
+    },
+    {
+      "row": 53,
+      "col": 2,
+      "end_row": 54,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        349.66895110026127,
+        1007.2969501018524,
+        364.72325410762755,
+        1020.29645383358
+      ]
+    },
+    {
+      "row": 53,
+      "col": 4,
+      "end_row": 54,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "50",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        477.745130792185,
+        1009.560478001833,
+        492.0634397875361,
+        1022.1981712281704
+      ]
+    },
+    {
+      "row": 54,
+      "col": 6,
+      "end_row": 55,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "11,516 3.13%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        584.1132429780079,
+        1022.2328816056252,
+        621.8275434061259,
+        1035.660002231598
+      ]
+    },
+    {
+      "row": 53,
+      "col": 6,
+      "end_row": 54,
+      "end_col": 7,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "37,375",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.4659949775503,
+        1009.8056940436363,
+        725.2979170823297,
+        1022.6502785682678
+      ]
+    },
+    {
+      "row": 53,
+      "col": 8,
+      "end_row": 54,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "48,941",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        811.5707179670574,
+        1010.6623611152172,
+        837.1513950251731,
+        1024.2010285556316
+      ]
+    },
+    {
+      "row": 54,
+      "col": 9,
+      "end_row": 55,
+      "end_col": 10,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Average",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        -20.113152653028987,
+        1023.8748631775379,
+        64.98553958540202,
+        1038.4502305090427
+      ]
+    },
+    {
+      "row": 54,
+      "col": 0,
+      "end_row": 55,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "yield (a)",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        13.345353630410518,
+        1024.1604604125023,
+        88.03531612167376,
+        1039.29519226891
+      ]
+    },
+    {
+      "row": 54,
+      "col": 2,
+      "end_row": 55,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "-%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        347.0389182948265,
+        1020.1766812205315,
+        364.54665310322736,
+        1033.1477685570717
+      ]
+    },
+    {
+      "row": 54,
+      "col": 4,
+      "end_row": 55,
+      "end_col": 5,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1.47%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        473.3726127496287,
+        1022.1043223440647,
+        492.59737930938974,
+        1034.7770375311375
+      ]
+    },
+    {
+      "row": 54,
+      "col": 7,
+      "end_row": 55,
+      "end_col": 8,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "3.23%",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        713.9236348897468,
+        1024.0699766278267,
+        784.8953633797269,
+        1039.908876478672
+      ]
+    }
+  ],
+  "layout_tedss_score": 0.34818481848184824
+}

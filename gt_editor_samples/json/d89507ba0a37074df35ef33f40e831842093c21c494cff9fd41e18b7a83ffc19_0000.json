@@ -1,0 +1,3235 @@
+{
+  "source_pdf": "d89507ba0a37074df35ef33f40e831842093c21c494cff9fd41e18b7a83ffc19.pdf",
+  "page_no": 1,
+  "table_index": 0,
+  "global_index": 0,
+  "num_rows": 54,
+  "num_cols": 4,
+  "image_size": [
+    724,
+    1024
+  ],
+  "table_bbox_px": [
+    85.96029124545447,
+    155.88423473990625,
+    809.2708978220245,
+    1179.5835557202704
+  ],
+  "h_lines": {
+    "0": 43.33201896596728,
+    "1": 61.76498342661117,
+    "2": 79.28922182265802,
+    "3": 97.51292704276565,
+    "4": 123.84005184227257,
+    "5": 148.84792876957616,
+    "6": 166.84868519064085,
+    "7": 184.39366350671938,
+    "8": 201.9675802857328,
+    "9": 220.70087830952255,
+    "10": 238.35291858224,
+    "11": 256.27914600195356,
+    "12": 276.21409659996584,
+    "13": 293.59235332225137,
+    "14": 310.77165006841005,
+    "15": 327.8152594390385,
+    "16": 339.689077434011,
+    "17": 350.4378889646,
+    "18": 369.0467565905417,
+    "19": 389.76619674153005,
+    "20": 408.2364012982197,
+    "21": 435.7723596136193,
+    "22": 453.07560744317584,
+    "23": 470.18864331013265,
+    "24": 489.1424612755826,
+    "25": 507.33401745628873,
+    "26": 525.6408425288072,
+    "27": 544.1859000315668,
+    "28": 561.0642677199618,
+    "29": 578.9493534958609,
+    "30": 596.8547110047003,
+    "31": 616.301866871178,
+    "32": 635.6898585617496,
+    "33": 650.9556120354459,
+    "34": 669.1310760154983,
+    "35": 686.416996709789,
+    "36": 705.0371841893096,
+    "37": 722.9389954696047,
+    "38": 742.7436073193063,
+    "39": 760.5817334517806,
+    "40": 778.255519902309,
+    "41": 799.3495362078435,
+    "42": 829.6603702955114,
+    "43": 845.8866818536947,
+    "44": 862.9245415128506,
+    "45": 884.5150577576811,
+    "46": 894.1180672153567,
+    "47": 911.7146853594153,
+    "48": 927.3998595058459,
+    "49": 937.55251052444,
+    "50": 972.0718977367784,
+    "51": 988.6506908644584,
+    "52": 1006.1196741753405
+  },
+  "v_lines": {
+    "0": 45.822685470565034,
+    "1": 136.85722314419712,
+    "2": 496.9408784116086
+  },
+  "cells": [
+    {
+      "row": 0,
+      "col": 1,
+      "end_row": 1,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "50.17.2 OS-Related References . . . . . . . . .",
+      "is_column_header": true,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        56.14293462077973,
+        27.523762929582773,
+        355.8253754258387,
+        42.635935945469555
+      ]
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "end_row": 1,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "797",
+      "is_column_header": true,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.0067850927783,
+        27.027915477366264,
+        720.9983737326947,
+        42.63544807732944
+      ]
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "end_row": 2,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "50.17.3 Other References",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        32.88994791435235,
+        41.67456509511945,
+        225.4412204828783,
+        61.06139301689825
+      ]
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "end_row": 2,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        227.00134788391307,
+        47.959798669450635,
+        297.99455973970885,
+        61.41160579740318
+      ]
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "end_row": 2,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "797",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.9448628792225,
+        44.028589854605116,
+        720.6908242020477,
+        60.54936015798705
+      ]
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "end_row": 3,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "50.18",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        26.360731931838586,
+        63.985354485172905,
+        57.364416110440175,
+        80.89039717827814
+      ]
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "end_row": 3,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Acknowledgements . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        75.37718721182952,
+        61.4974709047481,
+        297.995309811943,
+        79.34644851709652
+      ]
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "end_row": 3,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "797",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        695.2483410568582,
+        61.38112578774451,
+        720.3741378299633,
+        77.96176284797411
+      ]
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "end_row": 4,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "50.19",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        31.928928359476103,
+        79.59630406785169,
+        54.386032067973105,
+        95.99161602983182
+      ]
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "end_row": 4,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "AUTHOR . . . . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        75.6174387334932,
+        79.00718041986548,
+        297.98373919765874,
+        97.28279143275117
+      ]
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "end_row": 4,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "797",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.4508700652823,
+        78.93323790488202,
+        719.6124183225843,
+        95.00248624460414
+      ]
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "end_row": 5,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "50.20",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        28.67984653391649,
+        99.51020490854816,
+        53.213283990837795,
+        115.40958366024026
+      ]
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "end_row": 5,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Copyrights . . . . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        74.78121302500631,
+        97.74306265278014,
+        297.98373919765874,
+        115.2176341524445
+      ]
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "end_row": 5,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "797",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        695.4462915885651,
+        99.02316004593754,
+        718.8621198670019,
+        114.84214727566925
+      ]
+    },
+    {
+      "row": 5,
+      "col": 0,
+      "end_row": 6,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        -0.22239037711835863,
+        132.5765505610601,
+        17.650458698128503,
+        148.61728910634528
+      ]
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "end_row": 6,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "perlothrtut",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        47.06002532940266,
+        133.93486693836647,
+        136.10326440151974,
+        150.9183191891129
+      ]
+    },
+    {
+      "row": 5,
+      "col": 3,
+      "end_row": 6,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "798",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        693.3142182588131,
+        132.27052002430483,
+        719.5569507993298,
+        148.19965873254287
+      ]
+    },
+    {
+      "row": 6,
+      "col": 0,
+      "end_row": 7,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.1",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        149.8001559037693,
+        36.978487821548896,
+        164.87613520201265
+      ]
+    },
+    {
+      "row": 6,
+      "col": 2,
+      "end_row": 7,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "DESCRIPTION . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        84.92295078913489,
+        149.07856843280703,
+        297.9960598841772,
+        166.5761117361807
+      ]
+    },
+    {
+      "row": 6,
+      "col": 3,
+      "end_row": 7,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "798",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.5781824690844,
+        149.21686380464516,
+        718.9888719927912,
+        165.1199625509055
+      ]
+    },
+    {
+      "row": 7,
+      "col": 0,
+      "end_row": 8,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.2",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        167.72537661545553,
+        35.084142068759206,
+        183.1988769726017
+      ]
+    },
+    {
+      "row": 7,
+      "col": 2,
+      "end_row": 8,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "What Is A Thread Anyway? . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        87.79867466035734,
+        167.29490921121678,
+        297.9923095230063,
+        184.37883180706447
+      ]
+    },
+    {
+      "row": 7,
+      "col": 3,
+      "end_row": 8,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "798",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        695.4355170113984,
+        167.121258645101,
+        719.5179037316777,
+        183.02271083638854
+      ]
+    },
+    {
+      "row": 8,
+      "col": 0,
+      "end_row": 9,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.3",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        185.95132229787347,
+        36.01732617693628,
+        201.86640430532495
+      ]
+    },
+    {
+      "row": 8,
+      "col": 2,
+      "end_row": 9,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Threaded Program Models . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        91.55332927666706,
+        184.21068500340417,
+        297.9941847035917,
+        201.90045700368657
+      ]
+    },
+    {
+      "row": 8,
+      "col": 3,
+      "end_row": 9,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "798",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        695.410218304211,
+        185.59955412298413,
+        719.6880989526032,
+        201.5050007346687
+      ]
+    },
+    {
+      "row": 9,
+      "col": 1,
+      "end_row": 10,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.3.1",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        55.60535325491162,
+        205.16267014801113,
+        78.88696262558241,
+        221.17581365162212
+      ]
+    },
+    {
+      "row": 9,
+      "col": 2,
+      "end_row": 10,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Boss / Worker . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        105.77345460265681,
+        202.03470356777902,
+        297.995309811943,
+        219.83529972337973
+      ]
+    },
+    {
+      "row": 9,
+      "col": 3,
+      "end_row": 10,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "798",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.8945901393201,
+        203.2670279979054,
+        719.8663535572496,
+        219.28453182301845
+      ]
+    },
+    {
+      "row": 10,
+      "col": 1,
+      "end_row": 11,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.3.2",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        60.119168416523195,
+        223.48807994749134,
+        85.59655041715578,
+        239.52729390483879
+      ]
+    },
+    {
+      "row": 10,
+      "col": 2,
+      "end_row": 11,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Work Crew . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        109.09520287027314,
+        219.61123577221034,
+        297.99568484806014,
+        237.77014244307307
+      ]
+    },
+    {
+      "row": 10,
+      "col": 3,
+      "end_row": 11,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "799",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.9806143634191,
+        220.81030893941315,
+        720.1246848193991,
+        236.8422353664179
+      ]
+    },
+    {
+      "row": 11,
+      "col": 1,
+      "end_row": 12,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.3.3",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        54.99647112464265,
+        238.44762646492464,
+        88.19872932326936,
+        254.59389698726463
+      ]
+    },
+    {
+      "row": 11,
+      "col": 2,
+      "end_row": 12,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Pipeline . . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        105.41990840208499,
+        237.6998160814322,
+        297.9964349202943,
+        255.70498516276623
+      ]
+    },
+    {
+      "row": 11,
+      "col": 3,
+      "end_row": 12,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "799",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.4457643528629,
+        239.83039723275343,
+        720.5583400012056,
+        255.7756050978559
+      ]
+    },
+    {
+      "row": 12,
+      "col": 0,
+      "end_row": 13,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.4",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        263.9367243289165,
+        42.46306275579545,
+        280.29994371480586
+      ]
+    },
+    {
+      "row": 12,
+      "col": 1,
+      "end_row": 13,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Native threads",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        59.773924027658325,
+        255.9432792792555,
+        169.13830116251884,
+        272.6281867200213
+      ]
+    },
+    {
+      "row": 12,
+      "col": 2,
+      "end_row": 13,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        170.95595054676494,
+        260.1880207545071,
+        297.9964349202943,
+        273.6398278824596
+      ]
+    },
+    {
+      "row": 12,
+      "col": 3,
+      "end_row": 13,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "799",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.8421394976724,
+        256.78268690605114,
+        720.5846730678011,
+        272.63114442062067
+      ]
+    },
+    {
+      "row": 13,
+      "col": 0,
+      "end_row": 14,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.5",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        19.524257332261257,
+        276.49984729631376,
+        44.95460830356106,
+        293.01772088261396
+      ]
+    },
+    {
+      "row": 13,
+      "col": 1,
+      "end_row": 14,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "What kind of threads are perl",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        76.29866676214817,
+        276.42059921530677,
+        245.24265220327322,
+        293.2710769061181
+      ]
+    },
+    {
+      "row": 13,
+      "col": 2,
+      "end_row": 14,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "threads?",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        252.26486083476038,
+        278.12286347420036,
+        302.064730709184,
+        291.5746706021529
+      ]
+    },
+    {
+      "row": 13,
+      "col": 3,
+      "end_row": 14,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "800",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        693.8415691636615,
+        276.090952811395,
+        720.7802531925315,
+        292.1529746042919
+      ]
+    },
+    {
+      "row": 14,
+      "col": 0,
+      "end_row": 15,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.6",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        20.23313831321461,
+        294.1669857618888,
+        45.31763074475106,
+        310.81762046581275
+      ]
+    },
+    {
+      "row": 14,
+      "col": 1,
+      "end_row": 15,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Threadsafe Modules . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        80.41421584065739,
+        294.8388716660786,
+        221.44592107283836,
+        309.286354832842
+      ]
+    },
+    {
+      "row": 14,
+      "col": 2,
+      "end_row": 15,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        227.00209795614722,
+        296.05920638985515,
+        297.99530981194306,
+        309.5110135178078
+      ]
+    },
+    {
+      "row": 14,
+      "col": 3,
+      "end_row": 15,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "800",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.105847992407,
+        295.30664573715535,
+        721.2705395519263,
+        311.4235526958132
+      ]
+    },
+    {
+      "row": 15,
+      "col": 0,
+      "end_row": 16,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.7",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        21.206695435446477,
+        306.748861160921,
+        44.32935420328727,
+        323.4018132385105
+      ]
+    },
+    {
+      "row": 15,
+      "col": 1,
+      "end_row": 16,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Thread Basics . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        77.86839874770297,
+        309.22512738125977,
+        206.50421153941562,
+        322.8157921269777
+      ]
+    },
+    {
+      "row": 15,
+      "col": 2,
+      "end_row": 16,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        215.79376856095183,
+        313.9940491095483,
+        297.9964349202943,
+        327.44585623750095
+      ]
+    },
+    {
+      "row": 15,
+      "col": 3,
+      "end_row": 16,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "800",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.0254696467432,
+        312.13480346055724,
+        721.3044579208472,
+        328.3112303323069
+      ]
+    },
+    {
+      "row": 17,
+      "col": 1,
+      "end_row": 18,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.7.1",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        59.265644124395095,
+        330.8001506325294,
+        89.85319258366331,
+        347.20422897515186
+      ]
+    },
+    {
+      "row": 16,
+      "col": 1,
+      "end_row": 17,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Basic",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        59.34647500229991,
+        323.9385596678935,
+        162.65015248087605,
+        340.08687313807013
+      ]
+    },
+    {
+      "row": 17,
+      "col": 2,
+      "end_row": 18,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Thread Support .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        111.57143774388484,
+        338.33868913330866,
+        230.06120832789082,
+        354.87254040119694
+      ]
+    },
+    {
+      "row": 16,
+      "col": 2,
+      "end_row": 17,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        260.6270861417336,
+        331.9288918292417,
+        297.99193448688925,
+        345.3806989571942
+      ]
+    },
+    {
+      "row": 16,
+      "col": 3,
+      "end_row": 17,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "800",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.011764384587,
+        327.9885055576327,
+        721.2842879123909,
+        344.23677101301166
+      ]
+    },
+    {
+      "row": 18,
+      "col": 1,
+      "end_row": 19,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.7.2",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        58.563265600761866,
+        348.16200560943867,
+        90.59126728144992,
+        364.6356661455425
+      ]
+    },
+    {
+      "row": 18,
+      "col": 2,
+      "end_row": 19,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Creating Threads . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        114.0873230614701,
+        349.8637345489349,
+        297.9945597397089,
+        369.2759934683165
+      ]
+    },
+    {
+      "row": 18,
+      "col": 3,
+      "end_row": 19,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "801",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.4125786551892,
+        352.0869352882779,
+        721.3799661576315,
+        368.4122229262748
+      ]
+    },
+    {
+      "row": 19,
+      "col": 1,
+      "end_row": 20,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.7.3",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        59.29857661950521,
+        367.6822197298959,
+        89.61190131530304,
+        384.1635641892062
+      ]
+    },
+    {
+      "row": 19,
+      "col": 2,
+      "end_row": 20,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Giving up control . . . . . . . Waiting For A",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        115.59498809525599,
+        367.79857726862815,
+        297.9945597397089,
+        391.8323329916326
+      ]
+    },
+    {
+      "row": 19,
+      "col": 3,
+      "end_row": 20,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "802 803",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.8857549860434,
+        376.4758600045923,
+        721.5875707104801,
+        392.8243823627612
+      ]
+    },
+    {
+      "row": 20,
+      "col": 1,
+      "end_row": 21,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.7.4",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        57.5985638341389,
+        394.27728417572894,
+        90.51578059381984,
+        410.9091359562592
+      ]
+    },
+    {
+      "row": 20,
+      "col": 2,
+      "end_row": 21,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Thread To Exit . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        114.38511082520412,
+        385.73341998832154,
+        295.2405315186643,
+        411.6150811549795
+      ]
+    },
+    {
+      "row": 21,
+      "col": 1,
+      "end_row": 22,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.7.5",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        57.06637514414271,
+        409.63671486336864,
+        90.73556041886675,
+        426.2775312209732
+      ]
+    },
+    {
+      "row": 21,
+      "col": 2,
+      "end_row": 22,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Errors In Threads . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        113.13205982444521,
+        403.6697629039762,
+        297.9945597397089,
+        435.05641275162225
+      ]
+    },
+    {
+      "row": 21,
+      "col": 3,
+      "end_row": 22,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "803 803",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        693.8420432450569,
+        405.351311612515,
+        721.2890287263444,
+        421.6670248382625
+      ]
+    },
+    {
+      "row": 22,
+      "col": 1,
+      "end_row": 23,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "51.7.6 Ignoring A Thread Threads And Data . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.28789398758647,
+        417.6602247871631,
+        226.63706925345912,
+        453.68453021896266
+      ]
+    },
+    {
+      "row": 23,
+      "col": 0,
+      "end_row": 24,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.8",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        449.20660200332327,
+        43.000970052622876,
+        466.4826226793342
+      ]
+    },
+    {
+      "row": 22,
+      "col": 2,
+      "end_row": 23,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        227.00247299226436,
+        439.5394483433628,
+        297.99568484806014,
+        452.9912554713154
+      ]
+    },
+    {
+      "row": 22,
+      "col": 3,
+      "end_row": 23,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "804",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        693.1248873888394,
+        436.48830647561635,
+        721.4565949504413,
+        452.98251845712184
+      ]
+    },
+    {
+      "row": 23,
+      "col": 1,
+      "end_row": 24,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.8.1",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        56.591291713130204,
+        453.503866548333,
+        92.08738196851309,
+        470.00216442551164
+      ]
+    },
+    {
+      "row": 23,
+      "col": 2,
+      "end_row": 24,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Shared And Unshared Data .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        111.16054924363169,
+        454.5779692422741,
+        297.990809378538,
+        471.48644225823944
+      ]
+    },
+    {
+      "row": 23,
+      "col": 3,
+      "end_row": 24,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "804",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.4613659406002,
+        455.1914329366873,
+        721.3129913859632,
+        471.7183320835793
+      ]
+    },
+    {
+      "row": 24,
+      "col": 1,
+      "end_row": 25,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.8.2",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        56.14293462077973,
+        469.8169269910686,
+        89.35373705909967,
+        486.21210174013424
+      ]
+    },
+    {
+      "row": 24,
+      "col": 2,
+      "end_row": 25,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Thread Pitfall: Races . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        112.20086699281075,
+        471.3584378549814,
+        297.9923095230063,
+        488.86094091070197
+      ]
+    },
+    {
+      "row": 24,
+      "col": 3,
+      "end_row": 25,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "804",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        694.086410655198,
+        470.4555768782144,
+        721.7064789440919,
+        486.9879035581648
+      ]
+    },
+    {
+      "row": 25,
+      "col": 1,
+      "end_row": 26,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.8.3",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        57.678662040796354,
+        489.71725137617887,
+        93.39721499094065,
+        506.1116943230345
+      ]
+    },
+    {
+      "row": 25,
+      "col": 2,
+      "end_row": 26,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Controlling access: lock() . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        114.37916325860809,
+        490.5992864817156,
+        297.9911844146551,
+        507.05404212739063
+      ]
+    },
+    {
+      "row": 25,
+      "col": 3,
+      "end_row": 26,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "805",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        693.8888049099603,
+        489.4239816404631,
+        721.6716124123805,
+        505.95051488624995
+      ]
+    },
+    {
+      "row": 26,
+      "col": 1,
+      "end_row": 27,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.8.4",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        56.42418879585142,
+        508.503742305689,
+        92.80732844021665,
+        524.8455869686903
+      ]
+    },
+    {
+      "row": 26,
+      "col": 2,
+      "end_row": 27,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Thread Pitfall: Deadlocks . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        112.22657513393057,
+        507.96946570876514,
+        297.9911844146551,
+        524.73212654605
+      ]
+    },
+    {
+      "row": 26,
+      "col": 3,
+      "end_row": 27,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "805",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        691.8170261140333,
+        507.61399278518695,
+        721.8083633457807,
+        524.1243958905918
+      ]
+    },
+    {
+      "row": 28,
+      "col": 1,
+      "end_row": 29,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "51.8.5 Threads And Code . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        47.876366555728396,
+        525.8429114140837,
+        207.49491236074192,
+        562.1783547522301
+      ]
+    },
+    {
+      "row": 27,
+      "col": 2,
+      "end_row": 28,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Queues: Passing Data Around",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        110.9517379381405,
+        526.6209391305034,
+        278.28121225100585,
+        543.3385947201732
+      ]
+    },
+    {
+      "row": 27,
+      "col": 3,
+      "end_row": 28,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "806",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        695.5221877101276,
+        526.4360980889242,
+        721.7531113140697,
+        543.0770364135637
+      ]
+    },
+    {
+      "row": 29,
+      "col": 0,
+      "end_row": 30,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.9",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        558.2005828554665,
+        38.69638775183411,
+        575.8238436801914
+      ]
+    },
+    {
+      "row": 28,
+      "col": 2,
+      "end_row": 29,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        215.79301848871768,
+        547.150004857484,
+        297.99568484806014,
+        560.6018119854366
+      ]
+    },
+    {
+      "row": 28,
+      "col": 3,
+      "end_row": 29,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "806",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        695.8633539215348,
+        543.1779641350463,
+        721.69070496312,
+        559.8681771418356
+      ]
+    },
+    {
+      "row": 29,
+      "col": 1,
+      "end_row": 30,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.9.1",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        56.69985096537357,
+        562.3376436999717,
+        93.74760424040264,
+        578.6750060744359
+      ]
+    },
+    {
+      "row": 29,
+      "col": 2,
+      "end_row": 30,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Semaphores: Synchronizing Data",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        111.81123673330754,
+        562.3651472663697,
+        297.45577907184054,
+        579.1164657577062
+      ]
+    },
+    {
+      "row": 29,
+      "col": 3,
+      "end_row": 30,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "807",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.8804309077652,
+        563.012243370691,
+        721.8855524166031,
+        579.7949073900287
+      ]
+    },
+    {
+      "row": 30,
+      "col": 1,
+      "end_row": 31,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.9.2",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        56.96715745030292,
+        580.1169003624927,
+        91.15839792519782,
+        596.3654707354593
+      ]
+    },
+    {
+      "row": 30,
+      "col": 2,
+      "end_row": 31,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Attributes: Restricting Access",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        112.83004842646181,
+        579.6096394638269,
+        258.6373910454058,
+        596.1748362597164
+      ]
+    },
+    {
+      "row": 30,
+      "col": 3,
+      "end_row": 31,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "808",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        697.9987027227457,
+        579.5087117423443,
+        722.1905591470388,
+        596.2651528491518
+      ]
+    },
+    {
+      "row": 31,
+      "col": 1,
+      "end_row": 32,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.9.3",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        55.8967678562515,
+        597.3439512739415,
+        94.59963625359316,
+        613.6393569883572
+      ]
+    },
+    {
+      "row": 31,
+      "col": 2,
+      "end_row": 32,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Subroutine Locks . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        113.57654345630422,
+        598.9188506136921,
+        297.9945597397089,
+        615.3785459242856
+      ]
+    },
+    {
+      "row": 31,
+      "col": 3,
+      "end_row": 32,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "808",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        697.5458687935825,
+        598.4456795013156,
+        722.1981875476729,
+        615.2967670273019
+      ]
+    },
+    {
+      "row": 32,
+      "col": 1,
+      "end_row": 33,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.9.4",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        55.808464809081585,
+        617.2251878180704,
+        93.40152482180736,
+        633.5120558400346
+      ]
+    },
+    {
+      "row": 32,
+      "col": 2,
+      "end_row": 33,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Methods . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        115.08998366345148,
+        618.8908759322186,
+        297.9960598841772,
+        636.8176674067795
+      ]
+    },
+    {
+      "row": 32,
+      "col": 3,
+      "end_row": 33,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "809",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        698.1164473020237,
+        627.2456944980759,
+        722.2835652971419,
+        644.3999920731325
+      ]
+    },
+    {
+      "row": 33,
+      "col": 1,
+      "end_row": 34,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.9.5",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.725648896004856,
+        632.6065725720146,
+        95.41756673005096,
+        649.1427412135682
+      ]
+    },
+    {
+      "row": 33,
+      "col": 2,
+      "end_row": 34,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Locking A Subroutine . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        111.58038064293325,
+        632.5624814888532,
+        297.99193448688925,
+        650.2775257798646
+      ]
+    },
+    {
+      "row": 33,
+      "col": 3,
+      "end_row": 34,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "810",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        697.8203619214819,
+        634.240381989682,
+        722.2583958848804,
+        651.4695673242435
+      ]
+    },
+    {
+      "row": 34,
+      "col": 0,
+      "end_row": 35,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.10",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        647.3998322830716,
+        35.95931248641524,
+        664.527541044493
+      ]
+    },
+    {
+      "row": 34,
+      "col": 1,
+      "end_row": 35,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "General Thread Utility Routines",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.52127132901779,
+        652.5802601286919,
+        265.0393862080235,
+        668.534524046145
+      ]
+    },
+    {
+      "row": 34,
+      "col": 2,
+      "end_row": 35,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        271.83616560916323,
+        654.7605613716053,
+        297.99155945077223,
+        668.2123684995578
+      ]
+    },
+    {
+      "row": 34,
+      "col": 3,
+      "end_row": 35,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "810",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        697.7316656022456,
+        652.6834442403224,
+        722.2352089948176,
+        670.2166933931994
+      ]
+    },
+    {
+      "row": 35,
+      "col": 1,
+      "end_row": 36,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "51.10.1 What Thread Am I In? .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        49.968277649091476,
+        667.9159072445019,
+        260.7544230654332,
+        682.1065278355042
+      ]
+    },
+    {
+      "row": 35,
+      "col": 2,
+      "end_row": 36,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        271.8365406452803,
+        672.6954040912984,
+        297.99193448688925,
+        686.147211219251
+      ]
+    },
+    {
+      "row": 35,
+      "col": 3,
+      "end_row": 36,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "810",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        697.01800070903,
+        670.0033730489421,
+        722.1299198267445,
+        687.4284374417525
+      ]
+    },
+    {
+      "row": 36,
+      "col": 1,
+      "end_row": 37,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.10.2",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        56.80058248730529,
+        686.7448122104416,
+        98.6600356588745,
+        703.6535901439945
+      ]
+    },
+    {
+      "row": 36,
+      "col": 2,
+      "end_row": 37,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Thread IDs . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        115.89273276068135,
+        684.780777045446,
+        297.99568484806014,
+        704.0820539389445
+      ]
+    },
+    {
+      "row": 36,
+      "col": 3,
+      "end_row": 37,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "810",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        698.1795863242207,
+        686.9837456320541,
+        722.241630642809,
+        704.3817333430893
+      ]
+    },
+    {
+      "row": 37,
+      "col": 1,
+      "end_row": 38,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "51.10.3 Are These Threads The",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        54.17958578217002,
+        704.4122860853629,
+        242.84573976676296,
+        721.7181886849547
+      ]
+    },
+    {
+      "row": 37,
+      "col": 2,
+      "end_row": 38,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Same?",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        260.0577903168658,
+        708.5650895306851,
+        299.88871865280174,
+        722.0168966586376
+      ]
+    },
+    {
+      "row": 37,
+      "col": 3,
+      "end_row": 38,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "810",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        697.692661632902,
+        705.69263503553,
+        722.191550408138,
+        723.4205435763057
+      ]
+    },
+    {
+      "row": 38,
+      "col": 1,
+      "end_row": 39,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.10.4",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        59.20078116985141,
+        723.2867457388842,
+        94.88312615342693,
+        740.3566421257041
+      ]
+    },
+    {
+      "row": 38,
+      "col": 2,
+      "end_row": 39,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "What Threads Are Running? .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        107.59609285075766,
+        722.5081081872893,
+        297.990809378538,
+        739.9532395742925
+      ]
+    },
+    {
+      "row": 38,
+      "col": 3,
+      "end_row": 39,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "811",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        698.018571043041,
+        723.4626831869066,
+        722.15819231723,
+        741.0509394725797
+      ]
+    },
+    {
+      "row": 39,
+      "col": 0,
+      "end_row": 40,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.11",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        745.0708509799441,
+        36.43696094020453,
+        763.1828337140113
+      ]
+    },
+    {
+      "row": 39,
+      "col": 1,
+      "end_row": 40,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "A Complete",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        56.14293462077973,
+        742.9180718282485,
+        233.1659189003492,
+        757.8880822939858
+      ]
+    },
+    {
+      "row": 39,
+      "col": 2,
+      "end_row": 40,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Example . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        150.1840951557951,
+        744.436275166033,
+        297.994934775826,
+        757.8880822939858
+      ]
+    },
+    {
+      "row": 39,
+      "col": 3,
+      "end_row": 40,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "811",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.5221115695085,
+        746.0648213318743,
+        721.8965855836218,
+        763.5325741869433
+      ]
+    },
+    {
+      "row": 40,
+      "col": 0,
+      "end_row": 41,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.12",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        756.3907944510979,
+        34.50991434571381,
+        774.2875053683473
+      ]
+    },
+    {
+      "row": 40,
+      "col": 1,
+      "end_row": 41,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Conclusion . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        49.27304267011979,
+        761.2705735553834,
+        192.3761980736242,
+        776.9696824355657
+      ]
+    },
+    {
+      "row": 40,
+      "col": 2,
+      "end_row": 41,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        193.37710977056093,
+        762.3711178857264,
+        297.9837391976588,
+        775.822925013679
+      ]
+    },
+    {
+      "row": 40,
+      "col": 3,
+      "end_row": 41,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "812",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.342736408837,
+        760.1249981789181,
+        721.8730539070896,
+        777.6136073969762
+      ]
+    },
+    {
+      "row": 41,
+      "col": 0,
+      "end_row": 42,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.13",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        778.8974324076416,
+        35.94097886995499,
+        798.056624104427
+      ]
+    },
+    {
+      "row": 41,
+      "col": 1,
+      "end_row": 42,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Bibliography . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        59.46497918926815,
+        780.4039082407437,
+        220.3582490570115,
+        790.8938050550399
+      ]
+    },
+    {
+      "row": 41,
+      "col": 2,
+      "end_row": 42,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        227.00509824508396,
+        780.3059606054196,
+        297.99831010087973,
+        793.7577677333724
+      ]
+    },
+    {
+      "row": 41,
+      "col": 3,
+      "end_row": 42,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "812",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        697.4446308665238,
+        784.2014128597415,
+        721.9420542992655,
+        801.9709121594605
+      ]
+    },
+    {
+      "row": 42,
+      "col": 1,
+      "end_row": 43,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "51.13.1 Introductory Texts",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        63.26593755095186,
+        799.4293021001075,
+        228.2736413284677,
+        816.5457898943067
+      ]
+    },
+    {
+      "row": 42,
+      "col": 2,
+      "end_row": 43,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        238.21042735134267,
+        798.240803325113,
+        297.99418470359177,
+        829.6274531727588
+      ]
+    },
+    {
+      "row": 42,
+      "col": 3,
+      "end_row": 43,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "812 813",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        697.0723476762591,
+        804.721573716845,
+        721.8752519208317,
+        822.6093810405376
+      ]
+    },
+    {
+      "row": 43,
+      "col": 1,
+      "end_row": 44,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "51.13.2 OS-Related References",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        60.21553084741382,
+        817.0534166940777,
+        231.70754216981248,
+        825.1933746445616
+      ]
+    },
+    {
+      "row": 44,
+      "col": 1,
+      "end_row": 45,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "51.13.3 Other References",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        57.59618803987365,
+        832.8460742901235,
+        215.2654512167686,
+        846.05242090848
+      ]
+    },
+    {
+      "row": 43,
+      "col": 2,
+      "end_row": 44,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        227.00134788391313,
+        834.111988960461,
+        297.9945597397089,
+        847.5637960884137
+      ]
+    },
+    {
+      "row": 43,
+      "col": 3,
+      "end_row": 44,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "813",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        697.7765309415677,
+        829.6932874182639,
+        721.8920171629031,
+        847.7161122497284
+      ]
+    },
+    {
+      "row": 45,
+      "col": 0,
+      "end_row": 46,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.14 51.15",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        860.4817309870248,
+        34.65327884926107,
+        881.9199987002734
+      ]
+    },
+    {
+      "row": 45,
+      "col": 1,
+      "end_row": 46,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Acknowledgements .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        53.51511760829794,
+        858.205460212367,
+        188.11338746168872,
+        870.177256502208
+      ]
+    },
+    {
+      "row": 44,
+      "col": 2,
+      "end_row": 45,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        204.58318894905386,
+        852.0468316801542,
+        297.99530981194306,
+        865.498638808107
+      ]
+    },
+    {
+      "row": 44,
+      "col": 3,
+      "end_row": 45,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "813",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        697.2139256202299,
+        836.219987396482,
+        721.8498670170268,
+        854.250740085223
+      ]
+    },
+    {
+      "row": 46,
+      "col": 1,
+      "end_row": 47,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "AUTHOR .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        58.83023268651047,
+        880.8301012752967,
+        154.31203044886047,
+        899.440807215578
+      ]
+    },
+    {
+      "row": 47,
+      "col": 1,
+      "end_row": 48,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": ". . Copyrights . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        54.41673961289828,
+        882.787672187436,
+        179.45872990166902,
+        902.0479745562565
+      ]
+    },
+    {
+      "row": 45,
+      "col": 2,
+      "end_row": 46,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        193.37710977056093,
+        869.9816743998475,
+        297.9837391976588,
+        883.4334815278002
+      ]
+    },
+    {
+      "row": 45,
+      "col": 3,
+      "end_row": 46,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "813",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        695.9582994955281,
+        864.4099232840509,
+        721.8107337527574,
+        882.0724574940538
+      ]
+    },
+    {
+      "row": 46,
+      "col": 0,
+      "end_row": 47,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "51.16",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        885.5966339875621,
+        34.793555763038995,
+        908.3312893160836
+      ]
+    },
+    {
+      "row": 48,
+      "col": 1,
+      "end_row": 49,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": ". . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        44.546090210284575,
+        893.7021362506517,
+        229.8957323717642,
+        897.3222398172067
+      ]
+    },
+    {
+      "row": 47,
+      "col": 2,
+      "end_row": 48,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        238.21492778474777,
+        887.9165171195408,
+        297.9837391976588,
+        901.3683242474934
+      ]
+    },
+    {
+      "row": 47,
+      "col": 3,
+      "end_row": 48,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "813",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        695.9273549099053,
+        886.1063952104461,
+        721.685403871154,
+        904.4653611904372
+      ]
+    },
+    {
+      "row": 49,
+      "col": 0,
+      "end_row": 50,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "52",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        0.08138670469821818,
+        917.9136294227643,
+        19.046781945117715,
+        935.4237048389867
+      ]
+    },
+    {
+      "row": 49,
+      "col": 1,
+      "end_row": 50,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "perlport",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        48.252550142927504,
+        914.565207426726,
+        177.94263914853872,
+        930.5914318948434
+      ]
+    },
+    {
+      "row": 48,
+      "col": 3,
+      "end_row": 49,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "814",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.0507453676187,
+        918.9640095283934,
+        721.812845569882,
+        936.8860895889276
+      ]
+    },
+    {
+      "row": 50,
+      "col": 1,
+      "end_row": 51,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "52.1 DESCRIPTION ISSUES",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        32.862817529046524,
+        937.5446505945412,
+        169.91701217808975,
+        970.1163043790422
+      ]
+    },
+    {
+      "row": 50,
+      "col": 2,
+      "end_row": 51,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . . . . . . . . . . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        137.3302122889445,
+        938.7296545313962,
+        297.9960598841772,
+        970.1163043790422
+      ]
+    },
+    {
+      "row": 50,
+      "col": 3,
+      "end_row": 51,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "814 815",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.2027531022868,
+        942.3014869275222,
+        721.7811683130119,
+        960.0709862272412
+      ]
+    },
+    {
+      "row": 50,
+      "col": 0,
+      "end_row": 51,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "52.2",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        16.977822047941885,
+        933.755195799855,
+        47.654951296687926,
+        970.1163043790422
+      ]
+    },
+    {
+      "row": 51,
+      "col": 1,
+      "end_row": 52,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "52.2.1 Newlines",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        61.882029310503015,
+        972.1162066721669,
+        174.28140550355317,
+        987.6682233081098
+      ]
+    },
+    {
+      "row": 52,
+      "col": 1,
+      "end_row": 53,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": ". . . . . . . 52.2.2 Numbers endianness and",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        60.26829933908789,
+        986.4352585510495,
+        255.1093203996238,
+        1011.548027128474
+      ]
+    },
+    {
+      "row": 51,
+      "col": 2,
+      "end_row": 52,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        260.6312115390216,
+        974.5993399707828,
+        297.9960598841772,
+        988.0511470987354
+      ]
+    },
+    {
+      "row": 51,
+      "col": 3,
+      "end_row": 52,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "815",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        695.8138339648767,
+        974.0274910945144,
+        721.4757736977981,
+        991.4950000155135
+      ]
+    },
+    {
+      "row": 53,
+      "col": 1,
+      "end_row": 54,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Width 52.2.3 Files and Filesystems . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        56.572360781048246,
+        1002.7990877721141,
+        281.2658132244981,
+        1020.7121422720567
+      ]
+    },
+    {
+      "row": 52,
+      "col": 3,
+      "end_row": 53,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "817",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        696.8715095578714,
+        986.4059254791263,
+        721.5739085466325,
+        1004.4357024315872
+      ]
+    },
+    {
+      "row": 53,
+      "col": 2,
+      "end_row": 54,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        283.04637018494407,
+        1010.4690254101694,
+        297.9923095230063,
+        1023.920832538122
+      ]
+    },
+    {
+      "row": 53,
+      "col": 3,
+      "end_row": 54,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "817",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        695.8196953348554,
+        1003.4542946842645,
+        721.7844437844706,
+        1021.8207006533922
+      ]
+    }
+  ],
+  "layout_tedss_score": 0.4464944649446494
+}

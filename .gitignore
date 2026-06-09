@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtualenv/build
+.venv/
+.venv-*/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Local exports/runtime
+.gt_editor_exports/
+gt_editor_exports/
+/tmp/
+.DS_Store

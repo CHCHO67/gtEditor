@@ -1,0 +1,2929 @@
+{
+  "source_pdf": "04378bc47871507167e6abdb9af0938610cddf36039ea8b8ce087b804f52a47a.pdf",
+  "page_no": 1,
+  "table_index": 0,
+  "global_index": 0,
+  "num_rows": 53,
+  "num_cols": 4,
+  "image_size": [
+    717,
+    1006
+  ],
+  "table_bbox_px": [
+    92.03928586552121,
+    171.739623093834,
+    809.1207368767073,
+    1177.7321175890777
+  ],
+  "h_lines": {
+    "0": 26.54290206038462,
+    "1": 45.05296922574357,
+    "2": 64.20627791865965,
+    "3": 81.66433731134794,
+    "4": 98.8345645580778,
+    "5": 116.70321328500572,
+    "6": 134.58322199534618,
+    "7": 152.09046374998346,
+    "8": 171.2872708850409,
+    "9": 190.23526527080273,
+    "10": 208.59316089157883,
+    "11": 226.30488002976412,
+    "12": 243.62799973536383,
+    "13": 260.5726892896954,
+    "14": 279.22586509919336,
+    "15": 297.2046015053435,
+    "16": 316.04281278152075,
+    "17": 334.4736856875154,
+    "18": 352.22825458101727,
+    "19": 369.39674433028404,
+    "20": 387.6748074594044,
+    "21": 405.99126766019776,
+    "22": 424.80089519526916,
+    "23": 461.15856210752315,
+    "24": 488.80634173754265,
+    "26": 508.5137929616543,
+    "27": 526.6441764885257,
+    "28": 554.1850062747083,
+    "29": 578.4628608253331,
+    "30": 597.4670760838217,
+    "31": 615.0296874321821,
+    "32": 632.6794392420627,
+    "33": 650.0911396437931,
+    "34": 669.9242988282815,
+    "35": 694.0355192701935,
+    "36": 707.1374798074547,
+    "37": 731.8545233202071,
+    "38": 743.9708130077929,
+    "39": 765.8679971852149,
+    "40": 790.2722402013886,
+    "41": 805.6055742415309,
+    "42": 816.3291459626976,
+    "43": 828.1486538528811,
+    "44": 845.4236725479526,
+    "45": 875.7680067144178,
+    "46": 891.5642746509903,
+    "47": 899.6993917709409,
+    "48": 926.2828029551009,
+    "49": 953.2844866337763,
+    "50": 971.539639541386,
+    "51": 989.6056727251399
+  },
+  "v_lines": {
+    "0": 47.32228827276188,
+    "1": 101.71286746936914,
+    "2": 511.4898423734962
+  },
+  "cells": [
+    {
+      "row": 0,
+      "col": 1,
+      "end_row": 1,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.1.14",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.34166941043992,
+        10.486105470633248,
+        96.82331615611147,
+        26.639440321797537
+      ]
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "end_row": 1,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Poking at Perl . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        109.611830433081,
+        9.542598410797638,
+        303.125769695423,
+        27.621374723782083
+      ]
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "end_row": 1,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1232",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        685.1847709947008,
+        5.266397154704492,
+        715.7086019576893,
+        21.0079854195817
+      ]
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "end_row": 2,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.1.15",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.81802703904913,
+        28.35636218982941,
+        95.99936197569284,
+        44.384080661912805
+      ]
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "end_row": 2,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Using a source-level debugger .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        110.12681248100424,
+        29.04913242827908,
+        303.12089422590077,
+        45.55621744347542
+      ]
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "end_row": 2,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1232",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        685.0067562026352,
+        26.583117279037765,
+        715.7603608804243,
+        42.31022869005338
+      ]
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "end_row": 3,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.1.16",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.81552136865662,
+        46.305720356025404,
+        96.34856374156925,
+        62.10461228723048
+      ]
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "end_row": 3,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "gdb macro support . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        110.3545987557496,
+        46.59534368313109,
+        303.1246445870717,
+        63.491060163168754
+      ]
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "end_row": 3,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1233",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        685.3037609541514,
+        45.166224519863334,
+        715.8935834751107,
+        61.46836571624763
+      ]
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "end_row": 4,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.1.17",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.827616971574884,
+        66.00787658786851,
+        95.89358956112747,
+        81.92273334974723
+      ]
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "end_row": 4,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Dumping Perl Data Structures .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        110.34797395556467,
+        65.28637014137811,
+        303.12089422590077,
+        81.4274030788234
+      ]
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "end_row": 4,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1234",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.6040110920383,
+        64.92149567415055,
+        715.9050379683338,
+        80.99148220951614
+      ]
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "end_row": 5,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.1.18",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.93177058415958,
+        82.78272709402503,
+        96.24826212973724,
+        98.9264835216753
+      ]
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "end_row": 5,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Patching . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        109.50500018751839,
+        81.56296637506196,
+        303.12651976765716,
+        99.36224579851674
+      ]
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "end_row": 6,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . Patching a core module . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        110.17918045794988,
+        98.95583097882351,
+        303.12239437036925,
+        117.29708851821007
+      ]
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "end_row": 5,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1235",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        685.7320222306216,
+        81.29871176091407,
+        715.7908349612749,
+        96.96719388253737
+      ]
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "end_row": 6,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.1.19",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.937871811426646,
+        99.71189737485113,
+        95.93253697511784,
+        116.15103337120209
+      ]
+    },
+    {
+      "row": 6,
+      "col": 2,
+      "end_row": 7,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . Adding a new function to the core",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        111.18742162028676,
+        117.08842700246427,
+        313.3889045655964,
+        135.23193123790324
+      ]
+    },
+    {
+      "row": 5,
+      "col": 3,
+      "end_row": 6,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1238",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.3922710272468,
+        99.08373579206298,
+        715.681547128547,
+        114.83470279324578
+      ]
+    },
+    {
+      "row": 6,
+      "col": 1,
+      "end_row": 7,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.1.20",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.62821048600881,
+        117.99375068055346,
+        96.13581148917902,
+        134.670388830115
+      ]
+    },
+    {
+      "row": 6,
+      "col": 3,
+      "end_row": 7,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1238",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.4924152644071,
+        116.85427734435851,
+        715.8651609452852,
+        132.82575152356716
+      ]
+    },
+    {
+      "row": 7,
+      "col": 1,
+      "end_row": 8,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.1.21",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.41317160903861,
+        134.70019378659524,
+        95.00385752596955,
+        151.6631590180755
+      ]
+    },
+    {
+      "row": 7,
+      "col": 2,
+      "end_row": 8,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Writing a test . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        108.637407807172,
+        135.5820274989833,
+        303.12576969542295,
+        153.16677395759658
+      ]
+    },
+    {
+      "row": 8,
+      "col": 2,
+      "end_row": 9,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . Special Make Test Targets . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        110.81762954802915,
+        152.56419270242876,
+        303.1216442981349,
+        171.10161667728997
+      ]
+    },
+    {
+      "row": 7,
+      "col": 3,
+      "end_row": 8,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1238",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.072741955102,
+        134.4890390949133,
+        715.9110643994698,
+        150.43944580488366
+      ]
+    },
+    {
+      "row": 8,
+      "col": 1,
+      "end_row": 9,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.1.22",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.45825764836164,
+        151.42618936408738,
+        94.14197102191144,
+        168.14237495590365
+      ]
+    },
+    {
+      "row": 8,
+      "col": 3,
+      "end_row": 9,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1240",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.3485075081321,
+        153.2830216528287,
+        716.015223354635,
+        169.2815782924928
+      ]
+    },
+    {
+      "row": 9,
+      "col": 1,
+      "end_row": 10,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.1.23",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        49.48237649789576,
+        171.58725492585282,
+        95.7211203679262,
+        188.24374060484004
+      ]
+    },
+    {
+      "row": 9,
+      "col": 2,
+      "end_row": 10,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Running tests by hand . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        108.26875904720436,
+        171.47292509279183,
+        303.12239437036914,
+        189.0379595929446
+      ]
+    },
+    {
+      "row": 9,
+      "col": 3,
+      "end_row": 10,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1240",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.7103469174158,
+        171.97018936671006,
+        715.8389181884236,
+        187.98590598131798
+      ]
+    },
+    {
+      "row": 10,
+      "col": 0,
+      "end_row": 11,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        8.013631675043968,
+        191.4325709486608,
+        38.952796204625685,
+        208.44356611001004
+      ]
+    },
+    {
+      "row": 10,
+      "col": 1,
+      "end_row": 11,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "EXTERNAL TOOLS FOR DEBUGGING PERL .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        34.982922091877924,
+        189.82560829507165,
+        386.46043505374035,
+        204.0356275462735
+      ]
+    },
+    {
+      "row": 10,
+      "col": 3,
+      "end_row": 11,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1241",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.552719413661,
+        192.1221049418359,
+        715.7796796525765,
+        208.19920146681974
+      ]
+    },
+    {
+      "row": 11,
+      "col": 1,
+      "end_row": 12,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.1",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.468814588011156,
+        208.74275567314763,
+        93.52354592464917,
+        225.2149816211822
+      ]
+    },
+    {
+      "row": 11,
+      "col": 2,
+      "end_row": 12,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Rational Software's Purify . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        108.02934731665064,
+        208.79590059554792,
+        303.1216442981349,
+        224.99254694597082
+      ]
+    },
+    {
+      "row": 11,
+      "col": 3,
+      "end_row": 12,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1241",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.4475346829831,
+        209.26641990851786,
+        715.7787820990029,
+        225.48811622236397
+      ]
+    },
+    {
+      "row": 12,
+      "col": 1,
+      "end_row": 13,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.2",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.868092363672446,
+        227.58550315985875,
+        90.98081939173781,
+        243.68551965137598
+      ]
+    },
+    {
+      "row": 12,
+      "col": 2,
+      "end_row": 13,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Purify on Unix . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        109.00660151038062,
+        227.1216438371642,
+        303.12539465930587,
+        243.32420017895757
+      ]
+    },
+    {
+      "row": 12,
+      "col": 3,
+      "end_row": 13,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1242",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.4118491460292,
+        228.16738231022632,
+        715.9958191011904,
+        244.34542868780804
+      ]
+    },
+    {
+      "row": 13,
+      "col": 1,
+      "end_row": 14,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.3",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.535450158429626,
+        243.84124942398674,
+        90.7125577248949,
+        259.7280262268665
+      ]
+    },
+    {
+      "row": 13,
+      "col": 2,
+      "end_row": 14,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Purify on NT . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        108.63890372979438,
+        242.4689164278025,
+        303.12576969542295,
+        260.77733047171773
+      ]
+    },
+    {
+      "row": 13,
+      "col": 3,
+      "end_row": 14,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1243",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.2323355285891,
+        244.10268404225226,
+        716.045013585144,
+        260.1809955654621
+      ]
+    },
+    {
+      "row": 14,
+      "col": 1,
+      "end_row": 15,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.4",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.162030473812706,
+        259.98143585684977,
+        87.7636988851632,
+        275.778512790705
+      ]
+    },
+    {
+      "row": 14,
+      "col": 2,
+      "end_row": 15,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "valgrind . . . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        109.05530447690137,
+        260.7303547633138,
+        303.1268948037742,
+        278.7121731914111
+      ]
+    },
+    {
+      "row": 14,
+      "col": 3,
+      "end_row": 15,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1243",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.3198285344283,
+        262.03799285396246,
+        716.175030631354,
+        278.1152693786835
+      ]
+    },
+    {
+      "row": 15,
+      "col": 1,
+      "end_row": 16,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.5",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.80568323758561,
+        279.7395570069756,
+        89.21634660313075,
+        295.693653711558
+      ]
+    },
+    {
+      "row": 15,
+      "col": 2,
+      "end_row": 16,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Compaq's / Digital's / HP's Third Degree",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        109.26070533811867,
+        280.4049260354351,
+        302.59208885721483,
+        296.6426423258896
+      ]
+    },
+    {
+      "row": 15,
+      "col": 3,
+      "end_row": 16,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1244",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        682.922807767691,
+        279.77786695103714,
+        716.2753001877011,
+        295.9717233055338
+      ]
+    },
+    {
+      "row": 16,
+      "col": 1,
+      "end_row": 17,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.6",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.03319948053917,
+        300.3125969671954,
+        88.80639969362326,
+        316.24269370682146
+      ]
+    },
+    {
+      "row": 16,
+      "col": 2,
+      "end_row": 17,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "PERL_DESTRUCT_LEVEL .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        107.7077773786423,
+        297.76656068479724,
+        303.12089422590077,
+        314.5833588267591
+      ]
+    },
+    {
+      "row": 16,
+      "col": 3,
+      "end_row": 17,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1244",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.4363366336381,
+        299.9491474978871,
+        716.176355591391,
+        316.15146384003094
+      ]
+    },
+    {
+      "row": 17,
+      "col": 1,
+      "end_row": 18,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.7",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.1328492975143,
+        319.94879829534284,
+        87.865122438962,
+        335.81241513203963
+      ]
+    },
+    {
+      "row": 17,
+      "col": 2,
+      "end_row": 18,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Profiling . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        108.43730678610262,
+        312.03588984939756,
+        303.1265197676571,
+        332.5182015464525
+      ]
+    },
+    {
+      "row": 18,
+      "col": 2,
+      "end_row": 19,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". Gprof Profiling . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        109.51839938015047,
+        330.9520922288533,
+        303.12539465930587,
+        350.45304426614575
+      ]
+    },
+    {
+      "row": 17,
+      "col": 3,
+      "end_row": 18,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1244",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.2890096256549,
+        317.2946721707723,
+        716.1632342129601,
+        333.57516839876155
+      ]
+    },
+    {
+      "row": 18,
+      "col": 1,
+      "end_row": 19,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.8",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.900489773608996,
+        337.52853262624603,
+        88.70475175143108,
+        353.3851894731056
+      ]
+    },
+    {
+      "row": 19,
+      "col": 2,
+      "end_row": 20,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . GCC gcov Profiling . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        106.64915567941526,
+        350.2602440360031,
+        303.1227694064862,
+        368.38788698583903
+      ]
+    },
+    {
+      "row": 18,
+      "col": 3,
+      "end_row": 19,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1245",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.2299876957916,
+        336.4557041927394,
+        715.7427517341264,
+        352.7924803385514
+      ]
+    },
+    {
+      "row": 19,
+      "col": 1,
+      "end_row": 20,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.9",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.77328582764903,
+        354.4864878650417,
+        90.53083518175794,
+        370.2701848184338
+      ]
+    },
+    {
+      "row": 19,
+      "col": 3,
+      "end_row": 20,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1245",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.7738595178982,
+        351.9920815072559,
+        715.9438892158698,
+        368.4445974840701
+      ]
+    },
+    {
+      "row": 20,
+      "col": 1,
+      "end_row": 21,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.10",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        52.020561837131964,
+        371.9550723582406,
+        92.17271711145924,
+        387.8440091579665
+      ]
+    },
+    {
+      "row": 20,
+      "col": 2,
+      "end_row": 21,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Pixie Profiling . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        107.85886556350482,
+        366.05708097020874,
+        303.12539465930587,
+        386.3227297055322
+      ]
+    },
+    {
+      "row": 21,
+      "col": 2,
+      "end_row": 22,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . Miscellaneous tricks . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        106.60241878262681,
+        385.9170819715745,
+        303.1227694064862,
+        404.2590726211871
+      ]
+    },
+    {
+      "row": 20,
+      "col": 3,
+      "end_row": 21,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1246",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.4290308858638,
+        371.2656433649123,
+        715.1458786077883,
+        387.6713594100614
+      ]
+    },
+    {
+      "row": 21,
+      "col": 1,
+      "end_row": 22,
+      "end_col": 2,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.2.11",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        52.26487805685488,
+        389.346826963623,
+        92.92571113376809,
+        405.28808368695377
+      ]
+    },
+    {
+      "row": 22,
+      "col": 1,
+      "end_row": 23,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": ". . . . 76.2.12 CONCLUSION . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.1945026798804,
+        402.2271881563287,
+        278.14563588064027,
+        416.4589273758161
+      ]
+    },
+    {
+      "row": 21,
+      "col": 3,
+      "end_row": 22,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1246",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.7648412415176,
+        388.94683754766857,
+        715.832207906946,
+        405.44747345422036
+      ]
+    },
+    {
+      "row": 22,
+      "col": 2,
+      "end_row": 23,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        288.1794553212436,
+        408.74210821292763,
+        303.12539465930587,
+        422.19391534088027
+      ]
+    },
+    {
+      "row": 22,
+      "col": 3,
+      "end_row": 23,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1247",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.3276073320649,
+        406.53506186617517,
+        715.123525249745,
+        422.93531791929684
+      ]
+    },
+    {
+      "row": 23,
+      "col": 0,
+      "end_row": 24,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "76.3",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        10.107395766552344,
+        432.85498343507027,
+        34.5092916193025,
+        450.8227371994059
+      ]
+    },
+    {
+      "row": 23,
+      "col": 1,
+      "end_row": 24,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "AUTHOR . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        50.91613017888429,
+        423.55196701889497,
+        263.6626125818553,
+        433.28005281440403
+      ]
+    },
+    {
+      "row": 23,
+      "col": 3,
+      "end_row": 24,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1247",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        675.6398871102072,
+        426.6664724712414,
+        715.6417128461446,
+        443.85752736967595
+      ]
+    },
+    {
+      "row": 25,
+      "col": 1,
+      "end_row": 26,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Miscellaneous",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        34.86543874021149,
+        476.3645199045026,
+        281.6616524123322,
+        489.07490134540467
+      ]
+    },
+    {
+      "row": 24,
+      "col": 3,
+      "end_row": 25,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1248",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        676.2303918802386,
+        471.4943870156403,
+        715.6417128461446,
+        488.80634173754265
+      ]
+    },
+    {
+      "row": 26,
+      "col": 1,
+      "end_row": 27,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "perlbook",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": true,
+      "is_fillable": false,
+      "bbox_px": [
+        35.52160382820463,
+        501.1303537426031,
+        247.3087296831065,
+        513.881685123712
+      ]
+    },
+    {
+      "row": 27,
+      "col": 3,
+      "end_row": 28,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1249",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.5426355238735,
+        508.5137929616543,
+        715.3148751234733,
+        524.5456495526954
+      ]
+    },
+    {
+      "row": 28,
+      "col": 0,
+      "end_row": 29,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "77.1",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        2.636314756074384,
+        529.2557026752986,
+        21.950607154232145,
+        546.2080779222418
+      ]
+    },
+    {
+      "row": 28,
+      "col": 1,
+      "end_row": 29,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "DESCRIPTION . . . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        49.921365676601,
+        525.4502082319016,
+        212.9791006061438,
+        540.4882262740988
+      ]
+    },
+    {
+      "row": 28,
+      "col": 2,
+      "end_row": 29,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        220.92385340831464,
+        529.0443225613111,
+        303.1265197676571,
+        542.4961296892637
+      ]
+    },
+    {
+      "row": 28,
+      "col": 3,
+      "end_row": 29,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1249",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.1739119677748,
+        528.7427034243558,
+        714.7351837369695,
+        544.7287200823303
+      ]
+    },
+    {
+      "row": 29,
+      "col": 1,
+      "end_row": 30,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "perltodo",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        43.60288770410244,
+        562.1104547023433,
+        225.41038856088392,
+        577.9780315332579
+      ]
+    },
+    {
+      "row": 29,
+      "col": 3,
+      "end_row": 30,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1250",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.2087854324477,
+        562.1619346271747,
+        714.778309049141,
+        577.9505515733829
+      ]
+    },
+    {
+      "row": 30,
+      "col": 0,
+      "end_row": 31,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.1",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        10.107395766552344,
+        587.3380778661609,
+        39.76518770456025,
+        603.756213893175
+      ]
+    },
+    {
+      "row": 30,
+      "col": 1,
+      "end_row": 31,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "DESCRIPTION . . . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        55.77003312179207,
+        577.0591928749027,
+        213.89447702911434,
+        594.409967540122
+      ]
+    },
+    {
+      "row": 30,
+      "col": 2,
+      "end_row": 31,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        220.92385340831464,
+        579.8574599731666,
+        303.1265197676571,
+        593.3092671011192
+      ]
+    },
+    {
+      "row": 30,
+      "col": 3,
+      "end_row": 31,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1250",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.8681055458617,
+        578.9751700772833,
+        715.0091512801007,
+        594.8050669632165
+      ]
+    },
+    {
+      "row": 31,
+      "col": 0,
+      "end_row": 32,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.2",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        9.318148326618612,
+        598.2336419569734,
+        38.01018330476586,
+        614.5369381516713
+      ]
+    },
+    {
+      "row": 31,
+      "col": 1,
+      "end_row": 32,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "assertions . . . . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.91613017888429,
+        595.1953663933197,
+        184.47099065006603,
+        611.9043819956053
+      ]
+    },
+    {
+      "row": 31,
+      "col": 2,
+      "end_row": 32,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        187.29849018661122,
+        597.79230269286,
+        303.11457411725576,
+        611.2441098208125
+      ]
+    },
+    {
+      "row": 31,
+      "col": 3,
+      "end_row": 32,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1250",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.3223929732096,
+        596.9059638955861,
+        714.7492881502665,
+        612.7440207696044
+      ]
+    },
+    {
+      "row": 32,
+      "col": 0,
+      "end_row": 33,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.3",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        10.107395766552344,
+        617.638153623423,
+        39.27492177103662,
+        633.8094500108607
+      ]
+    },
+    {
+      "row": 32,
+      "col": 1,
+      "end_row": 33,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "iCOW . . . . . . . . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        59.35804092968712,
+        616.2614556336124,
+        318.78739594411786,
+        624.409683735955
+      ]
+    },
+    {
+      "row": 32,
+      "col": 3,
+      "end_row": 33,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1250",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.6621383710801,
+        615.5224367126929,
+        715.1275001298559,
+        631.5013733810051
+      ]
+    },
+    {
+      "row": 33,
+      "col": 0,
+      "end_row": 34,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.4",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        12.350330056418088,
+        632.4699519667324,
+        40.18643550809287,
+        648.5854484356465
+      ]
+    },
+    {
+      "row": 33,
+      "col": 1,
+      "end_row": 34,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "(?{...}) closures in regexps . . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.56731575011548,
+        631.549853310217,
+        263.58663306908926,
+        648.0433492271942
+      ]
+    },
+    {
+      "row": 33,
+      "col": 2,
+      "end_row": 34,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        265.759796241916,
+        633.6619881322463,
+        303.1246445870716,
+        647.113795260199
+      ]
+    },
+    {
+      "row": 33,
+      "col": 3,
+      "end_row": 34,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1250",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.1664323546627,
+        631.9544327194693,
+        715.264441160775,
+        648.0336892412993
+      ]
+    },
+    {
+      "row": 34,
+      "col": 0,
+      "end_row": 35,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.5",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        11.95938136421509,
+        652.2381831020962,
+        40.797113863203435,
+        668.6689191107124
+      ]
+    },
+    {
+      "row": 34,
+      "col": 1,
+      "end_row": 35,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "A re-entrant regexp engine . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        57.91218897448991,
+        650.314765910579,
+        243.82164856899635,
+        665.3533839519
+      ]
+    },
+    {
+      "row": 34,
+      "col": 2,
+      "end_row": 35,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        254.5503417383693,
+        651.5968308519397,
+        303.1246445870716,
+        665.0486379798923
+      ]
+    },
+    {
+      "row": 34,
+      "col": 3,
+      "end_row": 35,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1250",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.396633475927,
+        651.919883566862,
+        715.3938598379359,
+        668.0131800681916
+      ]
+    },
+    {
+      "row": 35,
+      "col": 0,
+      "end_row": 36,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.6",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        10.107395766552344,
+        665.9443830889511,
+        39.40360851462867,
+        682.6321587222502
+      ]
+    },
+    {
+      "row": 35,
+      "col": 1,
+      "end_row": 36,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "pragmata . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.95557468435024,
+        682.6041387631636,
+        213.64175158722122,
+        699.5773939796189
+      ]
+    },
+    {
+      "row": 35,
+      "col": 2,
+      "end_row": 36,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        220.92272829996335,
+        669.531673571633,
+        303.12539465930587,
+        700.9198236152404
+      ]
+    },
+    {
+      "row": 35,
+      "col": 3,
+      "end_row": 36,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1250 1250",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.3930860022797,
+        682.3389991503079,
+        715.5010106383463,
+        698.5545754730902
+      ]
+    },
+    {
+      "row": 36,
+      "col": 1,
+      "end_row": 37,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "78.6.1 lexical pragmas .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.81290884664821,
+        686.4095132067358,
+        216.7031144933191,
+        700.3245728886236
+      ]
+    },
+    {
+      "row": 37,
+      "col": 1,
+      "end_row": 38,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "78.6.2 use less 'memory' .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        49.61647527583244,
+        712.1633956021345,
+        235.46162088273724,
+        732.6483256910083
+      ]
+    },
+    {
+      "row": 37,
+      "col": 2,
+      "end_row": 38,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        243.34088723482256,
+        705.4028592069811,
+        303.1250196231888,
+        736.7895090546268
+      ]
+    },
+    {
+      "row": 37,
+      "col": 3,
+      "end_row": 38,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1251 1251",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.5833673598493,
+        708.8721004079282,
+        715.3438105410551,
+        725.2824364463314
+      ]
+    },
+    {
+      "row": 38,
+      "col": 0,
+      "end_row": 39,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.7",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        10.107395766552344,
+        733.4916244596633,
+        38.93467951315222,
+        750.2299200191957
+      ]
+    },
+    {
+      "row": 38,
+      "col": 1,
+      "end_row": 39,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "prototypes and functions . . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        53.737325379246045,
+        725.0362568057914,
+        244.2770074152553,
+        734.960722314556
+      ]
+    },
+    {
+      "row": 39,
+      "col": 1,
+      "end_row": 40,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "78.7.1 _ prototype character",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        55.32816429203871,
+        740.4623542813332,
+        237.0545220317165,
+        759.9373658448422
+      ]
+    },
+    {
+      "row": 39,
+      "col": 2,
+      "end_row": 40,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        243.33901205423717,
+        741.2725446463675,
+        303.1227694064862,
+        754.7243517743202
+      ]
+    },
+    {
+      "row": 39,
+      "col": 3,
+      "end_row": 40,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1251",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.4360403518658,
+        740.4099743578159,
+        715.3966807205954,
+        756.7220305397228
+      ]
+    },
+    {
+      "row": 40,
+      "col": 1,
+      "end_row": 41,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "78.7.2 inlining autoloaded constants functions",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        53.9996460962457,
+        769.0646125176683,
+        242.23199570914005,
+        783.0891120397573
+      ]
+    },
+    {
+      "row": 41,
+      "col": 1,
+      "end_row": 42,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "78.7.3 Finish off lvalue Unicode and UTF8 . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        51.366464327906215,
+        774.1805050476839,
+        201.58525636036217,
+        807.418056515783
+      ]
+    },
+    {
+      "row": 40,
+      "col": 2,
+      "end_row": 41,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        276.966250456526,
+        777.1422300857541,
+        303.1216442981349,
+        790.5940372137067
+      ]
+    },
+    {
+      "row": 40,
+      "col": 3,
+      "end_row": 41,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1251",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.193230739927,
+        775.0139638307069,
+        715.5698230789767,
+        791.53169971229
+      ]
+    },
+    {
+      "row": 42,
+      "col": 0,
+      "end_row": 43,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.8",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        10.107395766552344,
+        807.7850759798786,
+        40.35890069435854,
+        824.6528513503506
+      ]
+    },
+    {
+      "row": 41,
+      "col": 2,
+      "end_row": 42,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        209.71402386865083,
+        795.0785730014089,
+        303.12614473154,
+        808.5303801293616
+      ]
+    },
+    {
+      "row": 41,
+      "col": 3,
+      "end_row": 42,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1251",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.0668893893035,
+        783.884650878149,
+        715.455620071918,
+        800.5012666153525
+      ]
+    },
+    {
+      "row": 44,
+      "col": 1,
+      "end_row": 45,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "78.8.1 Implicit Latin 1 = > 78.8.2 UTF8 caching code",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        53.84017540211693,
+        811.4498106288063,
+        222.8541773540478,
+        841.0222074485908
+      ]
+    },
+    {
+      "row": 43,
+      "col": 2,
+      "end_row": 44,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "Unicode translation",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        229.8647144396155,
+        813.0134157211021,
+        347.339797636785,
+        826.4652228490548
+      ]
+    },
+    {
+      "row": 43,
+      "col": 3,
+      "end_row": 44,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1251",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.5250662154699,
+        811.32117081664,
+        715.4755799537654,
+        828.0363064099895
+      ]
+    },
+    {
+      "row": 44,
+      "col": 2,
+      "end_row": 45,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        232.13143273127588,
+        830.9482584407955,
+        303.1246445870716,
+        844.400065568748
+      ]
+    },
+    {
+      "row": 44,
+      "col": 3,
+      "end_row": 45,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1251",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.5037813735853,
+        827.1448277116846,
+        715.3848843022015,
+        843.9674831480386
+      ]
+    },
+    {
+      "row": 45,
+      "col": 1,
+      "end_row": 46,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "78.8.3 Unicode in Filenames",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        55.73130475361424,
+        845.6038007587649,
+        222.06078273577248,
+        862.1656965758679
+      ]
+    },
+    {
+      "row": 45,
+      "col": 2,
+      "end_row": 46,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        254.54809152166678,
+        848.8831011604888,
+        303.12239437036914,
+        862.3349082884414
+      ]
+    },
+    {
+      "row": 45,
+      "col": 3,
+      "end_row": 46,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1251",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        682.9013947038675,
+        846.4472795271571,
+        715.4927616936,
+        862.750575721855
+      ]
+    },
+    {
+      "row": 46,
+      "col": 1,
+      "end_row": 47,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "78.8.4 Unicode in %ENV Regexps . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        53.445583069812244,
+        869.7440455103211,
+        202.1031447722375,
+        896.192246891908
+      ]
+    },
+    {
+      "row": 46,
+      "col": 0,
+      "end_row": 47,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.9",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        10.107395766552344,
+        888.7854377069806,
+        39.920866501970295,
+        907.6441301704095
+      ]
+    },
+    {
+      "row": 48,
+      "col": 1,
+      "end_row": 49,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": ". . 78.9.1 regexp optimiser optional",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        45.34743266634683,
+        897.4547650484388,
+        231.65971216758118,
+        916.161537733694
+      ]
+    },
+    {
+      "row": 47,
+      "col": 2,
+      "end_row": 48,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        232.136308200798,
+        884.7527865998753,
+        303.11457411725576,
+        898.204593727828
+      ]
+    },
+    {
+      "row": 47,
+      "col": 3,
+      "end_row": 48,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1252",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.5175438617114,
+        882.2959071826862,
+        715.820411488552,
+        898.6091633628408
+      ]
+    },
+    {
+      "row": 48,
+      "col": 2,
+      "end_row": 49,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        276.966250456526,
+        902.6891295155302,
+        303.1216442981349,
+        916.1409366434826
+      ]
+    },
+    {
+      "row": 48,
+      "col": 3,
+      "end_row": 49,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1252",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.2053690834916,
+        900.789620179041,
+        715.959104885972,
+        917.1893962328635
+      ]
+    },
+    {
+      "row": 49,
+      "col": 1,
+      "end_row": 50,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "78.9.2 common suffices / prefices POD . . . . . . . . . . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        44.182450868667075,
+        901.6924388607878,
+        229.5620439851574,
+        952.2025251083484
+      ]
+    },
+    {
+      "row": 49,
+      "col": 0,
+      "end_row": 50,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.10",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        11.146734756047579,
+        935.3762096773386,
+        43.59407244579188,
+        952.9197040611576
+      ]
+    },
+    {
+      "row": 50,
+      "col": 1,
+      "end_row": 51,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": ". . 78.10.1 POD - HTML conversion",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        42.44010704970992,
+        943.3021381042726,
+        245.19340961373837,
+        965.5025856882288
+      ]
+    },
+    {
+      "row": 49,
+      "col": 2,
+      "end_row": 50,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        254.55596728012557,
+        938.5588149549166,
+        303.1153241894899,
+        952.0106220828692
+      ]
+    },
+    {
+      "row": 49,
+      "col": 3,
+      "end_row": 50,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1252",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        683.8076246285182,
+        936.5333079877984,
+        715.6018785637425,
+        953.6701229654315
+      ]
+    },
+    {
+      "row": 50,
+      "col": 2,
+      "end_row": 51,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "> still sucks",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        148.15784582705908,
+        956.4936576746101,
+        335.3554090047949,
+        969.9454648025625
+      ]
+    },
+    {
+      "row": 50,
+      "col": 3,
+      "end_row": 51,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1252",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.0199174189602,
+        951.3283263848119,
+        715.416170455333,
+        968.7711409156392
+      ]
+    },
+    {
+      "row": 51,
+      "col": 0,
+      "end_row": 52,
+      "end_col": 1,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "78.11",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        9.297627473787756,
+        967.9081021758074,
+        45.162200047628005,
+        985.9591958184541
+      ]
+    },
+    {
+      "row": 51,
+      "col": 1,
+      "end_row": 52,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "Misc medium sized projects . .",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        47.97167629701747,
+        972.3728156566439,
+        221.2138554579384,
+        997.7520585990734
+      ]
+    },
+    {
+      "row": 51,
+      "col": 2,
+      "end_row": 52,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        243.33901205423717,
+        974.4285003943033,
+        303.1227694064862,
+        987.880307522256
+      ]
+    },
+    {
+      "row": 51,
+      "col": 3,
+      "end_row": 52,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1252",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        684.2818748404659,
+        976.6449894186179,
+        714.9935082035352,
+        995.1667223740593
+      ]
+    },
+    {
+      "row": 52,
+      "col": 1,
+      "end_row": 53,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 2,
+      "text": "78.11.1 UNITCHECK",
+      "is_column_header": false,
+      "is_row_header": true,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        50.91613017888429,
+        987.8447530652526,
+        211.24296753736002,
+        1005.416087408421
+      ]
+    },
+    {
+      "row": 52,
+      "col": 2,
+      "end_row": 53,
+      "end_col": 3,
+      "row_span": 1,
+      "col_span": 1,
+      "text": ". . . . . . .",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        232.13218280351003,
+        992.3633431139966,
+        303.12539465930587,
+        1005.815150241949
+      ]
+    },
+    {
+      "row": 52,
+      "col": 3,
+      "end_row": 53,
+      "end_col": 4,
+      "row_span": 1,
+      "col_span": 1,
+      "text": "1252",
+      "is_column_header": false,
+      "is_row_header": false,
+      "is_row_section": false,
+      "is_fillable": false,
+      "bbox_px": [
+        682.4025258796198,
+        986.6587947969327,
+        714.944655644752,
+        1004.3993288930438
+      ]
+    }
+  ],
+  "layout_tedss_score": 0.6263345195729537
+}
