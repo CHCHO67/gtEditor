@@ -191,9 +191,9 @@ class MainWindow(QMainWindow):
             ("Select Cells", "C", self.activate_cell_select_mode, "셀 병합을 위해 인접 셀을 드래그/클릭 선택합니다."),
             ("Add V", "V", lambda: self.add_line("x"), "마우스 커서 위치에 세로선을 추가합니다."),
             ("Add H", "H", lambda: self.add_line("y"), "마우스 커서 위치에 가로선을 추가합니다."),
-            ("Delete", "Del", self.delete_selected_line, "선택한 선을 삭제합니다."),
-            ("Merge", "M", self.merge_selected_cells, "선택한 셀들을 병합합니다."),
-            ("Unmerge", "U", self.unmerge_selected_cell, "선택한 병합 셀을 해제합니다."),
+            ("Delete", "D", self.delete_selected_line, "선택한 선을 삭제합니다."),
+            ("Merge", "1", self.merge_selected_cells, "선택한 셀들을 병합합니다."),
+            ("Unmerge", "2", self.unmerge_selected_cell, "선택한 병합 셀을 해제합니다."),
             ("Undo", "Ctrl+Z", self.undo, "마지막 편집을 되돌립니다."),
         ]
         for label, shortcut, slot, tooltip in tool_specs:
@@ -243,7 +243,7 @@ class MainWindow(QMainWindow):
         layout.setContentsMargins(8, 8, 8, 8)
         path_label = QLabel(f"Input_data: {dataset.root}")
         path_label.setObjectName("InputPathLabel")
-        help_label = QLabel("Default: Move Line. Use Select Cells for merge · V/H add at cursor · Alt+Arrows nudge · Del delete · M merge · U unmerge · Ctrl+Z undo")
+        help_label = QLabel("Default: Move Line. Use Select Cells for merge · V/H add at cursor · Alt+Arrows nudge · D delete · 1 merge · 2 unmerge · Ctrl+Z undo")
         help_label.setObjectName("ShortcutHelp")
         layout.addWidget(path_label)
         layout.addWidget(status_tabs, 1)
@@ -259,9 +259,9 @@ class MainWindow(QMainWindow):
             ("Select cells", "C", self.activate_cell_select_mode),
             ("Add vertical line", "V", lambda: self.add_line("x")),
             ("Add horizontal line", "H", lambda: self.add_line("y")),
-            ("Delete selected line", "Del", self.delete_selected_line),
-            ("Merge selected cells", "M", self.merge_selected_cells),
-            ("Unmerge selected cell", "U", self.unmerge_selected_cell),
+            ("Delete selected line", "D", self.delete_selected_line),
+            ("Merge selected cells", "1", self.merge_selected_cells),
+            ("Unmerge selected cell", "2", self.unmerge_selected_cell),
             ("Undo", QKeySequence.Undo, self.undo),
             ("Move line left", "Alt+Left", lambda: self.nudge_selected_line("x", -1.0)),
             ("Move line right", "Alt+Right", lambda: self.nudge_selected_line("x", 1.0)),
@@ -550,7 +550,7 @@ class MainWindow(QMainWindow):
             f"output={self.export_dir / tab}",
             "Default: click and drag a grid line to move it. Buttons and shortcuts are both available.",
             "For merge: Select Cells, choose adjacent cells, then Merge. Merged cells are purple.",
-            "Shortcuts: C cell-select · V/H add at cursor · Alt+Arrow nudge · Del delete · M merge · U unmerge · Ctrl+Z undo",
+            "Shortcuts: C cell-select · V/H add at cursor · Alt+Arrow nudge · D delete · 1 merge · 2 unmerge · Ctrl+Z undo",
         ]
         lines.extend(f"- {getattr(w, 'message', str(w))}" for w in self.doc.warnings[:18])
         if len(self.doc.warnings) > 18:

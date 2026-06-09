@@ -171,25 +171,18 @@ class TableGraphicsScene(QGraphicsScene):
             rect = doc.cell_bbox(cell)
             rect_values = rect.to_list() if hasattr(rect, "to_list") else rect
             self.addItem(CellRectItem(idx, cell, rect_values))
-            if cell.text:
-                t = QGraphicsSimpleTextItem(cell.text[:80])
-                t.setPos(rect_values[0] + 2, rect_values[1] + 1)
-                t.setBrush(QBrush(QColor(20, 20, 20, 190)))
-                t.setZValue(8)
-                self.addItem(t)
         for i in range(1, len(doc.x_edges) - 1):
             self.addItem(GridLineItem(doc, "x", i, self._request_line_move))
         for i in range(1, len(doc.y_edges) - 1):
             self.addItem(GridLineItem(doc, "y", i, self._request_line_move))
-        warning_span_ids = {getattr(w, "span_id", getattr(w, "span_index", None)) for w in doc.warnings}
         for span in doc.text_spans:
             bbox = span.bbox.to_list() if hasattr(span.bbox, "to_list") else list(span.bbox)
             x0, y0, x1, y1 = bbox
             item = QGraphicsRectItem(float(x0), float(y0), float(x1) - float(x0), float(y1) - float(y0))
             span_id = getattr(span, "span_id", getattr(span, "index", None))
-            color = QColor(255, 0, 0, 185) if span_id in warning_span_ids else QColor(120, 0, 180, 95)
-            item.setPen(QPen(color, 1.0))
-            item.setBrush(QBrush(QColor(color.red(), color.green(), color.blue(), 22)))
-            item.setZValue(12)
+            item.setData(0, "text_box")
+            item.setPen(QPen(QColor(22, 163, 74, 220), 1.8))
+            item.setBrush(QBrush(QColor(34, 197, 94, 42)))
+            item.setZValue(7)
             item.setToolTip(f"span {span_id} -> cell {getattr(span, 'assigned_cell_key', None)}\n{span.text[:200]}")
             self.addItem(item)
