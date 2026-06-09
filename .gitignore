@@ -17,16 +17,21 @@ build/
 dist/
 *.egg-info/
 
+# Local docs/plans/reports that are not needed to run gtEditor
+*.md
+
+# Local samples, tests, and maintenance scripts
+gt_editor_samples/
+tests/
+scripts/
+pytest.ini
+
 # Local exports/runtime
 .gt_editor_exports/
 gt_editor_exports/
 /tmp/
 .DS_Store
 
-# Local review data: keep folder docs/placeholders, ignore user data inside.
-Input_data/*
-!Input_data/.gitkeep
-!Input_data/README.md
-Output_data/*
-!Output_data/.gitkeep
-!Output_data/README.md
+# Local review data
+Input_data/
+Output_data/
