@@ -51,7 +51,6 @@ from PySide6.QtWidgets import (  # noqa: E402
     QMainWindow,
     QMessageBox,
     QPushButton,
-    QSizePolicy,
     QSplitter,
     QTabWidget,
     QTextBrowser,
@@ -108,6 +107,10 @@ PDF_RENDER_DPI = 300.0
 class FitToSceneGraphicsView(QGraphicsView):
     """Graphics view that keeps the whole scene visible inside its viewport."""
 
+    def __init__(self, scene):
+        super().__init__(scene)
+        self._fitting_scene = False
+
     def resizeEvent(self, event):  # pragma: no cover - Qt event callback
         super().resizeEvent(event)
         self.fit_scene_to_view()
@@ -117,6 +120,8 @@ class FitToSceneGraphicsView(QGraphicsView):
         self.fit_scene_to_view()
 
     def fit_scene_to_view(self) -> None:
+        if self._fitting_scene:
+            return
         scene = self.scene()
         if scene is None:
             return
@@ -126,9 +131,13 @@ class FitToSceneGraphicsView(QGraphicsView):
             return
         if self.viewport().width() <= 0 or self.viewport().height() <= 0:
             return
-        self.resetTransform()
-        self.fitInView(rect, Qt.KeepAspectRatio)
-        self.centerOn(rect.center())
+        self._fitting_scene = True
+        try:
+            self.resetTransform()
+            self.fitInView(rect, Qt.KeepAspectRatio)
+            self.centerOn(rect.center())
+        finally:
+            self._fitting_scene = False
 
 
 class CellSelectionGraphicsView(FitToSceneGraphicsView):
@@ -242,6 +251,7 @@ class MainWindow(QMainWindow):
         self._source_pdf_cache: dict[str, list[Path]] = {}
         self._legacy_saved_status_cache: dict[tuple[str, str], str] = {}
         self._initial_geometry_applied = False
+        self._fit_viewers_pending = False
 
         self.scene = TableGraphicsScene(auto_apply_line_moves=False)
         self.view = CellSelectionGraphicsView(self.scene)
@@ -340,12 +350,8 @@ class MainWindow(QMainWindow):
         title.setObjectName("HeaderTitle")
         subtitle = QLabel("No file selected")
         subtitle.setObjectName("HeaderSubtitle")
-        subtitle.setMinimumWidth(0)
-        subtitle.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         progress = QLabel("Needs Review 0 · Accepted Origin 0 · Revision 0 · Discard 0")
         progress.setObjectName("ProgressPill")
-        progress.setMinimumWidth(0)
-        progress.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
 
         text_box = QWidget()
         text_layout = QVBoxLayout(text_box)
@@ -357,14 +363,10 @@ class MainWindow(QMainWindow):
         self.discard_button = QPushButton(DISCARD_BUTTON_TEXT)
         self.discard_button.setObjectName("DiscardButton")
         self.discard_button.setToolTip("현재 파일을 Discard로 분류하고 Output_data에 저장합니다. (Ctrl+D)")
-        self.discard_button.setMinimumWidth(0)
-        self.discard_button.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         self.discard_button.clicked.connect(self.discard_current)
         self.save_button = QPushButton(SAVE_BUTTON_TEXT)
         self.save_button.setObjectName("SaveButton")
         self.save_button.setToolTip("현재 파일을 Accepted Origin 또는 Revision으로 분류하고 Output_data에 저장합니다. (Ctrl+S)")
-        self.save_button.setMinimumWidth(0)
-        self.save_button.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         self.save_button.clicked.connect(self.save_current)
 
         layout = QHBoxLayout(header)
@@ -385,8 +387,6 @@ class MainWindow(QMainWindow):
 
         mode_label = QLabel("기본 조작: 선 선택 후 드래그 이동")
         mode_label.setObjectName("ModeLabel")
-        mode_label.setMinimumWidth(0)
-        mode_label.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         layout.addWidget(mode_label, 1)
 
         tool_specs = [
@@ -403,8 +403,6 @@ class MainWindow(QMainWindow):
             button = QPushButton(f"{label}  {shortcut}")
             button.setObjectName("MoveToolButton" if label == "Move Line" else "EditToolButton")
             button.setToolTip(tooltip)
-            button.setMinimumWidth(0)
-            button.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
             button.clicked.connect(slot)
             layout.addWidget(button, 0)
             self.edit_buttons.append(button)
@@ -837,10 +835,16 @@ class MainWindow(QMainWindow):
 
         if hasattr(self.scene, "set_cell_selection_enabled"):
             self.scene.set_cell_selection_enabled(self.view._cell_drag_selection_enabled)
-        self.original_view.fit_scene_to_view()
-        self.view.fit_scene_to_view()
-        QTimer.singleShot(0, self.original_view.fit_scene_to_view)
-        QTimer.singleShot(0, self.view.fit_scene_to_view)
+        if self._fit_viewers_pending:
+            return
+        self._fit_viewers_pending = True
+
+        def fit_once() -> None:
+            self._fit_viewers_pending = False
+            self.original_view.fit_scene_to_view()
+            self.view.fit_scene_to_view()
+
+        QTimer.singleShot(0, fit_once)
 
     def _build_shortcuts(self) -> None:
         shortcuts = [
