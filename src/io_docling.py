@@ -429,12 +429,26 @@ def export_docling(document: TableDocument) -> dict[str, Any]:
         "num_rows": document.num_rows,
         "num_cols": document.num_cols,
         "image_size": [document.image_size[0], document.image_size[1]],
-        "table_bbox_px": document.table_bbox_px.to_list(),
+        "table_bbox_px": _export_table_bbox_px(document),
         "h_lines": document.row_axis.to_line_dict(),
         "v_lines": document.col_axis.to_line_dict(),
         "cells": cells,
         "layout_tedss_score": _val_tedss_score(document.layout_tedss_score),
     }
+
+
+def _export_table_bbox_px(document: TableDocument) -> list[float]:
+    """Return the crop-local bbox required by the bundled val validator.
+
+    Some source JSONs retain a slightly oversized or page-space table_bbox_px
+    even though their image, grid lines, and cells are already crop-local.  The
+    output/val schema validates table_bbox_px width and height against the PNG
+    dimensions, so exported review JSON should describe the table crop itself.
+    Project-state export still keeps the original document.table_bbox_px.
+    """
+
+    width, height = document.image_size
+    return [0.0, 0.0, float(width), float(height)]
 
 
 def _val_tedss_score(value: float | None) -> float:
