@@ -391,8 +391,12 @@ def load_documents(image_dir: str | Path, json_dir: str | Path) -> list[TableDoc
 
 
 def _export_cells(document: TableDocument) -> list[dict[str, Any]]:
-    """Serialize cells while removing exact same-key/same-text duplicates.
+    """Serialize cells while removing val-incompatible empty/duplicate cells.
 
+    The table_structure_val reference set does not contain empty string text
+    cells.  Some source crops use zero-height placeholder cells with ``text=""``;
+    omit those from saved review JSON so future gtEditor saves match the cleaned
+    Output_data integrity contract.
     Line add/delete/merge experiments can leave duplicate logical cells with the
     same grid span and same text.  The validator treats those as a failed dedup,
     so collapse only those exact duplicates.  Same-span cells with different
@@ -403,6 +407,8 @@ def _export_cells(document: TableDocument) -> list[dict[str, Any]]:
     by_key_text: dict[tuple[tuple[int, int, int, int], str], int] = {}
     bool_fields = ("is_column_header", "is_row_header", "is_row_section", "is_fillable")
     for cell in document.cells:
+        if cell.text == "":
+            continue
         key = (cell.key, cell.text)
         bbox = document.cell_bbox(cell)
         payload = cell.to_docling(bbox=bbox)
