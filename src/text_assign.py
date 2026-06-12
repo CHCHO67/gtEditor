@@ -684,47 +684,151 @@ def _assign_model_text_to_document(document: Any, *, spans: Sequence[Any] | None
     """Model-specific text assignment for models.TableDocument.
 
     Keeps warnings as GridWarning objects so project-state serialization remains
-    stable, and updates TableCell.assigned_span_ids/TextSpan.assigned_cell_key.
+    stable, clips text-span bboxes to the current grid cells, and updates
+    TableCell.assigned_span_ids/TextSpan.assigned_cell_key.
     """
-    from models import TableDocument, detect_crossing_warnings
+    from models import Rect as ModelRect
+    from models import TableDocument, TextSpan as ModelTextSpan, detect_crossing_warnings
 
     if not isinstance(document, TableDocument):
         return None
-    source_spans = tuple(spans) if spans is not None else tuple(document.text_spans)
+
+    def clip_rect(left: float, top: float, right: float, bottom: float) -> ModelRect | None:
+        if right <= left or bottom <= top:
+            return None
+        return ModelRect(left, top, right, bottom)
+
+    def intersection(a: ModelRect, b: ModelRect) -> ModelRect | None:
+        return clip_rect(
+            max(a.left, b.left),
+            max(a.top, b.top),
+            min(a.right, b.right),
+            min(a.bottom, b.bottom),
+        )
+
+    def source_metadata(span: Any) -> dict[str, Any]:
+        metadata = dict(getattr(span, "metadata", {}) or {})
+        metadata.setdefault("origin_span_id", getattr(span, "span_id", _span_id(span)))
+        metadata.setdefault("origin_text", getattr(span, "text", _span_text(span)))
+        bbox = getattr(span, "bbox", None)
+        if hasattr(bbox, "to_list"):
+            metadata.setdefault("origin_bbox", bbox.to_list())
+        metadata.setdefault("origin_source_cell_index", getattr(span, "source_cell_index", None))
+        return metadata
+
+    def restore_origin_span(span: Any) -> ModelTextSpan:
+        metadata = source_metadata(span)
+        bbox_raw = metadata.get("origin_bbox")
+        bbox = ModelRect.from_sequence(bbox_raw) if isinstance(bbox_raw, Sequence) and len(bbox_raw) == 4 else span.bbox
+        source_cell_index = metadata.get("origin_source_cell_index")
+        return ModelTextSpan(
+            span_id=str(metadata.get("origin_span_id") or span.span_id),
+            text=str(metadata.get("origin_text") if metadata.get("origin_text") is not None else span.text),
+            bbox=bbox,
+            source_cell_index=source_cell_index if isinstance(source_cell_index, int) else span.source_cell_index,
+            assigned_cell_key=None,
+            metadata=metadata,
+        )
+
+    def origin_spans(raw_spans: Sequence[Any]) -> tuple[ModelTextSpan, ...]:
+        restored: dict[str, ModelTextSpan] = {}
+        for span in raw_spans:
+            origin = restore_origin_span(span)
+            restored.setdefault(origin.span_id, origin)
+        return tuple(restored.values())
+
+    def split_text_by_weights(text: str, weights: Sequence[float]) -> list[str]:
+        clean = text.strip()
+        if not weights:
+            return []
+        if not clean:
+            return ["" for _ in weights]
+        total = sum(max(0.0, weight) for weight in weights)
+        if total <= 0:
+            parts = ["" for _ in weights]
+            parts[0] = clean
+            return parts
+        words = clean.split()
+        if len(words) >= len(weights):
+            parts: list[str] = []
+            cursor = 0
+            for index, weight in enumerate(weights):
+                remaining_slots = len(weights) - index - 1
+                remaining_words = len(words) - cursor
+                if remaining_slots == 0:
+                    count = remaining_words
+                else:
+                    proportional = round(len(words) * max(0.0, weight) / total)
+                    count = min(max(1, proportional), remaining_words - remaining_slots)
+                parts.append(" ".join(words[cursor:cursor + count]))
+                cursor += count
+            return parts
+        parts = []
+        cursor = 0
+        for index, weight in enumerate(weights):
+            remaining_slots = len(weights) - index - 1
+            remaining_chars = len(clean) - cursor
+            if remaining_slots == 0:
+                count = remaining_chars
+            else:
+                proportional = round(len(clean) * max(0.0, weight) / total)
+                count = min(max(1, proportional), remaining_chars - remaining_slots)
+            parts.append(clean[cursor:cursor + count].strip())
+            cursor += count
+        return parts
+
+    def reading_key(piece: tuple[int, Any, ModelRect]) -> tuple[float, float, int]:
+        index, _cell, rect = piece
+        return (rect.top, rect.left, index)
+
+    source_spans = origin_spans(tuple(spans) if spans is not None else tuple(document.text_spans))
     cell_rects = [document.cell_bbox(cell) for cell in document.cells]
-    assignments: dict[str, tuple[int, tuple[int, int, int, int]] | None] = {}
-
-    for span in source_spans:
-        bbox = span.bbox
-        cx, cy = bbox.center
-        best_idx: int | None = None
-        for idx, rect in enumerate(cell_rects):
-            if rect.contains_point(cx, cy):
-                best_idx = idx
-                break
-        if best_idx is None:
-            scored = sorted(((bbox.intersection_area(rect), idx) for idx, rect in enumerate(cell_rects)), reverse=True)
-            if scored and scored[0][0] > 0:
-                best_idx = scored[0][1]
-        if best_idx is None and cell_rects:
-            distances = []
-            for idx, rect in enumerate(cell_rects):
-                rcx, rcy = rect.center
-                distances.append((math.hypot(cx - rcx, cy - rcy), idx))
-            best_idx = min(distances)[1]
-        assignments[span.span_id] = (best_idx, document.cells[best_idx].key) if best_idx is not None else None
-
     spans_by_cell: dict[tuple[int, int, int, int], list[Any]] = {cell.key: [] for cell in document.cells}
-    updated_spans = []
+    updated_spans: list[Any] = []
+
     for span in source_spans:
-        assigned = assignments.get(span.span_id)
-        key = assigned[1] if assigned else None
-        if key is not None:
-            spans_by_cell.setdefault(key, []).append(span)
-        if hasattr(span, "assigned_cell_key"):
-            updated_spans.append(replace(span, assigned_cell_key=key))
-        else:
-            updated_spans.append(span)
+        pieces: list[tuple[int, Any, ModelRect]] = []
+        for idx, (cell, rect) in enumerate(zip(document.cells, cell_rects)):
+            clipped = intersection(span.bbox, rect)
+            if clipped is not None:
+                pieces.append((idx, cell, clipped))
+
+        if not pieces and cell_rects:
+            cx, cy = span.bbox.center
+            nearest_idx = min(
+                range(len(cell_rects)),
+                key=lambda idx: math.hypot(cx - cell_rects[idx].center[0], cy - cell_rects[idx].center[1]),
+            )
+            pieces.append((nearest_idx, document.cells[nearest_idx], span.bbox))
+
+        pieces.sort(key=reading_key)
+        weights = [piece[2].area for piece in pieces]
+        text_parts = split_text_by_weights(span.text, weights)
+        for part_index, ((_idx, cell, clipped), text_part) in enumerate(zip(pieces, text_parts)):
+            if not text_part.strip():
+                continue
+            span_id = span.span_id if len(pieces) == 1 else f"{span.span_id}::part{part_index + 1}"
+            metadata = source_metadata(span)
+            metadata.update(
+                {
+                    "origin_span_id": span.span_id,
+                    "origin_text": span.text,
+                    "origin_bbox": span.bbox.to_list(),
+                    "split_part": part_index + 1,
+                    "split_parts": len(pieces),
+                    "clipped_to_cell": cell.key,
+                }
+            )
+            updated_span = replace(
+                span,
+                span_id=span_id,
+                text=text_part,
+                bbox=clipped,
+                assigned_cell_key=cell.key,
+                metadata=metadata,
+            )
+            updated_spans.append(updated_span)
+            spans_by_cell.setdefault(cell.key, []).append(updated_span)
 
     updated_cells = []
     for cell in document.cells:
@@ -738,7 +842,7 @@ def _assign_model_text_to_document(document: Any, *, spans: Sequence[Any] | None
         document,
         cells=tuple(updated_cells),
         text_spans=tuple(updated_spans),
-        warnings=detect_crossing_warnings(updated_spans, document.row_axis, document.col_axis),
+        warnings=detect_crossing_warnings(source_spans, document.row_axis, document.col_axis),
     )
 
 

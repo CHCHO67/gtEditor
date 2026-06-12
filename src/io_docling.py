@@ -52,7 +52,7 @@ EXPECTED_CELL_KEYS = [
 
 PROJECT_SCHEMA_VERSION = 1
 IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff")
-OUTPUT_BUCKETS = ("saved", "discarded")
+OUTPUT_BUCKETS = ("accepted_origin", "revision", "origin_accept", "accepted_original", "edited", "saved", "discarded")
 
 
 @dataclass(frozen=True, slots=True)
@@ -76,7 +76,7 @@ class TablePair:
 
 @dataclass(frozen=True, slots=True)
 class InputDataset:
-    """One input-data folder with image/json children and discovered pairs."""
+    """One input-data folder with image/ and json or json_formatted children."""
 
     name: str
     root: Path
@@ -110,7 +110,6 @@ def _write_json(path: str | Path, payload: Mapping[str, Any]) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     with target.open("w", encoding="utf-8") as fh:
         json.dump(payload, fh, ensure_ascii=False, indent=2)
-        fh.write("\n")
 
 
 def _coerce_image_size(record: Mapping[str, Any], image_path: str | Path | None = None) -> tuple[int, int]:
@@ -152,20 +151,32 @@ def discover_pairs(image_dir: str | Path, json_dir: str | Path) -> list[TablePai
     return pairs
 
 
+def _input_json_dir(root: Path) -> Path:
+    """Return the preferred JSON directory for an input dataset."""
+
+    json_dir = root / "json"
+    if json_dir.is_dir():
+        return json_dir
+    formatted_json_dir = root / "json_formatted"
+    if formatted_json_dir.is_dir():
+        return formatted_json_dir
+    return json_dir
+
+
 def discover_input_dataset(input_data: str | Path, *, name: str | None = None) -> InputDataset:
-    """Discover one Input_data folder containing image/ and json/ children."""
+    """Discover one Input_data folder containing image/ and json/ or json_formatted/ children."""
 
     root = Path(input_data)
     image_dir = root / "image"
-    json_dir = root / "json"
+    json_dir = _input_json_dir(root)
     if not image_dir.is_dir() or not json_dir.is_dir():
-        raise FileNotFoundError(f"{root} must contain image/ and json/ directories")
+        raise FileNotFoundError(f"{root} must contain image/ and json/ or json_formatted/ directories")
     pairs = tuple(discover_pairs(image_dir, json_dir))
     return InputDataset(name=name or root.name or "input", root=root, image_dir=image_dir, json_dir=json_dir, pairs=pairs)
 
 
 def _looks_like_input_dataset(root: Path) -> bool:
-    return (root / "image").is_dir() and (root / "json").is_dir()
+    return (root / "image").is_dir() and _input_json_dir(root).is_dir()
 
 
 def _discover_input_path(input_data: str | Path) -> list[InputDataset]:
@@ -175,11 +186,19 @@ def _discover_input_path(input_data: str | Path) -> list[InputDataset]:
     if _looks_like_input_dataset(root):
         return [discover_input_dataset(root)]
 
-    children = [
-        discover_input_dataset(child)
-        for child in sorted(root.iterdir(), key=lambda path: path.name)
-        if child.is_dir() and _looks_like_input_dataset(child)
-    ] if root.is_dir() else []
+    children: list[InputDataset] = []
+    if root.is_dir():
+        pending = [child for child in sorted(root.iterdir(), key=lambda path: path.name) if child.is_dir()]
+        while pending:
+            child = pending.pop(0)
+            if _looks_like_input_dataset(child):
+                children.append(discover_input_dataset(child))
+                continue
+            pending[0:0] = [
+                grandchild
+                for grandchild in sorted(child.iterdir(), key=lambda path: path.name)
+                if grandchild.is_dir()
+            ]
     if children:
         return children
 
@@ -222,7 +241,7 @@ def save_output_pair(
     output_data: str | Path,
     tab_name: str,
     *,
-    bucket: str = "saved",
+    bucket: str = "accepted_origin",
 ) -> OutputWriteResult:
     """Write image and validated Docling JSON under Output_data/tab/bucket/image,json."""
 
@@ -244,7 +263,7 @@ def save_output_tab(
     output_data: str | Path,
     *,
     documents: Mapping[str, TableDocument] | None = None,
-    bucket: str = "saved",
+    bucket: str = "accepted_origin",
 ) -> list[OutputWriteResult]:
     """Write every pair from one tab, using edited docs when supplied."""
 
@@ -414,8 +433,12 @@ def export_docling(document: TableDocument) -> dict[str, Any]:
         "h_lines": document.row_axis.to_line_dict(),
         "v_lines": document.col_axis.to_line_dict(),
         "cells": cells,
-        "layout_tedss_score": document.layout_tedss_score,
+        "layout_tedss_score": _val_tedss_score(document.layout_tedss_score),
     }
+
+
+def _val_tedss_score(value: float | None) -> float:
+    return float(value) if value is not None else 0.0
 
 
 def save_docling_json(document: TableDocument, path: str | Path) -> None:

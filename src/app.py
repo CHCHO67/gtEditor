@@ -1,8 +1,9 @@
 """PySide6 application shell for the table GT editor MVP."""
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from html import escape
+import json
 from pathlib import Path
 
 from commands import (
@@ -33,9 +34,14 @@ if len(_qt) == 12:
 else:
     Qt, QPointF, QColor, QPen, QBrush, QPixmap, QGraphicsItem, QGraphicsLineItem, QGraphicsRectItem, QGraphicsScene, QGraphicsSimpleTextItem = _qt
 from PySide6.QtGui import QAction, QCursor, QKeySequence  # noqa: E402
-from PySide6.QtCore import QRectF  # noqa: E402
+from PySide6.QtCore import QRectF, QSize, QTimer  # noqa: E402
+try:  # noqa: E402
+    from PySide6.QtPdf import QPdfDocument  # type: ignore
+except Exception:  # pragma: no cover - depends on local PySide6 build
+    QPdfDocument = None  # type: ignore
 from PySide6.QtWidgets import (  # noqa: E402
     QApplication,
+    QComboBox,
     QFrame,
     QGraphicsView,
     QHBoxLayout,
@@ -45,6 +51,7 @@ from PySide6.QtWidgets import (  # noqa: E402
     QMainWindow,
     QMessageBox,
     QPushButton,
+    QSizePolicy,
     QSplitter,
     QTabWidget,
     QTextBrowser,
@@ -54,20 +61,77 @@ from PySide6.QtWidgets import (  # noqa: E402
 
 from graphics_scene import TableGraphicsScene  # noqa: E402
 
-STATUS_ORDER = ("review", "completed", "discarded")
+STATUS_ORDER = ("review", "accepted_origin", "revision", "discarded")
 STATUS_LABELS = {
-    "review": "검토",
-    "completed": "검토 완료",
-    "discarded": "버리기",
+    "review": "Needs Review",
+    "accepted_origin": "Accepted Origin",
+    "revision": "Revision",
+    "discarded": "Discard",
 }
 STATUS_BUCKETS = {
-    "completed": "saved",
+    "accepted_origin": "accepted_origin",
+    "revision": "revision",
     "discarded": "discarded",
 }
-BUCKET_STATUSES = {bucket: status for status, bucket in STATUS_BUCKETS.items()}
+ORIGIN_ACCEPT_BUCKETS = ("accepted_origin", "origin_accept", "accepted_original", "saved")
+REVISION_BUCKETS = ("revision", "edited", "saved")
+STATUS_BUCKET_GROUPS = {
+    "accepted_origin": ORIGIN_ACCEPT_BUCKETS,
+    "revision": REVISION_BUCKETS,
+    "discarded": ("discarded",),
+}
+BUCKET_STATUSES = {
+    "accepted_origin": "accepted_origin",
+    "revision": "revision",
+    "origin_accept": "accepted_origin",  # legacy output folder kept readable; new saves do not target it.
+    "accepted_original": "accepted_origin",  # legacy output folder kept readable; new saves do not target it.
+    "edited": "revision",  # legacy output folder kept readable; new saves do not target it.
+    "saved": "accepted_origin",  # ambiguous legacy bucket; structural diffs are promoted to Revision at runtime.
+    "discarded": "discarded",
+}
+BUCKET_LABELS = {
+    "accepted_origin": "Accepted Origin",
+    "revision": "Revision",
+    "origin_accept": "Legacy Origin Accept",
+    "accepted_original": "Legacy Origin",
+    "edited": "Legacy Revision",
+    "saved": "Legacy Saved",
+    "discarded": "Discard",
+}
+SORT_BY_NAME = "name"
+SORT_BY_MODIFIED = "modified"
+SAVE_BUTTON_TEXT = "Save  Ctrl+S"
+DISCARD_BUTTON_TEXT = "Discard  Ctrl+D"
+PDF_RENDER_DPI = 300.0
 
 
-class CellSelectionGraphicsView(QGraphicsView):
+class FitToSceneGraphicsView(QGraphicsView):
+    """Graphics view that keeps the whole scene visible inside its viewport."""
+
+    def resizeEvent(self, event):  # pragma: no cover - Qt event callback
+        super().resizeEvent(event)
+        self.fit_scene_to_view()
+
+    def showEvent(self, event):  # pragma: no cover - Qt event callback
+        super().showEvent(event)
+        self.fit_scene_to_view()
+
+    def fit_scene_to_view(self) -> None:
+        scene = self.scene()
+        if scene is None:
+            return
+        rect = scene.sceneRect()
+        if rect.isNull() or rect.width() <= 0 or rect.height() <= 0:
+            self.resetTransform()
+            return
+        if self.viewport().width() <= 0 or self.viewport().height() <= 0:
+            return
+        self.resetTransform()
+        self.fitInView(rect, Qt.KeepAspectRatio)
+        self.centerOn(rect.center())
+
+
+class CellSelectionGraphicsView(FitToSceneGraphicsView):
     """Graphics view that lets reviewers drag directly across cells to select them."""
 
     def __init__(self, scene):
@@ -80,9 +144,22 @@ class CellSelectionGraphicsView(QGraphicsView):
         self._cell_drag_selection_enabled = bool(enabled)
         if not enabled:
             self._cell_drag_selecting = False
+        self._set_scene_cell_selection_enabled(enabled)
+
+    def _cell_selection_requested(self, event) -> bool:
+        return bool(
+            self._cell_drag_selection_enabled
+            or event.modifiers() & Qt.ControlModifier
+        )
+
+    def _set_scene_cell_selection_enabled(self, enabled: bool) -> None:
+        scene = self.scene()
+        if hasattr(scene, "set_cell_selection_enabled"):
+            scene.set_cell_selection_enabled(enabled)
 
     def mousePressEvent(self, event):  # pragma: no cover - Qt event callback
-        if self._cell_drag_selection_enabled and event.button() == Qt.LeftButton:
+        if self._cell_selection_requested(event) and event.button() == Qt.LeftButton:
+            self._set_scene_cell_selection_enabled(True)
             self._cell_drag_selecting = True
             self._cell_drag_origin = self.mapToScene(event.pos())
             if not event.modifiers() & (Qt.ControlModifier | Qt.ShiftModifier):
@@ -90,17 +167,25 @@ class CellSelectionGraphicsView(QGraphicsView):
             self.select_cells_in_scene_rect(QRectF(self._cell_drag_origin, self._cell_drag_origin))
             event.accept()
             return
+        if event.button() == Qt.LeftButton:
+            items = self.items(event.pos())
+            if any(hasattr(item, "axis") and hasattr(item, "edge_index") for item in items):
+                super().mousePressEvent(event)
+                return
+            if any(hasattr(item, "cell_index") for item in items):
+                event.accept()
+                return
         super().mousePressEvent(event)
 
     def mouseMoveEvent(self, event):  # pragma: no cover - Qt event callback
-        if self._cell_drag_selection_enabled and self._cell_drag_selecting:
+        if self._cell_drag_selecting:
             self.select_cells_in_scene_rect(QRectF(self._cell_drag_origin, self.mapToScene(event.pos())))
             event.accept()
             return
         super().mouseMoveEvent(event)
 
     def mouseReleaseEvent(self, event):  # pragma: no cover - Qt event callback
-        if self._cell_drag_selection_enabled and self._cell_drag_selecting and event.button() == Qt.LeftButton:
+        if self._cell_drag_selecting and event.button() == Qt.LeftButton:
             self.select_cells_in_scene_rect(QRectF(self._cell_drag_origin, self.mapToScene(event.pos())))
             self._cell_drag_selecting = False
             event.accept()
@@ -128,6 +213,8 @@ class DatasetSession:
     lists: dict[str, QListWidget]
     info: QTextBrowser
     statuses: dict[str, str] = field(default_factory=dict)
+    sort_mode: str = SORT_BY_NAME
+    sort_combo: QComboBox | None = None
     documents: dict[str, TableDocument] = field(default_factory=dict)
     stacks: dict[str, CommandStack] = field(default_factory=dict)
     current_stem: str | None = None
@@ -152,12 +239,15 @@ class MainWindow(QMainWindow):
         self.doc: TableDocument | None = None
         self.stack: CommandStack | None = None
         self._shortcut_actions: list[QAction] = []
+        self._source_pdf_cache: dict[str, list[Path]] = {}
+        self._legacy_saved_status_cache: dict[tuple[str, str], str] = {}
+        self._initial_geometry_applied = False
 
         self.scene = TableGraphicsScene(auto_apply_line_moves=False)
         self.view = CellSelectionGraphicsView(self.scene)
         self.view.setDragMode(QGraphicsView.RubberBandDrag)
         self.original_scene = QGraphicsScene()
-        self.original_view = QGraphicsView(self.original_scene)
+        self.original_view = FitToSceneGraphicsView(self.original_scene)
         self.original_view.setObjectName("OriginalView")
         self.original_view.setInteractive(False)
         self.original_view.setMinimumWidth(520)
@@ -189,6 +279,9 @@ class MainWindow(QMainWindow):
         root_layout.addWidget(self.edit_bar, 0)
         root_layout.addWidget(content, 1)
         self.setCentralWidget(root)
+        self.save_toast = QLabel(self)
+        self.save_toast.setObjectName("SaveToast")
+        self.save_toast.setVisible(False)
         self.scene.documentChanged.connect(self._on_scene_document_changed)
         self.scene.lineMoveRequested.connect(self._on_scene_line_move_requested)
         self._build_shortcuts()
@@ -200,6 +293,39 @@ class MainWindow(QMainWindow):
             self.tabs.setCurrentIndex(0)
             self._select_preferred(self.sessions[0])
         self._update_header()
+
+    def _set_initial_window_geometry(self) -> None:
+        """Size and center the window inside the current screen's usable area."""
+
+        target_width = 1840
+        target_height = 980
+        screen = self._preferred_screen()
+        if screen is None:
+            self.resize(target_width, target_height)
+            return
+        window_handle = self.windowHandle()
+        if window_handle is not None and window_handle.screen() is not screen:
+            window_handle.setScreen(screen)
+        available = screen.availableGeometry()
+        width = max(1, min(target_width, int(available.width() * 0.96), available.width()))
+        height = max(1, min(target_height, int(available.height() * 0.92), available.height()))
+        self.resize(width, height)
+        frame = self.frameGeometry()
+        frame.moveCenter(available.center())
+        if frame.left() < available.left():
+            frame.moveLeft(available.left())
+        if frame.top() < available.top():
+            frame.moveTop(available.top())
+        self.move(frame.topLeft())
+
+    def _preferred_screen(self):
+        """Prefer the screen under the cursor, then this window's screen, then primary."""
+
+        try:
+            cursor_screen = QApplication.screenAt(QCursor.pos())
+        except Exception:  # pragma: no cover - depends on Qt backend.
+            cursor_screen = None
+        return cursor_screen or self.screen() or QApplication.primaryScreen()
 
     @property
     def pairs(self) -> list[TablePair]:
@@ -214,8 +340,12 @@ class MainWindow(QMainWindow):
         title.setObjectName("HeaderTitle")
         subtitle = QLabel("No file selected")
         subtitle.setObjectName("HeaderSubtitle")
-        progress = QLabel("검토 0 · 검토 완료 0 · 버리기 0")
+        subtitle.setMinimumWidth(0)
+        subtitle.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
+        progress = QLabel("Needs Review 0 · Accepted Origin 0 · Revision 0 · Discard 0")
         progress.setObjectName("ProgressPill")
+        progress.setMinimumWidth(0)
+        progress.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
 
         text_box = QWidget()
         text_layout = QVBoxLayout(text_box)
@@ -224,13 +354,17 @@ class MainWindow(QMainWindow):
         text_layout.addWidget(title)
         text_layout.addWidget(subtitle)
 
-        self.discard_button = QPushButton("Discard  Ctrl+D")
+        self.discard_button = QPushButton(DISCARD_BUTTON_TEXT)
         self.discard_button.setObjectName("DiscardButton")
-        self.discard_button.setToolTip("현재 파일을 버리기로 분류하고 Output_data에 저장합니다. (Ctrl+D)")
+        self.discard_button.setToolTip("현재 파일을 Discard로 분류하고 Output_data에 저장합니다. (Ctrl+D)")
+        self.discard_button.setMinimumWidth(0)
+        self.discard_button.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         self.discard_button.clicked.connect(self.discard_current)
-        self.save_button = QPushButton("Save  Ctrl+S")
+        self.save_button = QPushButton(SAVE_BUTTON_TEXT)
         self.save_button.setObjectName("SaveButton")
-        self.save_button.setToolTip("현재 파일을 검토 완료로 분류하고 Output_data에 저장합니다. (Ctrl+S)")
+        self.save_button.setToolTip("현재 파일을 Accepted Origin 또는 Revision으로 분류하고 Output_data에 저장합니다. (Ctrl+S)")
+        self.save_button.setMinimumWidth(0)
+        self.save_button.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         self.save_button.clicked.connect(self.save_current)
 
         layout = QHBoxLayout(header)
@@ -251,11 +385,13 @@ class MainWindow(QMainWindow):
 
         mode_label = QLabel("기본 조작: 선 선택 후 드래그 이동")
         mode_label.setObjectName("ModeLabel")
+        mode_label.setMinimumWidth(0)
+        mode_label.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         layout.addWidget(mode_label, 1)
 
         tool_specs = [
             ("Move Line", "기본", self.activate_line_move_mode, "선을 클릭/드래그해서 이동합니다."),
-            ("Select Cells", "C", self.activate_cell_select_mode, "셀 병합을 위해 인접 셀을 드래그/클릭 선택합니다."),
+            ("Select Cells", "C/Ctrl", self.activate_cell_select_mode, "셀 병합을 위해 인접 셀을 드래그/클릭 선택합니다. 선 이동 모드에서는 Ctrl을 누른 채 셀을 선택할 수 있습니다."),
             ("Add V", "V", lambda: self.add_line("x"), "마우스 커서 위치에 세로선을 추가합니다."),
             ("Add H", "H", lambda: self.add_line("y"), "마우스 커서 위치에 가로선을 추가합니다."),
             ("Delete", "D", self.delete_selected_line, "선택한 선을 삭제합니다."),
@@ -267,6 +403,8 @@ class MainWindow(QMainWindow):
             button = QPushButton(f"{label}  {shortcut}")
             button.setObjectName("MoveToolButton" if label == "Move Line" else "EditToolButton")
             button.setToolTip(tooltip)
+            button.setMinimumWidth(0)
+            button.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
             button.clicked.connect(slot)
             layout.addWidget(button, 0)
             self.edit_buttons.append(button)
@@ -299,6 +437,13 @@ class MainWindow(QMainWindow):
             info=info,
             statuses=self._restore_statuses(dataset),
         )
+        sort_combo = QComboBox()
+        sort_combo.setObjectName("SortModeCombo")
+        sort_combo.addItem("이름순 정렬", SORT_BY_NAME)
+        sort_combo.addItem("최근 수정순 정렬", SORT_BY_MODIFIED)
+        sort_combo.setToolTip("Accepted Origin/Revision/Discard 목록 정렬 방식입니다. 최근 수정순은 가장 최근 저장한 파일이 위에 옵니다.")
+        sort_combo.currentIndexChanged.connect(lambda _index, s=session: self._on_sort_mode_changed(s))
+        session.sort_combo = sort_combo
         self.sessions.append(session)
 
         for status in STATUS_ORDER:
@@ -317,6 +462,15 @@ class MainWindow(QMainWindow):
         help_label = QLabel("Default: Move Line. Select Cells: drag cells; Ctrl/Shift adds · V/H at cursor · D delete · 1 merge · 2 unmerge · Ctrl+Z undo")
         help_label.setObjectName("ShortcutHelp")
         layout.addWidget(path_label)
+        sort_row = QWidget()
+        sort_layout = QHBoxLayout(sort_row)
+        sort_layout.setContentsMargins(0, 0, 0, 0)
+        sort_layout.setSpacing(6)
+        sort_label = QLabel("Saved/Discard sort")
+        sort_label.setObjectName("SortModeLabel")
+        sort_layout.addWidget(sort_label, 0)
+        sort_layout.addWidget(sort_combo, 1)
+        layout.addWidget(sort_row, 0)
         layout.addWidget(status_tabs, 0)
         preview_label = QLabel("Markdown table preview")
         preview_label.setObjectName("PreviewLabel")
@@ -351,6 +505,82 @@ class MainWindow(QMainWindow):
         bucket_dir = output_tab_dir(self.export_dir, dataset.name) / bucket
         return bucket_dir / "image" / pair.image_path.name, bucket_dir / "json" / pair.json_path.name
 
+    def _bucket_modified_time(self, dataset: InputDataset, pair: TablePair, bucket: str) -> float:
+        paths = [path for path in self._output_paths(dataset, pair, bucket) if path.exists()]
+        return max((path.stat().st_mtime for path in paths), default=0.0)
+
+    def _bucket_status(self, dataset: InputDataset, pair: TablePair, bucket: str) -> str:
+        if bucket == "saved":
+            return self._legacy_saved_status(dataset, pair)
+        return BUCKET_STATUSES.get(bucket, "accepted_origin")
+
+    def _legacy_saved_status(self, dataset: InputDataset, pair: TablePair) -> str:
+        """Infer whether an old unsplit saved/ item was an accepted original or a revision.
+
+        Historical versions had one 검토완료/saved bucket, so the only durable signal
+        is whether the saved table structure differs from the input table structure.
+        We intentionally ignore cell bbox/layout_tedss formatting because old val
+        export normalized those even for unedited accepted originals.
+        """
+
+        cache_key = (str(dataset.root), pair.stem)
+        cached = self._legacy_saved_status_cache.get(cache_key)
+        if cached is not None:
+            return cached
+        _image_path, json_path = self._output_paths(dataset, pair, "saved")
+        status = "accepted_origin"
+        try:
+            source = self._legacy_structure_signature(pair.json_path)
+            saved = self._legacy_structure_signature(json_path)
+            status = "revision" if source != saved else "accepted_origin"
+        except Exception:  # noqa: BLE001 - best-effort legacy classification.
+            status = "accepted_origin"
+        self._legacy_saved_status_cache[cache_key] = status
+        return status
+
+    def _legacy_structure_signature(self, json_path: Path) -> dict[str, object]:
+        record = json.loads(json_path.read_text(encoding="utf-8"))
+        cells = record.get("cells", [])
+        if not isinstance(cells, list):
+            cells = []
+        cell_keys = (
+            "row",
+            "col",
+            "end_row",
+            "end_col",
+            "row_span",
+            "col_span",
+            "text",
+            "is_column_header",
+            "is_row_header",
+            "is_row_section",
+            "is_fillable",
+        )
+        return {
+            "num_rows": record.get("num_rows"),
+            "num_cols": record.get("num_cols"),
+            "h_lines": record.get("h_lines"),
+            "v_lines": record.get("v_lines"),
+            "cells": [
+                {key: cell.get(key) for key in cell_keys}
+                for cell in cells
+                if isinstance(cell, dict)
+            ],
+        }
+
+    def _latest_bucket_for_status(self, session: DatasetSession, pair: TablePair, status: str) -> str | None:
+        buckets = STATUS_BUCKET_GROUPS.get(status, (STATUS_BUCKETS.get(status),))
+        candidates = [
+            (self._bucket_modified_time(session.dataset, pair, bucket), bucket)
+            for bucket in buckets
+            if (
+                bucket is not None
+                and self._output_paths(session.dataset, pair, bucket)[1].exists()
+                and self._bucket_status(session.dataset, pair, bucket) == status
+            )
+        ]
+        return max(candidates)[1] if candidates else None
+
     def _restore_statuses(self, dataset: InputDataset) -> dict[str, str]:
         statuses: dict[str, str] = {}
         for pair in dataset.pairs:
@@ -359,14 +589,13 @@ class MainWindow(QMainWindow):
                 image_path, json_path = self._output_paths(dataset, pair, bucket)
                 if not json_path.exists():
                     continue
-                paths = [path for path in (image_path, json_path) if path.exists()]
-                mtime = max(path.stat().st_mtime for path in paths) if paths else json_path.stat().st_mtime
-                candidates.append((mtime, status))
+                mtime = self._bucket_modified_time(dataset, pair, bucket)
+                candidates.append((mtime, self._bucket_status(dataset, pair, bucket)))
             statuses[pair.stem] = max(candidates)[1] if candidates else "review"
         return statuses
 
     def _output_document_pair(self, session: DatasetSession, pair: TablePair, status: str) -> TablePair:
-        bucket = STATUS_BUCKETS.get(status)
+        bucket = self._latest_bucket_for_status(session, pair, status)
         if bucket is None:
             return pair
         image_path, json_path = self._output_paths(session.dataset, pair, bucket)
@@ -388,21 +617,230 @@ class MainWindow(QMainWindow):
                 except FileNotFoundError:
                     pass
 
+    def _candidate_page_images(self, pair: TablePair) -> list[Path]:
+        """Return possible full-page render paths for a table crop.
+
+        Current local datasets only ship table crops, but keeping this lookup
+        lets the Original viewer automatically upgrade to a real page preview
+        when future Input_data folders include page-level images.
+        """
+
+        if self.doc is None or self.session is None:
+            return []
+        source_stem = Path(self.doc.source_pdf).stem
+        page_no = int(self.doc.page_no)
+        roots = [
+            self.session.dataset.root,
+            self.session.dataset.root.parent,
+            pair.image_path.parent,
+            pair.image_path.parent.parent,
+        ]
+        dirs = ("page", "pages", "page_image", "page_images", "pdf_image", "pdf_images", "original", "original_page")
+        names = [
+            f"{source_stem}_{page_no}",
+            f"{source_stem}_{page_no:04d}",
+            f"{source_stem}_page_{page_no}",
+            f"{source_stem}_page_{page_no:04d}",
+            pair.stem,
+        ]
+        candidates: list[Path] = []
+        for root in dict.fromkeys(roots):
+            for directory in ("", *dirs):
+                base = root / directory if directory else root
+                for name in names:
+                    for ext in (".png", ".jpg", ".jpeg", ".webp"):
+                        path = base / f"{name}{ext}"
+                        if path != pair.image_path:
+                            candidates.append(path)
+        return candidates
+
+    def _candidate_pdf_paths(self) -> list[Path]:
+        """Return possible source PDF paths near the active Input_data dataset."""
+
+        if self.doc is None or self.session is None or not self.doc.source_pdf:
+            return []
+        source_pdf = Path(self.doc.source_pdf)
+        names = [source_pdf.name]
+        if source_pdf.suffix.lower() != ".pdf":
+            names.append(f"{source_pdf.name}.pdf")
+        roots = [
+            self.session.dataset.root,
+            self.session.dataset.root.parent,
+            self.session.dataset.root.parent.parent,
+            self.session.dataset.image_dir,
+            self.session.dataset.json_dir,
+        ]
+        style_name = self.session.dataset.root.name
+        for ancestor in self.session.dataset.root.parents:
+            source_dataset_name = ancestor.name.removesuffix("_TTEcrop_passed")
+            if source_dataset_name == ancestor.name:
+                continue
+            projects_root = next((parent for parent in ancestor.parents if parent.name == "projects"), None)
+            if projects_root is None:
+                continue
+            roots.extend(
+                [
+                    projects_root / "Datasets" / source_dataset_name / style_name,
+                    projects_root / "taggedPDF" / "Robin_TTE" / "_noflag_dataset" / style_name,
+                    projects_root / "taggedPDF" / "_codex_review2" / "release_rerun_outputs" / style_name,
+                ]
+            )
+        dirs = ("", "pdf", "pdfs", "source_pdf", "source_pdfs", "original", "original_pdf")
+        candidates: list[Path] = []
+        for root in dict.fromkeys(roots):
+            for directory in dirs:
+                base = root / directory if directory else root
+                for name in names:
+                    candidates.append(base / name)
+        if source_pdf.is_absolute():
+            candidates.insert(0, source_pdf)
+        candidates.extend(self._cached_external_pdf_matches(source_pdf.name))
+        return candidates
+
+    def _cached_external_pdf_matches(self, pdf_name: str) -> list[Path]:
+        """Find source PDFs in common local dataset roots without re-scanning per file."""
+
+        cached = self._source_pdf_cache.get(pdf_name)
+        if cached is not None:
+            return cached
+        matches: list[Path] = []
+        projects_root = next((parent for parent in Path.cwd().parents if parent.name == "projects"), None)
+        if projects_root is not None:
+            for root in (
+                projects_root / "Datasets",
+                projects_root / "taggedPDF" / "Robin_TTE" / "_noflag_dataset",
+                projects_root / "taggedPDF" / "_codex_review2" / "release_rerun_outputs",
+            ):
+                if root.is_dir():
+                    matches.extend(root.rglob(pdf_name))
+        self._source_pdf_cache[pdf_name] = matches
+        return matches
+
+    def _load_pdf_page_pixmap(self, table_bbox: QRectF) -> tuple[QPixmap, Path] | None:
+        """Render the active document's source PDF page if the PDF is present."""
+
+        if QPdfDocument is None or self.doc is None:
+            return None
+        page_index = max(0, int(self.doc.page_no) - 1)
+        for path in self._candidate_pdf_paths():
+            if not path.is_file():
+                continue
+            pdf = QPdfDocument(self)
+            error = pdf.load(str(path))
+            if error != QPdfDocument.Error.None_ or page_index >= pdf.pageCount():
+                continue
+            point_size = pdf.pagePointSize(page_index)
+            render_width = max(
+                1,
+                round(float(point_size.width()) * PDF_RENDER_DPI / 72.0),
+                round(table_bbox.right()),
+            )
+            render_height = max(
+                1,
+                round(float(point_size.height()) * PDF_RENDER_DPI / 72.0),
+                round(table_bbox.bottom()),
+            )
+            render_size = QSize(render_width, render_height)
+            image = pdf.render(page_index, render_size)
+            if image.isNull():
+                continue
+            pixmap = QPixmap.fromImage(image)
+            if not pixmap.isNull():
+                return pixmap, path
+        return None
+
+    def _load_page_pixmap(self, pair: TablePair) -> tuple[QPixmap, Path] | None:
+        for path in self._candidate_page_images(pair):
+            if not path.is_file():
+                continue
+            pixmap = QPixmap(str(path))
+            if not pixmap.isNull():
+                return pixmap, path
+        return None
+
+    def _table_bbox_for_preview(self) -> QRectF:
+        if self.doc is None:
+            return QRectF()
+        bbox = self.doc.table_bbox_px
+        return QRectF(float(bbox.left), float(bbox.top), float(bbox.width), float(bbox.height))
+
+    def _page_canvas_size(self, crop: QPixmap, table_bbox: QRectF, page: QPixmap | None = None) -> tuple[float, float]:
+        if page is not None and not page.isNull():
+            return float(page.width()), float(page.height())
+        width = max(float(crop.width()), table_bbox.right(), table_bbox.left() + float(crop.width()))
+        height = max(float(crop.height()), table_bbox.bottom(), table_bbox.top() + float(crop.height()))
+        # Many current source pages are 2550x3300-ish while table crops only
+        # store crop dimensions in image_size. When bbox coordinates clearly
+        # refer to page space, keep enough blank page context around the crop.
+        if table_bbox.left() > 1.0 or table_bbox.top() > 1.0:
+            if width <= 2600.0 and height <= 3300.0:
+                width = max(width, 2550.0)
+                height = max(height, 3300.0)
+        return width, height
+
+    def _draw_detected_table_bbox(self, rect: QRectF) -> None:
+        if rect.isNull() or rect.width() <= 0 or rect.height() <= 0:
+            return
+        bbox_item = self.original_scene.addRect(
+            rect,
+            QPen(QColor(239, 68, 68, 245), 8.0),
+            QBrush(QColor(239, 68, 68, 28)),
+        )
+        bbox_item.setZValue(20)
+        bbox_item.setData(0, "detected_table_bbox")
+        label = self.original_scene.addSimpleText("Detected table area")
+        label.setBrush(QBrush(QColor(127, 29, 29)))
+        label.setPos(rect.left() + 12.0, max(0.0, rect.top() - 34.0))
+        label.setZValue(21)
+        label.setData(0, "detected_table_bbox_label")
+
     def _set_original_preview(self, pair: TablePair | None) -> None:
         self.original_scene.clear()
         if pair is None:
+            self.original_view.fit_scene_to_view()
             return
-        pixmap = QPixmap(str(pair.image_path))
-        if pixmap.isNull():
+        crop = QPixmap(str(pair.image_path))
+        if crop.isNull():
+            self.original_view.fit_scene_to_view()
             return
-        item = self.original_scene.addPixmap(pixmap)
-        item.setZValue(0)
-        self.original_scene.setSceneRect(0, 0, pixmap.width(), pixmap.height())
-        # Keep Original at the same 1:1 render scale as the editable Gridline
-        # view.  fitInView made the source image look smaller than the edit
-        # canvas even when both panes had equal splitter width.
-        self.original_view.resetTransform()
-        self.original_view.centerOn(0, 0)
+        table_bbox = self._table_bbox_for_preview()
+        pdf_match = self._load_pdf_page_pixmap(table_bbox)
+        page_match = pdf_match or self._load_page_pixmap(pair)
+        page = page_match[0] if page_match is not None else None
+        page_width, page_height = self._page_canvas_size(crop, table_bbox, page)
+        page_rect = self.original_scene.addRect(
+            QRectF(0.0, 0.0, page_width, page_height),
+            QPen(QColor(148, 163, 184), 3.0),
+            QBrush(QColor(255, 255, 255)),
+        )
+        page_rect.setZValue(-10)
+        page_rect.setData(0, "page_background")
+
+        if page is not None:
+            page_item = self.original_scene.addPixmap(page)
+            page_item.setZValue(0)
+            page_item.setData(0, "pdf_page_preview" if pdf_match is not None else "page_image_preview")
+            page_item.setToolTip(str(page_match[1]))
+        else:
+            crop_item = self.original_scene.addPixmap(crop)
+            crop_item.setZValue(0)
+            crop_item.setData(0, "table_crop_on_page_preview")
+            crop_item.setToolTip("Full page image not found; showing the crop at table_bbox_px page coordinates.")
+            crop_item.setPos(table_bbox.left(), table_bbox.top())
+
+        self._draw_detected_table_bbox(table_bbox)
+        self.original_scene.setSceneRect(0.0, 0.0, page_width, page_height)
+        self.original_view.fit_scene_to_view()
+
+    def _fit_viewers_to_content(self) -> None:
+        """Fit original and editable canvases after scenes/layouts update."""
+
+        if hasattr(self.scene, "set_cell_selection_enabled"):
+            self.scene.set_cell_selection_enabled(self.view._cell_drag_selection_enabled)
+        self.original_view.fit_scene_to_view()
+        self.view.fit_scene_to_view()
+        QTimer.singleShot(0, self.original_view.fit_scene_to_view)
+        QTimer.singleShot(0, self.view.fit_scene_to_view)
 
     def _build_shortcuts(self) -> None:
         shortcuts = [
@@ -438,8 +876,9 @@ class MainWindow(QMainWindow):
         self.view.setDragMode(QGraphicsView.NoDrag)
         if hasattr(self.view, "set_cell_drag_selection_enabled"):
             self.view.set_cell_drag_selection_enabled(False)
+        self.scene.clearSelection()
         self.view.setInteractive(True)
-        self.statusBar().showMessage("Line move mode: click a grid line, then drag it.", 5000)
+        self.statusBar().showMessage("Line move mode: click a grid line, then drag it. Hold Ctrl to select cells temporarily.", 5000)
 
     def activate_cell_select_mode(self) -> None:
         """Enable rubber-band cell selection for merge/unmerge operations."""
@@ -481,6 +920,18 @@ class MainWindow(QMainWindow):
             QLabel#ShortcutHelp {
                 color: #64748b;
                 font-size: 11px;
+            }
+            QLabel#SortModeLabel {
+                color: #334155;
+                font-size: 12px;
+                font-weight: 700;
+            }
+            QComboBox#SortModeCombo {
+                border: 1px solid #cbd5e1;
+                border-radius: 7px;
+                background: #ffffff;
+                color: #0f172a;
+                padding: 5px 8px;
             }
             QLabel#PreviewLabel {
                 color: #0f172a;
@@ -574,11 +1025,65 @@ class MainWindow(QMainWindow):
                 background: #e0f2fe;
                 font-weight: 700;
             }
+            QLabel#SaveToast {
+                color: #064e3b;
+                background: #bbf7d0;
+                border: 2px solid #34d399;
+                border-radius: 14px;
+                padding: 12px 16px;
+                font-size: 15px;
+                font-weight: 900;
+            }
             """
         )
 
+    def resizeEvent(self, event):  # pragma: no cover - Qt event callback
+        super().resizeEvent(event)
+        self._position_save_toast()
+
+
+    def _position_save_toast(self) -> None:
+        if not hasattr(self, "save_toast"):
+            return
+        margin = 22
+        self.save_toast.adjustSize()
+        x = max(margin, self.width() - self.save_toast.width() - margin)
+        y = margin
+        self.save_toast.move(x, y)
+
     def _status_pairs(self, session: DatasetSession, status: str) -> list[TablePair]:
-        return [pair for pair in session.dataset.pairs if session.statuses.get(pair.stem, "review") == status]
+        pairs = [pair for pair in session.dataset.pairs if session.statuses.get(pair.stem, "review") == status]
+        if status != "review" and session.sort_mode == SORT_BY_MODIFIED:
+            return sorted(pairs, key=lambda pair: (self._status_modified_time(session, pair, status), pair.stem), reverse=True)
+        return sorted(pairs, key=lambda pair: pair.stem)
+
+    def _status_modified_time(self, session: DatasetSession, pair: TablePair, status: str) -> float:
+        buckets = STATUS_BUCKET_GROUPS.get(status, (STATUS_BUCKETS.get(status),))
+        if not buckets:
+            return 0.0
+        return max(
+            (
+                self._bucket_modified_time(session.dataset, pair, bucket)
+                for bucket in buckets
+                if bucket is not None
+            ),
+            default=0.0,
+        )
+
+    def _status_item_text(self, session: DatasetSession, pair: TablePair, status: str) -> str:
+        return pair.stem
+
+    def _on_sort_mode_changed(self, session: DatasetSession) -> None:
+        combo = session.sort_combo
+        if combo is None:
+            return
+        mode = combo.currentData() or SORT_BY_NAME
+        session.sort_mode = str(mode)
+        current_stem = self.pair.stem if self.session is session and self.pair is not None else session.current_stem
+        if current_stem is not None:
+            self._rebuild_status_lists(session, select_stem=current_stem)
+        else:
+            self._rebuild_status_lists(session)
 
     def _status_count(self, session: DatasetSession, status: str) -> int:
         return sum(1 for value in session.statuses.values() if value == status)
@@ -599,8 +1104,13 @@ class MainWindow(QMainWindow):
             list_widget.blockSignals(True)
             list_widget.clear()
             for pair in self._status_pairs(session, status):
-                item = QListWidgetItem(pair.stem)
+                item = QListWidgetItem(self._status_item_text(session, pair, status))
                 item.setData(Qt.UserRole, pair.stem)
+                if status in STATUS_BUCKET_GROUPS:
+                    bucket = self._latest_bucket_for_status(session, pair, status)
+                    if bucket is not None:
+                        _, json_path = self._output_paths(session.dataset, pair, bucket)
+                        item.setToolTip(f"{BUCKET_LABELS.get(bucket, bucket)} · {json_path}")
                 list_widget.addItem(item)
             list_widget.blockSignals(False)
         self._refresh_status_tab_labels(session)
@@ -636,6 +1146,7 @@ class MainWindow(QMainWindow):
         self.stack = None
         self.scene.set_document(None)
         self._set_original_preview(None)
+        self._fit_viewers_to_content()
         self.refresh_info()
         self._update_header()
 
@@ -679,6 +1190,7 @@ class MainWindow(QMainWindow):
         self.stack = stack
         self.scene.set_document(doc)
         self._set_original_preview(pair)
+        self._fit_viewers_to_content()
         self.activate_line_move_mode()
         self.refresh_info()
         self._update_header()
@@ -699,6 +1211,7 @@ class MainWindow(QMainWindow):
             self.session.stacks[self.pair.stem] = self.stack or CommandStack(doc)
             self.session.current_stem = self.pair.stem
         self.scene.set_document(doc)
+        self._fit_viewers_to_content()
         self.refresh_info()
         self._update_header()
 
@@ -710,6 +1223,7 @@ class MainWindow(QMainWindow):
         if self.session is not None and self.pair is not None:
             self.session.documents[self.pair.stem] = document
             self.session.stacks[self.pair.stem] = self.stack
+        self._fit_viewers_to_content()
         self.refresh_info()
         self._update_header()
 
@@ -826,21 +1340,60 @@ class MainWindow(QMainWindow):
         if self.session is None:
             self.header_title.setText("Input_data")
             self.header_subtitle.setText("No dataset selected")
-            self.progress_label.setText("검토 0 · 검토 완료 0 · 버리기 0")
+            self.progress_label.setText("Needs Review 0 · Accepted Origin 0 · Revision 0 · Discard 0")
         else:
             dataset = self.session.dataset
             current = self.pair.stem if self.pair is not None else "No file selected"
             self.header_title.setText(f"Input_data: {dataset.name}")
             self.header_subtitle.setText(f"{dataset.root} · current: {current} · output: {self.export_dir / dataset.name}")
             self.progress_label.setText(
-                f"검토 {self._status_count(self.session, 'review')} · "
-                f"검토 완료 {self._status_count(self.session, 'completed')} · "
-                f"버리기 {self._status_count(self.session, 'discarded')}"
+                f"Needs Review {self._status_count(self.session, 'review')} · "
+                f"Accepted Origin {self._status_count(self.session, 'accepted_origin')} · "
+                f"Revision {self._status_count(self.session, 'revision')} · "
+                f"Discard {self._status_count(self.session, 'discarded')}"
             )
         self.save_button.setEnabled(has_doc)
         self.discard_button.setEnabled(has_doc)
         for button in self.edit_buttons:
             button.setEnabled(has_doc)
+
+    def _current_save_bucket(self, status: str) -> str:
+        if status == "discarded":
+            return "discarded"
+        if self.session is None or self.pair is None:
+            return STATUS_BUCKETS.get(status, "accepted_origin")
+        if self.stack is not None and self.stack.can_undo:
+            return "revision"
+        if status == "revision":
+            return "revision"
+        existing_revision_bucket = self._latest_bucket_for_status(self.session, self.pair, "revision")
+        if existing_revision_bucket is not None:
+            return "revision"
+        return "accepted_origin"
+
+    def _status_for_bucket(self, bucket: str) -> str:
+        return BUCKET_STATUSES.get(bucket, "accepted_origin")
+
+    def _show_save_confirmation(self, status: str, result_path: Path, bucket: str) -> None:
+        """Show a short-lived top-right toast after successful saves."""
+
+        if status == "accepted_origin":
+            label = "Accepted Origin saved"
+        elif status == "revision":
+            label = "Revision saved"
+        else:
+            label = "Discard saved"
+        stem = result_path.stem
+        self.save_toast.setText(f"✓ {label}\n{stem}")
+        self.save_toast.setToolTip(str(result_path))
+        self._position_save_toast()
+        self.save_toast.show()
+        self.save_toast.raise_()
+
+        def hide_toast() -> None:
+            self.save_toast.hide()
+
+        QTimer.singleShot(2200, hide_toast)
 
     def selected_cells(self) -> list[int | tuple[int, int]]:
         selected: list[int | tuple[int, int]] = []
@@ -950,26 +1503,40 @@ class MainWindow(QMainWindow):
     def _classify_current(self, status: str) -> None:
         if self.doc is None or self.pair is None or self.session is None:
             return
-        bucket = "discarded" if status == "discarded" else "saved"
+        previous_status = self.session.statuses.get(self.pair.stem, "review")
+        previous_review_row = self.session.lists["review"].currentRow()
+        bucket = self._current_save_bucket(status)
+        status = self._status_for_bucket(bucket)
         try:
             result = save_output_pair(self.doc, self.pair, self.export_dir, self.session.dataset.name, bucket=bucket)
         except Exception as exc:  # noqa: BLE001 - GUI boundary surfaces validation/IO errors to users.
             QMessageBox.warning(self, "Save failed", str(exc))
             self.statusBar().showMessage(f"Save failed: {exc}", 7000)
             return
+        self.doc = replace(self.doc, image_path=str(result.image_path), json_path=str(result.json_path))
+        if self.stack is not None:
+            self.stack.document = self.doc
         self._remove_stale_output_pair(self.session, self.pair, keep_bucket=bucket)
         self.session.documents[self.pair.stem] = self.doc
         if self.stack is not None:
             self.session.stacks[self.pair.stem] = self.stack
         self.session.statuses[self.pair.stem] = status
         self.session.current_stem = self.pair.stem
-        self._rebuild_status_lists(self.session, select_stem=self.pair.stem, select_status=status)
+        if previous_status == "review":
+            self._rebuild_status_lists(self.session)
+            self.session.status_tabs.setCurrentIndex(STATUS_ORDER.index("review"))
+            review_list = self.session.lists["review"]
+            if review_list.count() > 0:
+                review_list.setCurrentRow(min(max(previous_review_row, 0), review_list.count() - 1))
+        else:
+            self._rebuild_status_lists(self.session, select_stem=self.pair.stem, select_status=status)
         self.statusBar().showMessage(f"{STATUS_LABELS[status]} saved to {result.json_path}", 6000)
+        self._show_save_confirmation(status, result.json_path, result.bucket)
         self.refresh_info()
         self._update_header()
 
     def save_current(self) -> None:
-        self._classify_current("completed")
+        self._classify_current("accepted_origin")
 
     def discard_current(self) -> None:
         self._classify_current("discarded")

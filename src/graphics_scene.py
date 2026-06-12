@@ -117,6 +117,9 @@ class CellRectItem(QGraphicsRectItem):
         virtual_label = "implicit empty " if is_virtual else ""
         self.setToolTip(f"{merged_label}{virtual_label}cell#{cell_index} r{cell.row}:{cell.end_row} c{cell.col}:{cell.end_col}\n{cell.text[:200]}")
 
+    def set_selection_enabled(self, enabled: bool) -> None:
+        self.setFlag(QGraphicsItem.ItemIsSelectable, enabled)
+
     def _apply_selection_style(self) -> None:
         if self.isSelected():
             self.setPen(QPen(QColor(2, 132, 199, 245), 3.0))
@@ -174,6 +177,11 @@ class TableGraphicsScene(QGraphicsScene):
         self.doc = doc
         self.rebuild()
         self.documentChanged.emit(doc)
+
+    def set_cell_selection_enabled(self, enabled: bool) -> None:
+        for item in self.items():
+            if isinstance(item, CellRectItem):
+                item.set_selection_enabled(enabled)
 
     def rebuild(self) -> None:
         self.clear()
